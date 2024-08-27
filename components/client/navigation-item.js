@@ -66,7 +66,7 @@ export default function NavigationItemClient({
 
   return <Link
     className={stringUtility.merge([
-      'text-lg relative flex gap-2 items-center',
+      'text-lg relative flex gap-2.5 items-center',
       `${setActiveNavigationItemClassNames()}`,
       `${setNonActiveNavigationItemClassNames()}`
     ])}

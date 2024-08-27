@@ -1,7 +1,14 @@
 'use client'
-import ButtonLink from '@/components/link/button'
 import stringUtility from '@/utilities/string'
-import {DownloadCircle01Icon, SourceCodeCircleIcon} from '@hugeicons/react'
+import {
+  DownloadCircle01Icon,
+  Facebook01Icon,
+  Github01Icon,
+  LeetcodeIcon,
+  Linkedin01Icon,
+  SourceCodeCircleIcon
+} from '@hugeicons/react'
+import Link from 'next/link'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -54,26 +61,27 @@ export default function HomePageHeroSectionClient() {
           </p>
         </hgroup>
         <div className={'mt-6 md:text-lg flex gap-5'}>
-          <ButtonLink
+          <Link
             className={stringUtility.merge([
               backgroundTheme.hover.accentColor,
               backgroundTheme.secondaryColor,
               textTheme.primaryColor,
-              'flex gap-2 items-center'
-            ])}>
+              'button-link-icon-text'
+            ])}
+            href={''}>
             <SourceCodeCircleIcon
               size={21}
               variant={'solid'}
               type={'rounded'} />
             Projects
-          </ButtonLink>
-          <ButtonLink
+          </Link>
+          <Link
             className={stringUtility.merge([
               borderTheme.secondaryColor,
               borderTheme.hover.accentColor,
               textTheme.secondaryColor,
               textTheme.hover.accentColor,
-              'flex gap-2 items-center border-2'
+              'button-link-icon-text'
             ])}
             href={'https://drive.google.com/uc?export=download&id=1F4EE1wTMwQxbjD4unf0SxIt0eXhjnUrk'}>
             <DownloadCircle01Icon
@@ -81,10 +89,37 @@ export default function HomePageHeroSectionClient() {
               variant={'solid'}
               type={'rounded'} />
             Resume
-          </ButtonLink>
+          </Link>
         </div>
-        <div className={''}>
-          Hello mf
+        <div className={'mt-6 flex gap-2 justify-end'}>
+          <Link
+            href={'https://www.facebook.com/thinhle27'}
+            target='_blank'>
+            <Facebook01Icon
+              variant={'solid'}
+              type={'rounded'} />
+          </Link>
+          <Link
+            href={'https://www.linkedin.com/in/letatthinh'}
+            target='_blank'>
+            <Linkedin01Icon
+              variant={'solid'}
+              type={'rounded'} />
+          </Link>
+          <Link
+            href={'https://github.com/letatthinh'}
+            target='_blank'>
+            <Github01Icon
+              variant={'solid'}
+              type={'rounded'} />
+          </Link>
+          <Link
+            href={'https://leetcode.com/u/letatthinh'}
+            target='_blank'>
+            <LeetcodeIcon
+              variant={'solid'}
+              type={'rounded'} />
+          </Link>
         </div>
       </div>
     </div>
