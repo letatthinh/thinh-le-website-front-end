@@ -2,6 +2,9 @@ const shared = {
   after: {
     accentColor: 'after:border-sky-400'
   },
+  hover: {
+    accentColor: 'hover:border-sky-400'
+  },
   accentColor: 'border-sky-400'
 }
 

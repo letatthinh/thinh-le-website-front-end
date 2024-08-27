@@ -21,16 +21,17 @@ export default function HomePageHeroSectionClient() {
     borderTheme
   } = useSelector(selectTheme)
 
-  return <div className={'bg-hero bg-auto bg-no-repeat bg-center'}>
+  return <div className={'bg-hero bg-cover bg-no-repeat bg-center'}>
     <div className={stringUtility.merge([
       'container-layout py-12 px-5'
     ])}>
       <div className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,
-        'md:max-w-1/2 p-10 rounded-xl'
+        'max-w-screen-sm p-10 rounded-xl'
       ])}>
         <p className={stringUtility.merge([
           'inline-block relative px-2.5 py-1.5 rounded-r-xl rounded-tl-xl',
+          'text-lg md:text-xl',
           `${backgroundTheme.secondaryColor} ${textTheme.primaryColor}`,
           'before:absolute before:-bottom-2 before:left-0',
           'before:border-t-8 before:border-r-8',
@@ -41,10 +42,10 @@ export default function HomePageHeroSectionClient() {
         ])}>Hi there!</p>
         <hgroup className={textTheme.secondaryColor}>
           <h1 className={stringUtility.merge([
-            'text-5xl sm:text-7xl font-bold transition-font-size mt-3'
+            'text-5xl md:text-7xl font-bold transition-font-size mt-3'
           ])}>I&apos;m Thinh Le</h1>
           <p className={stringUtility.merge([
-            'text-lg sm:text-xl transition-font-size mt-6'
+            'text-lg md:text-xl transition-font-size mt-6'
           ])}>
             As a student at Stockton University in New Jersey
             who is passionate about coding and creating mini tools,
@@ -52,7 +53,7 @@ export default function HomePageHeroSectionClient() {
             in real-world projects.
           </p>
         </hgroup>
-        <div className={'mt-6 sm:text-lg flex gap-5'}>
+        <div className={'mt-6 md:text-lg flex gap-5'}>
           <ButtonLink
             className={stringUtility.merge([
               backgroundTheme.hover.accentColor,
@@ -69,7 +70,9 @@ export default function HomePageHeroSectionClient() {
           <ButtonLink
             className={stringUtility.merge([
               borderTheme.secondaryColor,
+              borderTheme.hover.accentColor,
               textTheme.secondaryColor,
+              textTheme.hover.accentColor,
               'flex gap-2 items-center border-2'
             ])}
             href={'https://drive.google.com/uc?export=download&id=1F4EE1wTMwQxbjD4unf0SxIt0eXhjnUrk'}>
@@ -79,6 +82,9 @@ export default function HomePageHeroSectionClient() {
               type={'rounded'} />
             Resume
           </ButtonLink>
+        </div>
+        <div className={''}>
+          Hello mf
         </div>
       </div>
     </div>

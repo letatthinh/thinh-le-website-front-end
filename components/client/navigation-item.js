@@ -58,8 +58,10 @@ export default function NavigationItemClient({
   }, [
     borderTheme.after.accentColor,
     borderTheme.before.accentColor,
-    link, pathnameFromUrl,
-    textTheme.hover.accentColor
+    link,
+    pathnameFromUrl,
+    textTheme.hover.accentColor,
+    textTheme.secondaryColor
   ])
 
   return <Link
