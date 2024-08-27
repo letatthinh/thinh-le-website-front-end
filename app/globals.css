@@ -1,0 +1,50 @@
+/* [Tip]: The Base layer contains the foundational,
+global styles that apply across the entire project.
+
+@layer base {
+  h1 {}
+}
+ */
+@tailwind base;
+
+/* [Tip]: Styling reusable UI components
+
+@layer components {
+  .btn {}
+}
+*/
+@tailwind components;
+
+/* [Tip]: It provides low-level utility classes that you can mix and match
+to build any design without needing to write custom CSS.
+
+@layer utilities {
+  .text-shadow {}
+}
+*/
+@tailwind utilities;
+
+@layer base {
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: none;
+  }
+}
+
+@layer utilities {
+  .bottom-left {
+    @apply bottom-0 left-0
+  }
+
+  .container-layout {
+    @apply mx-auto lg:container lg:px-0 transition-box-model;
+  }
+}

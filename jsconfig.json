@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["**/*.js", "**/*.jsx", ".next/types/**/*.js"],
+  "exclude": ["node_modules"]
+}
