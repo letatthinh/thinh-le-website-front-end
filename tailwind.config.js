@@ -24,6 +24,9 @@ export const theme = {
         '0%, 100%': {transform: 'scale(1)'},
         '50%': {transform: 'scale(1.25, 0.75)'}
       }
+    },
+    screens: {
+      'xs': '480px'
     }
   }
 }

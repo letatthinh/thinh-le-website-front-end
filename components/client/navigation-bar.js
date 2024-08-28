@@ -26,7 +26,7 @@ export default function NavigationBar() {
 
   return <section
     className={stringUtility.merge([
-      'container-layout py-6 pl-5 pr-7',
+      'container-layout py-6 pl-5 pr-5 md:pr-7',
       'flex justify-between items-center'
     ])}>
     <h1 className={`text-3xl ${textTheme.secondaryColor}`}>Thinh</h1>

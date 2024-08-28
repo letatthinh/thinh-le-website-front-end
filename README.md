@@ -41,13 +41,15 @@ outline-color
 outline-offset
 outline-width
 ```
+
 ## Background and Borders
 
 ```
 background-color
+background-image
 background-position
 background-size
-background-image
+background-repeat
 border-color
 border-radius
 box-shadow

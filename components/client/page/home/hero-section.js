@@ -1,4 +1,7 @@
 'use client'
+import IconLinkButton from '@/components/button/link/icon'
+import PrimaryLinkButton from '@/components/button/link/primary'
+import SecondaryLinkButton from '@/components/button/link/secondary'
 import stringUtility from '@/utilities/string'
 import {
   DownloadCircle01Icon,
@@ -8,7 +11,6 @@ import {
   Linkedin01Icon,
   SourceCodeCircleIcon
 } from '@hugeicons/react'
-import Link from 'next/link'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -34,7 +36,7 @@ export default function HomePageHeroSectionClient() {
     ])}>
       <div className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,
-        'max-w-screen-sm p-10 rounded-xl'
+        'max-w-2xl px-10 py-9 rounded-xl'
       ])}>
         <p className={stringUtility.merge([
           'inline-block relative px-2.5 py-1.5 rounded-r-xl rounded-tl-xl',
@@ -54,72 +56,65 @@ export default function HomePageHeroSectionClient() {
           <p className={stringUtility.merge([
             'text-lg md:text-xl transition-font-size mt-6'
           ])}>
-            As a student at Stockton University in New Jersey
-            who is passionate about coding and creating mini tools,
+            As a student at Stockton University in New Jersey.
             I’m seeking CPT/OPT opportunities to apply my skills
             in real-world projects.
           </p>
         </hgroup>
-        <div className={'mt-6 md:text-lg flex gap-5'}>
-          <Link
-            className={stringUtility.merge([
-              backgroundTheme.hover.accentColor,
-              backgroundTheme.secondaryColor,
-              textTheme.primaryColor,
-              'button-link-icon-text'
-            ])}
+        <div className={stringUtility.merge([
+          'mt-6 md:text-lg transition-font-size',
+          'flex flex-col gap-3 xs:flex-row xs:gap-5',
+          // [Tip]: Targeting a breakpoint range
+          'xs:max-sm:justify-center'
+        ])}>
+          <PrimaryLinkButton
+            className={'button-link-icon-text min-w-fit justify-center'}
             href={''}>
             <SourceCodeCircleIcon
               size={21}
               variant={'solid'}
               type={'rounded'} />
             Projects
-          </Link>
-          <Link
-            className={stringUtility.merge([
-              borderTheme.secondaryColor,
-              borderTheme.hover.accentColor,
-              textTheme.secondaryColor,
-              textTheme.hover.accentColor,
-              'button-link-icon-text'
-            ])}
+          </PrimaryLinkButton>
+          <SecondaryLinkButton
+            className={'button-link-icon-text min-w-fit justify-center'}
             href={'https://drive.google.com/uc?export=download&id=1F4EE1wTMwQxbjD4unf0SxIt0eXhjnUrk'}>
             <DownloadCircle01Icon
               size={21}
               variant={'solid'}
               type={'rounded'} />
             Resume
-          </Link>
+          </SecondaryLinkButton>
         </div>
-        <div className={'mt-6 flex gap-2 justify-end'}>
-          <Link
-            href={'https://www.facebook.com/thinhle27'}
-            target='_blank'>
+        <div className={'mt-6 flex gap-2.5 justify-center sm:justify-end'}>
+          <IconLinkButton
+            href={'https://www.facebook.com/thinhle27'}>
             <Facebook01Icon
+              size={26}
               variant={'solid'}
               type={'rounded'} />
-          </Link>
-          <Link
-            href={'https://www.linkedin.com/in/letatthinh'}
-            target='_blank'>
+          </IconLinkButton>
+          <IconLinkButton
+            href={'https://www.linkedin.com/in/letatthinh'}>
             <Linkedin01Icon
+              size={26}
               variant={'solid'}
               type={'rounded'} />
-          </Link>
-          <Link
-            href={'https://github.com/letatthinh'}
-            target='_blank'>
+          </IconLinkButton>
+          <IconLinkButton
+            href={'https://github.com/letatthinh'}>
             <Github01Icon
+              size={26}
               variant={'solid'}
               type={'rounded'} />
-          </Link>
-          <Link
-            href={'https://leetcode.com/u/letatthinh'}
-            target='_blank'>
+          </IconLinkButton>
+          <IconLinkButton
+            href={'https://leetcode.com/u/letatthinh'}>
             <LeetcodeIcon
+              size={26}
               variant={'solid'}
               type={'rounded'} />
-          </Link>
+          </IconLinkButton>
         </div>
       </div>
     </div>
