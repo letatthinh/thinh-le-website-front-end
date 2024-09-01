@@ -2,19 +2,19 @@ import {Home01Icon, UserCircle02Icon} from '@hugeicons/react'
 import pageMetadataConstant from './metadata/page'
 
 const home = {
-  link: pageMetadataConstant.home.pathName,
+  pathName: pageMetadataConstant.home.pathName,
   label: pageMetadataConstant.home.title.toUpperCase(),
   iconComponent: <Home01Icon
-    size={22}
+    size={21}
     variant={'solid'}
     type={'rounded'} />
 }
 
 const aboutMe = {
-  link: pageMetadataConstant.aboutMe.pathName,
+  pathName: pageMetadataConstant.aboutMe.pathName,
   label: pageMetadataConstant.aboutMe.title.toUpperCase(),
   iconComponent: <UserCircle02Icon
-    size={22}
+    size={21}
     variant={'solid'}
     type={'rounded'} />
 }

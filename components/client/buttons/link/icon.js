@@ -10,7 +10,7 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function IconLinkButton({children, className, href}) {
+export default function IconLinkButtonClient({children, className, href}) {
   const {
     textTheme
   } = useSelector(selectTheme)

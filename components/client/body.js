@@ -1,5 +1,7 @@
 'use client'
-import NavigationBar from '@/components/client/navigation-bar'
+import FooterClient from '@/components/client/footer'
+import Header from '@/components/client/header'
+import MainClient from '@/components/client/main'
 import stringUtility from '@/utilities/string'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
@@ -11,25 +13,24 @@ import {createSelector, createStructuredSelector} from 'reselect'
 */
 const selectTheme = createStructuredSelector(
   {
-    backgroundTheme: (_state) => _state.backgroundTheme,
-    textTheme: (_state) => _state.textTheme
+    backgroundTheme: (_state) => _state.backgroundTheme
   },
   createSelector
 )
 
-export default function Body({children, className}) {
-  const {backgroundTheme, textTheme} = useSelector(selectTheme)
+export default function BodyClient({children, className}) {
+  const {backgroundTheme} = useSelector(selectTheme)
 
   return <body
     className={stringUtility.merge([
-      `${backgroundTheme.primaryColor} ${textTheme.secondaryColor}`,
-      'min-w-60', className
+      `${backgroundTheme.primaryColor}`,
+      'min-w-80',
+      className
     ])}>
-    <header>
-      <NavigationBar />
-    </header>
-    <main>
+    <Header />
+    <MainClient>
       {children}
-    </main>
+    </MainClient>
+    <FooterClient />
   </body>
 }

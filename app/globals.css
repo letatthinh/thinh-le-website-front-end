@@ -45,14 +45,14 @@ to build any design without needing to write custom CSS.
   }
 
   .container-layout {
-    @apply mx-auto lg:container lg:px-0 transition-box-model;
+    @apply lg:container mx-auto px-4 transition-box-model;
   }
 
   .button-link-text {
-    @apply px-5 py-3 border-2 rounded-xl font-semibold hover:cursor-pointer;
+    @apply py-2 px-6 border-2 rounded-xl font-semibold hover:cursor-pointer;
   }
 
   .button-link-icon-text {
-    @apply button-link-text flex gap-2.5 items-center
+    @apply button-link-text flex gap-2 items-center
   }
 }

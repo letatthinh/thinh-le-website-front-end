@@ -5,23 +5,24 @@ import {createSelector, createStructuredSelector} from 'reselect'
 
 const selectTheme = createStructuredSelector(
   {
-    backgroundTheme: (_state) => _state.backgroundTheme,
-    textTheme: (_state) => _state.textTheme
+    textTheme: (_state) => _state.textTheme,
+    borderTheme: (_state) => _state.borderTheme
   },
   createSelector
 )
 
-export default function PrimaryLinkButton({children, className, href}) {
+export default function SecondaryLinkButtonClient({children, className, href}) {
   const {
-    backgroundTheme,
-    textTheme
+    textTheme,
+    borderTheme
   } = useSelector(selectTheme)
 
   return <Link
     className={stringUtility.merge([
-      backgroundTheme.hover.accentColor,
-      backgroundTheme.secondaryColor,
-      textTheme.primaryColor,
+      borderTheme.secondaryColor,
+      borderTheme.hover.accentColor,
+      textTheme.secondaryColor,
+      textTheme.hover.accentColor,
       className
     ])}
     href={href}>

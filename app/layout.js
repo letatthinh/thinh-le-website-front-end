@@ -1,4 +1,4 @@
-import Body from '@/components/client/body'
+import BodyClient from '@/components/client/body'
 import ReduxProvider from '@/components/provider/redux'
 import {Inter} from 'next/font/google'
 import './globals.css'
@@ -10,9 +10,9 @@ const inter = Inter({subsets: ['latin']})
 export default function RootLayout({children}) {
   return <ReduxProvider>
     <html lang='en'>
-      <Body className={inter.className}>
+      <BodyClient className={inter.className}>
         {children}
-      </Body>
+      </BodyClient>
     </html>
   </ReduxProvider>
 }

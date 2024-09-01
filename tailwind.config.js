@@ -9,12 +9,14 @@ export const content = [
 export const theme = {
   extend: {
     backgroundImage: {
-      'hero': 'url("/background/hero-background.jpg")'
+      'home-page-hero': 'url("/background/hero-background.jpg")'
     },
     transitionProperty: {
       'font-size': 'font-size',
       'text': 'font-size',
-      'box-model': 'max-width, padding' // [Tip]: add more box model properties here
+      'max-width': 'max-width',
+      'box-model': 'max-width, padding',
+      'box-shadow': 'box-shadow'
     },
     animation: {
       hamburger: 'hamburger 300ms ease-in-out infinite'
@@ -27,6 +29,12 @@ export const theme = {
     },
     screens: {
       'xs': '480px'
+    },
+    padding: {
+      '15': '3.75rem'
+    },
+    maxWidth: {
+      'screen-xs': '480px'
     }
   }
 }
