@@ -2,20 +2,6 @@
 
 - Tailwind only accept `.js` files, not `.jsx` files
 
-# Font sizes
-
-- Logo name: `3xl`
-- Navigation items: `lg`
-
-# Paddings
-
-- Buttons: `px-2 py-1`
-
-# Gap
-
-- Icons within buttons, navigation items: `gap-2`
-- Between navigation items: `gap-9`
-
 # Setup Huge icons
 
 https://docs.hugeicons.com/installation/react-package-installation

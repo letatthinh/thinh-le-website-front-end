@@ -24,7 +24,7 @@ export default function BodyClient({children, className}) {
   return <body
     className={stringUtility.merge([
       `${backgroundTheme.primaryColor}`,
-      'min-w-80',
+      'min-w-80 relative',
       className
     ])}>
     <Header />

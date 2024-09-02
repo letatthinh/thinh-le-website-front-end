@@ -2,9 +2,10 @@
 import BrandNameClient from '@/components/client/brand-name'
 import HeaderNavigationBarClient
   from '@/components/client/header-navigation-bar'
+import widthConstant from '@/constants/width'
 import stringUtility from '@/utilities/string'
 import {Hamburger01Icon} from '@hugeicons/react'
-import {useEffect, useRef} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -19,20 +20,24 @@ const selectTheme = createStructuredSelector(
 
 export default function Header() {
   const {backgroundTheme, shadowTheme, textTheme} = useSelector(selectTheme)
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
   const sentinelRef = useRef(null)
   const headerRef = useRef(null)
+  const backdropRef = useRef(null)
   const hamburgerButtonRef = useRef(null)
 
+  /* Set shadow for header when scrolling */
   useEffect(() => {
     const observeSentinel = ([entry]) => {
-      const shadowClassName = 'shadow-lg'
+      const shadowSizeClassName = 'shadow-lg'
+
       if (!entry.isIntersecting) {
         headerRef.current.classList.add(
-          shadowClassName,
+          shadowSizeClassName,
           shadowTheme.opacity.twenty.accentColor)
       } else {
         headerRef.current.classList.remove(
-          shadowClassName,
+          shadowSizeClassName,
           shadowTheme.opacity.twenty.accentColor)
       }
     }
@@ -68,24 +73,62 @@ export default function Header() {
     shadowTheme.opacity.twenty.accentColor
   ])
 
-  const onHamburgerButtonClick = (_event) => {
-    _event.preventDefault()
+  useEffect(() => {
+    const hideBackdropWhenWidthExceeded = () => {
+      const isBackdropShown = !backdropRef.current
+        .classList
+        .contains('hidden')
+
+      if (window.innerWidth >= widthConstant.lg && isBackdropShown) {
+        backdropRef.current.classList.toggle('hidden')
+      }
+    }
+
+    const onWindowResize = () => {
+      setViewportHeight(window.innerHeight)
+      hideBackdropWhenWidthExceeded()
+    }
+
+    window.addEventListener('resize', onWindowResize)
+
+    return () => {
+      window.removeEventListener('resize', onWindowResize)
+    }
+  }, [])
+
+  /* Calculate the backdrop height */
+  useEffect(() => {
+    const headerHeight = headerRef.current.getBoundingClientRect().height
+    const backdropHeight = viewportHeight - headerHeight
+
+    if (backdropRef.current) {
+      backdropRef.current.style.height = `${backdropHeight}px`
+    }
+  }, [viewportHeight])
+
+  const animateHamburgerButton = useCallback(() => {
     const menuButton = hamburgerButtonRef.current
     menuButton.classList.add('animate-hamburger')
 
     setTimeout(() => {
       menuButton.classList.remove('animate-hamburger')
     }, 300)
-  }
+  }, [])
+
+  const onHamburgerButtonClick = useCallback((_event) => {
+    _event.preventDefault()
+    animateHamburgerButton()
+    backdropRef.current.classList.toggle('hidden')
+  }, [animateHamburgerButton])
 
   return <>
-    {/* [Tip]: Use a sentinel for the intersectionObserver */}
+    {/* [Tip]: Use a sentinel with intersectionObserver to set shadow for the header */}
     <div ref={sentinelRef}></div>
     <header
       ref={headerRef}
       className={stringUtility.merge([
         backgroundTheme.primaryColor,
-        'sticky top-0 z-10',
+        'sticky top-0 z-20',
         'transition-box-shadow duration-300'
       ])}>
       <section
@@ -106,6 +149,20 @@ export default function Header() {
             type={'rounded'} />
         </button>
       </section>
+      <div
+        ref={backdropRef}
+        className={stringUtility.merge([
+          'hidden absolute w-full',
+          backgroundTheme.opacity.fifty.secondaryColor,
+          'top-full z-10'
+        ])}>
+        <div className={stringUtility.merge([
+          backgroundTheme.primaryColor,
+          'min-w-80 max-w-md h-full'
+        ])}>
+
+        </div>
+      </div>
     </header>
   </>
 }

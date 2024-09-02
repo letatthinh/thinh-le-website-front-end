@@ -17,6 +17,9 @@ const white = {
     secondaryColor: 'hover:bg-black'
   },
   opacity: {
+    fifty: {
+      secondaryColor: 'bg-black/50'
+    },
     ninety: {
       primaryColor: 'bg-white/90'
     }
@@ -41,6 +44,9 @@ const black = {
     secondaryColor: 'hover:bg-white'
   },
   opacity: {
+    fifty: {
+      secondaryColor: 'bg-white/50'
+    },
     ninety: {
       primaryColor: 'bg-black/90'
     }
