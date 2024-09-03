@@ -1,4 +1,4 @@
-import backgroundThemeConstant from '@/constants/theme/background'
+import backgroundThemeConstant from '@/constants/themes/background'
 import backgroundThemeUtility from '@/utilities/theme/background'
 import {createSlice} from '@reduxjs/toolkit'
 

@@ -49,7 +49,7 @@ export default function VerticalNavigationBarClient() {
     ])}>
     {renderNavigationItems(
       navigationBarConstant.navigationItems,
-      'text-lg px-4 py-2',
+      'text-lg section-px py-2',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName
     )}

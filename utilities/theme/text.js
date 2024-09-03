@@ -1,4 +1,4 @@
-import textThemeConstant from '@/constants/theme/text'
+import textThemeConstant from '@/constants/themes/text'
 
 const getById = (_id) => {
   return _id === textThemeConstant.white.id

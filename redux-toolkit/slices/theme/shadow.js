@@ -1,4 +1,4 @@
-import shadowThemeConstant from '@/constants/theme/shadow'
+import shadowThemeConstant from '@/constants/themes/shadow'
 import shadowThemeUtility from '@/utilities/theme/shadow'
 import {createSlice} from '@reduxjs/toolkit'
 

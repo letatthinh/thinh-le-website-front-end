@@ -1,4 +1,4 @@
-import backgroundThemeConstant from '@/constants/theme/background'
+import backgroundThemeConstant from '@/constants/themes/background'
 
 const getById = (_id) => {
   return _id === backgroundThemeConstant.white.id

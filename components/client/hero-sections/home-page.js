@@ -1,7 +1,7 @@
 'use client'
-import PrimaryLinkButtonClient from '@/components/client/buttons/link/primary'
+import PrimaryLinkButtonClient from '@/components/client/buttons/links/primary'
 import SecondaryLinkButtonClient
-  from '@/components/client/buttons/link/secondary'
+  from '@/components/client/buttons/links/secondary'
 import stringUtility from '@/utilities/string'
 import {DownloadCircle01Icon, SourceCodeCircleIcon} from '@hugeicons/react'
 import {useSelector} from 'react-redux'
@@ -25,7 +25,7 @@ export default function HomePageHeroSectionClient() {
 
   return <section className={'bg-home-page-hero bg-cover bg-no-repeat bg-center'}>
     <div className={stringUtility.merge([
-      'container-layout section-py-lg lg:section-py-xl lg:px-0'
+      'container-layout section-py lg:px-0'
     ])}>
       <article className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,

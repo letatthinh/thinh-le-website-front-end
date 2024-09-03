@@ -1,4 +1,4 @@
-import IconLinkButtonClient from '@/components/client/buttons/link/icon'
+import IconLinkButtonClient from '@/components/client/buttons/links/icon'
 import {
   Facebook01Icon,
   Github01Icon,

@@ -59,7 +59,7 @@ export default function HeaderNavigationBarClient() {
     className={'hidden lg:flex lg:gap-10 lg:items-center'}>
     {renderNavigationItems(
       navigationBarConstant.navigationItems,
-      'text-lg relative',
+      'text-lg relative uppercase',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName
     )}

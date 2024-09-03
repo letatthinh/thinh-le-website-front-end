@@ -1,4 +1,4 @@
-import textThemeConstant from '@/constants/theme/text'
+import textThemeConstant from '@/constants/themes/text'
 import textThemeUtility from '@/utilities/theme/text'
 import {createSlice} from '@reduxjs/toolkit'
 

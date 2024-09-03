@@ -3,7 +3,7 @@ import pageMetadataConstant from './metadata/page'
 
 const home = {
   pathName: pageMetadataConstant.home.pathName,
-  label: pageMetadataConstant.home.title.toUpperCase(),
+  label: pageMetadataConstant.home.title,
   iconComponent: <Home01Icon
     size={21}
     variant={'solid'}
@@ -12,7 +12,7 @@ const home = {
 
 const aboutMe = {
   pathName: pageMetadataConstant.aboutMe.pathName,
-  label: pageMetadataConstant.aboutMe.title.toUpperCase(),
+  label: pageMetadataConstant.aboutMe.title,
   iconComponent: <UserCircle02Icon
     size={21}
     variant={'solid'}

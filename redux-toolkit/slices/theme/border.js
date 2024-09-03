@@ -1,4 +1,4 @@
-import borderThemeConstant from '@/constants/theme/border'
+import borderThemeConstant from '@/constants/themes/border'
 import borderThemeUtility from '@/utilities/theme/border'
 import {createSlice} from '@reduxjs/toolkit'
 

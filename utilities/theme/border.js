@@ -1,4 +1,4 @@
-import borderThemeConstant from '@/constants/theme/border'
+import borderThemeConstant from '@/constants/themes/border'
 
 const getById = (_id) => {
   return _id === borderThemeConstant.white.id

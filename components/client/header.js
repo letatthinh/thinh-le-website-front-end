@@ -1,9 +1,9 @@
 'use client'
 import BrandNameClient from '@/components/client/brand-name'
 import HeaderNavigationBarClient
-  from '@/components/client/header-navigation-bar'
+  from '@/components/client/navigation-bars/header'
 import VerticalNavigationBarClient
-  from '@/components/client/vertical-navigation-bar'
+  from '@/components/client/navigation-bars/vertical'
 import widthConstant from '@/constants/width'
 import VerticalNavigationBarContext from '@/contexts/vertical-navigation-bar'
 import stringUtility from '@/utilities/string'
@@ -156,7 +156,7 @@ export default function Header() {
       ])}>
       <section
         className={stringUtility.merge([
-          'container-layout section-py lg:pl-0 lg:pr-2',
+          'container-layout py-6 lg:pl-0 lg:pr-2',
           'flex justify-between items-center'
         ])}>
         <BrandNameClient
