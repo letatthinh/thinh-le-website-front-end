@@ -7,12 +7,11 @@ import {createSelector, createStructuredSelector} from 'reselect'
 
 const selectTheme = createStructuredSelector({
   backgroundTheme: (_state) => _state.backgroundTheme,
-  borderTheme: (_state) => _state.borderTheme,
   textTheme: (_state) => _state.textTheme
 }, createSelector)
 
 export default function VerticalNavigationBarClient() {
-  const {backgroundTheme, borderTheme, textTheme} = useSelector(selectTheme)
+  const {backgroundTheme, textTheme} = useSelector(selectTheme)
   const {renderNavigationItems} = useNavigationBar()
 
   const activeNavigationItemClassName = useMemo(() => {
