@@ -25,7 +25,7 @@ export default function HomePageHeroSectionClient() {
 
   return <section className={'bg-home-page-hero bg-cover bg-no-repeat bg-center'}>
     <div className={stringUtility.merge([
-      'container-layout py-10 lg:py-20 lg:px-0'
+      'container-layout section-py-lg lg:section-py-xl lg:px-0'
     ])}>
       <article className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,
@@ -36,7 +36,7 @@ export default function HomePageHeroSectionClient() {
           'inline-block p-2 rounded-r-xl rounded-tl-xl relative',
           'lg:text-lg transition-font-size',
           `${backgroundTheme.secondaryColor} ${textTheme.primaryColor}`,
-          'before:absolute before:-bottom-2 before:left-0',
+          'before:absolute before:top-full before:left-0',
           'before:border-t-8 before:border-r-8',
           'before:border-b-0 before:border-l-0',
           borderTheme.before.top.secondaryColor,

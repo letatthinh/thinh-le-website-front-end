@@ -1,65 +1,56 @@
 import navigationBarConstant from '@/constants/navigation-bar'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
-import {useMemo} from 'react'
+import {useCallback, useMemo} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
 const selectTheme = createStructuredSelector({
+  backgroundTheme: (_state) => _state.backgroundTheme,
   borderTheme: (_state) => _state.borderTheme,
   textTheme: (_state) => _state.textTheme
 }, createSelector)
 
-export default function HeaderNavigationBarClient() {
-  const {borderTheme, textTheme} = useSelector(selectTheme)
+export default function VerticalNavigationBarClient() {
+  const {backgroundTheme, borderTheme, textTheme} = useSelector(selectTheme)
   const {renderNavigationItems} = useNavigationBar()
 
   const activeNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      `font-bold ${textTheme.accentColor}`,
-      'before:w-4 before:h-4 before:border-b-2 before:border-l-2',
-      'before:absolute before:-bottom-2 before:-left-2',
-      borderTheme.before.accentColor,
-      'after:w-4 after:h-4 after:border-t-2 after:border-r-2',
-      'after:absolute after:-top-2 after:-right-2',
-      borderTheme.after.accentColor
+      backgroundTheme.accentColor,
+      `font-bold ${textTheme.primaryColor}`
     ])
   }, [
-    borderTheme.after.accentColor,
-    borderTheme.before.accentColor,
-    textTheme.accentColor
+    backgroundTheme.accentColor,
+    textTheme.primaryColor
   ])
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      `${textTheme.secondaryColor} ${textTheme.hover.accentColor}`,
-      'before:w-4 before:h-4 before:border-b-2 before:border-l-2',
-      borderTheme.before.accentColor,
-      'before:absolute before:bottom-0 before:left-0',
-      'before:transition-transform',
-      'hover:before:-translate-x-2 hover:before:translate-y-2',
-      'before:opacity-0 before:transition-opacity',
-      'hover:before:opacity-100',
-      'after:w-4 after:h-4 after:border-t-2 after:border-r-2',
-      borderTheme.after.accentColor,
-      'after:absolute after:top-0 after:right-0',
-      'after:transition-transform',
-      'hover:after:translate-x-2 hover:after:-translate-y-2',
-      'after:opacity-0 after:transition-opacity',
-      'hover:after:opacity-100'
+      backgroundTheme.hover.accentColor,
+      textTheme.hover.primaryColor,
+      textTheme.secondaryColor
     ])
   }, [
-    borderTheme.after.accentColor,
-    borderTheme.before.accentColor,
-    textTheme.hover.accentColor,
+    backgroundTheme.hover.accentColor,
+    textTheme.hover.primaryColor,
     textTheme.secondaryColor
   ])
 
+  const onVerticalNavigationBarClick = useCallback((_event) => {
+    _event.stopPropagation()
+  }, [])
+
   return <nav
-    className={'hidden lg:flex lg:gap-10 lg:items-center'}>
+    onClick={onVerticalNavigationBarClick}
+    className={stringUtility.merge([
+      'w-80 h-full',
+      'flex flex-col gap-2',
+      backgroundTheme.primaryColor
+    ])}>
     {renderNavigationItems(
       navigationBarConstant.navigationItems,
-      'text-lg relative',
+      'text-lg px-4 py-2',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName
     )}

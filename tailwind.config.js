@@ -3,6 +3,7 @@ export const content = [
   './app/**/*.{js, jsx}',
   './components/**/*.{js, jsx}',
   './constants/theme/**/*.{js, jsx}',
+  './hooks/**/*.{js, jsx}',
   './utilities/class-name/**/*.{js, jsx}'
 ]
 

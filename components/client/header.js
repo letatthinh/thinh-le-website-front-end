@@ -2,7 +2,10 @@
 import BrandNameClient from '@/components/client/brand-name'
 import HeaderNavigationBarClient
   from '@/components/client/header-navigation-bar'
+import VerticalNavigationBarClient
+  from '@/components/client/vertical-navigation-bar'
 import widthConstant from '@/constants/width'
+import VerticalNavigationBarContext from '@/contexts/vertical-navigation-bar'
 import stringUtility from '@/utilities/string'
 import {Hamburger01Icon} from '@hugeicons/react'
 import {useCallback, useEffect, useRef, useState} from 'react'
@@ -20,7 +23,11 @@ const selectTheme = createStructuredSelector(
 
 export default function Header() {
   const {backgroundTheme, shadowTheme, textTheme} = useSelector(selectTheme)
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
+  const [viewportHeight, setViewportHeight] = useState(() => {
+    return typeof window !== 'undefined'
+      ? window.innerHeight
+      : 0
+  })
   const sentinelRef = useRef(null)
   const headerRef = useRef(null)
   const backdropRef = useRef(null)
@@ -115,11 +122,27 @@ export default function Header() {
     }, 300)
   }, [])
 
+  const toggleBackdropHiddenClassName = useCallback(() => {
+    backdropRef.current.classList.toggle('hidden')
+  }, [])
+
   const onHamburgerButtonClick = useCallback((_event) => {
     _event.preventDefault()
     animateHamburgerButton()
-    backdropRef.current.classList.toggle('hidden')
-  }, [animateHamburgerButton])
+    toggleBackdropHiddenClassName()
+  }, [
+    animateHamburgerButton,
+    toggleBackdropHiddenClassName
+  ])
+
+  const onBackdropClick = useCallback(() => {
+    toggleBackdropHiddenClassName()
+  }, [toggleBackdropHiddenClassName])
+
+  const onNavigationItemClick = useCallback(() => {
+    console.log('clicked')
+    toggleBackdropHiddenClassName()
+  }, [toggleBackdropHiddenClassName])
 
   return <>
     {/* [Tip]: Use a sentinel with intersectionObserver to set shadow for the header */}
@@ -128,12 +151,12 @@ export default function Header() {
       ref={headerRef}
       className={stringUtility.merge([
         backgroundTheme.primaryColor,
-        'sticky top-0 z-20',
+        'sticky top-0 z-40',
         'transition-box-shadow duration-300'
       ])}>
       <section
         className={stringUtility.merge([
-          'container-layout py-6 lg:pl-0 lg:pr-2',
+          'container-layout section-py lg:pl-0 lg:pr-2',
           'flex justify-between items-center'
         ])}>
         <BrandNameClient
@@ -149,20 +172,24 @@ export default function Header() {
             type={'rounded'} />
         </button>
       </section>
-      <div
-        ref={backdropRef}
-        className={stringUtility.merge([
-          'hidden absolute w-full',
-          backgroundTheme.opacity.fifty.secondaryColor,
-          'top-full z-10'
-        ])}>
-        <div className={stringUtility.merge([
-          backgroundTheme.primaryColor,
-          'min-w-80 max-w-md h-full'
-        ])}>
-
+      <VerticalNavigationBarContext.Provider value={onNavigationItemClick}>
+        {/* Absolute to the body tag
+          See more: https://developer.mozilla.org/en-US/docs/Web/CSS/position#values
+        */}
+        <div
+          onClick={onBackdropClick}
+          ref={backdropRef}
+          className={stringUtility.merge([
+            'hidden absolute w-full',
+            backgroundTheme.opacity.fifty.secondaryColor
+          ])}>
+          <section className={stringUtility.merge([
+            'h-full'
+          ])}>
+            <VerticalNavigationBarClient />
+          </section>
         </div>
-      </div>
+      </VerticalNavigationBarContext.Provider>
     </header>
   </>
 }

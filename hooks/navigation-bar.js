@@ -1,10 +1,12 @@
+import VerticalNavigationBarContext from '@/contexts/vertical-navigation-bar'
 import stringUtility from '@/utilities/string'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
-import {useCallback} from 'react'
+import {useCallback, useContext} from 'react'
 
 export default function useNavigationBar() {
   const urlPathName = usePathname()
+  const onNavigationItemClick = useContext(VerticalNavigationBarContext)
 
   const renderNavigationItems = useCallback((
     navigationItems,
@@ -16,6 +18,7 @@ export default function useNavigationBar() {
     return navigationItems
       .map((_navigationItem, _index) => {
         return <Link
+          onClick={onNavigationItemClick}
           key={_index}
           className={stringUtility.merge([
             className,

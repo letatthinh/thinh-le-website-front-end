@@ -44,8 +44,24 @@ to build any design without needing to write custom CSS.
     @apply bottom-0 left-0
   }
 
+  .section-px {
+    @apply px-4
+  }
+
+  .section-py {
+    @apply py-6
+  }
+
+  .section-py-lg {
+    @apply py-10
+  }
+
+  .section-py-xl {
+    @apply py-12
+  }
+
   .container-layout {
-    @apply lg:container mx-auto px-4 transition-box-model;
+    @apply lg:container mx-auto section-px transition-box-model;
   }
 
   .button-link-text {
