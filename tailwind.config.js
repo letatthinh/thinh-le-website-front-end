@@ -32,7 +32,7 @@ export const theme = {
       'xs': '480px'
     },
     padding: {
-      '15': '3.75rem'
+      '18': '4.5rem'
     },
     maxWidth: {
       'screen-xs': '480px'

@@ -18,6 +18,11 @@ const white = {
   },
   primaryColor: 'border-white',
   secondaryColor: 'border-black',
+  opacity: {
+    ten: {
+      secondaryColor: 'border-black/10'
+    }
+  },
   ...shared
 }
 
@@ -28,6 +33,11 @@ const black = {
   },
   primaryColor: 'border-black',
   secondaryColor: 'border-white',
+  opacity: {
+    ten: {
+      secondaryColor: 'border-white/10'
+    }
+  },
   ...shared
 }
 

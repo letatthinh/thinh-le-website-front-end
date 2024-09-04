@@ -48,8 +48,16 @@ to build any design without needing to write custom CSS.
     @apply px-4
   }
 
+  .section-pt {
+    @apply pt-18 lg:pt-24
+  }
+
+  .section-pb {
+    @apply pb-18 lg:pb-24
+  }
+
   .section-py {
-    @apply py-20 lg:py-24
+    @apply section-pt section-pb
   }
 
   .container-layout {

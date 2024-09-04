@@ -34,7 +34,7 @@ export default function useNavigationBar() {
           {_navigationItem.label}
         </Link>
       })
-  }, [urlPathName])
+  }, [onNavigationItemClick, urlPathName])
 
   return {
     renderNavigationItems

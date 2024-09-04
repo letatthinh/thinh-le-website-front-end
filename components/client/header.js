@@ -22,7 +22,11 @@ const selectTheme = createStructuredSelector(
 )
 
 export default function Header() {
-  const {backgroundTheme, shadowTheme, textTheme} = useSelector(selectTheme)
+  const {
+    backgroundTheme,
+    shadowTheme,
+    textTheme
+  } = useSelector(selectTheme)
   const [viewportHeight, setViewportHeight] = useState(() => {
     return typeof window !== 'undefined'
       ? window.innerHeight
@@ -140,7 +144,6 @@ export default function Header() {
   }, [toggleBackdropHiddenClassName])
 
   const onNavigationItemClick = useCallback(() => {
-    console.log('clicked')
     toggleBackdropHiddenClassName()
   }, [toggleBackdropHiddenClassName])
 
