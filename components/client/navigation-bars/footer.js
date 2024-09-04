@@ -18,7 +18,7 @@ export default function FooterNavigationBarClient() {
     return stringUtility.merge([
       `font-bold ${textTheme.accentColor}`
     ])
-  }, [textTheme.secondaryColor])
+  }, [textTheme.accentColor])
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
