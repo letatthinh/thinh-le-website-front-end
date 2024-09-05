@@ -60,6 +60,10 @@ to build any design without needing to write custom CSS.
     @apply section-pt section-pb
   }
 
+  .content-mt {
+    @apply mt-6
+  }
+
   .container-layout {
     @apply lg:container mx-auto section-px transition-box-model;
   }

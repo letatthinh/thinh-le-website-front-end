@@ -29,7 +29,9 @@ export default function FooterNavigationBarClient() {
 
   return <nav
     className={stringUtility.merge([
+      'content-mt lg:basis-8/12',
       'grid grid-cols-2 lg:grid-cols-4',
+      'gap-y-6 lg:gap-y-0',
       backgroundTheme.primaryColor
     ])}>
     {renderNavigationItems(

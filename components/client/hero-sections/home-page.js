@@ -44,11 +44,11 @@ export default function HomePageHeroSectionClient() {
           'before:border-b-transparent before:border-l-transparent'
         ])}>Hi there!</p>
         <h1 className={stringUtility.merge([
-          'text-5xl lg:text-6xl transition-font-size mt-6',
+          'text-5xl lg:text-6xl transition-font-size content-mt',
           `${textTheme.secondaryColor} font-bold`
         ])}>I&apos;m Thinh Le</h1>
         <p className={stringUtility.merge([
-          'lg:text-lg transition-font-size mt-6',
+          'lg:text-lg transition-font-size content-mt',
           `${textTheme.secondaryColor}`
         ])}>
           Student at Stockton University in New Jersey.
@@ -56,7 +56,7 @@ export default function HomePageHeroSectionClient() {
           in real-world projects.
         </p>
         <div className={stringUtility.merge([
-          'mt-6 lg:text-lg transition-font-size',
+          'content-mt lg:text-lg transition-font-size',
           'flex flex-col xs:flex-row gap-2',
           // [Tip]: Targeting a breakpoint range
           'xs:max-sm:justify-center'

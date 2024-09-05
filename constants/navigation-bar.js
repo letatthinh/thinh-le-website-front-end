@@ -3,7 +3,9 @@ import navigationItemConstant from './navigation-item'
 
 const navigationItems = [
   navigationItemConstant.home,
-  navigationItemConstant.aboutMe
+  navigationItemConstant.aboutMe,
+  navigationItemConstant.projects,
+  navigationItemConstant.contact
 ]
 
 const socialMedia = [
@@ -14,14 +16,10 @@ const socialMedia = [
 ]
 
 const brandStatements = [
-  'Your next innovator in software engineering.',
-  'Driven by passion, powered by code.',
-  'Crafting reliable solutions for dynamic challenges.',
-  'Turning complex problems into elegant solutions.',
-  'Bringing creativity and precision to your projects.',
-  'Engineering innovation for your team\'s success',
-  'Transforming ideas into reality through technology.',
-  'Where expertise meets creativity.'
+  'tech enthusiast, crafting user-friendly applications.',
+  'passionate developer, turning ideas into reality.',
+  'skilled programmer, streamlining processes through code.',
+  'problem solver, optimizing workflows for success.'
 ]
 
 const navigationBarConstant = {

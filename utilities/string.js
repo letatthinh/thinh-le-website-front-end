@@ -5,12 +5,13 @@ const merge = (_strings, _separator = ' ') => {
   }
 
   let result = _strings[0] ? _strings[0] : ''
-
   for (let index = 1; index < _strings.length; index++) {
-    if (index === 1 && !_strings[0]) {
-      result += _strings[index]
-    } else if (_strings[index]) {
-      result += _separator + _strings[index]
+    if (_strings[index]) {
+      if (result.length > 0) {
+        result += _separator + _strings[index]
+      } else {
+        result += _strings[index]
+      }
     }
   }
 

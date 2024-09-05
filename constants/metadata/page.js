@@ -10,9 +10,23 @@ const aboutMe = {
   description: 'Something about me ☺️'
 }
 
+const projects = {
+  pathName: '/projects',
+  title: 'My projects',
+  description: 'My works 💪'
+}
+
+const contact = {
+  pathName: '/contact',
+  title: 'Contact',
+  description: 'Wanna get in touch? 😋'
+}
+
 const pageMetadataConstant = {
   home,
-  aboutMe
+  aboutMe,
+  projects,
+  contact
 }
 
 export default pageMetadataConstant

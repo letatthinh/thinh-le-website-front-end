@@ -1,4 +1,9 @@
-import {Home01Icon, UserCircle02Icon} from '@hugeicons/react'
+import {
+  Home01Icon,
+  Mailbox01Icon,
+  UserCircle02Icon,
+  WorkflowCircle06Icon
+} from '@hugeicons/react'
 import pageMetadataConstant from './metadata/page'
 
 const iconSize = 21
@@ -21,8 +26,26 @@ const aboutMe = {
     type={'rounded'} />
 }
 
+const projects = {
+  pathName: pageMetadataConstant.projects.pathName,
+  label: pageMetadataConstant.projects.title,
+  iconComponent: <WorkflowCircle06Icon
+    size={iconSize}
+    variant={'solid'}
+    type={'rounded'} />
+}
+
+const contact = {
+  pathName: pageMetadataConstant.contact.pathName,
+  label: pageMetadataConstant.contact.title,
+  iconComponent: <Mailbox01Icon
+    size={iconSize}
+    variant={'solid'}
+    type={'rounded'} />
+}
+
 const navigationItemConstant = {
-  home, aboutMe
+  home, aboutMe, projects, contact
 }
 
 export default navigationItemConstant

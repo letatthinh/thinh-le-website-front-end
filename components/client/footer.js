@@ -4,11 +4,9 @@ import FooterNavigationBarClient
   from '@/components/client/navigation-bars/footer'
 import navigationBarConstant from '@/constants/navigation-bar'
 import stringUtility from '@/utilities/string'
-import {useEffect, useRef} from 'react'
 import {useSelector} from 'react-redux'
 
 import {createSelector, createStructuredSelector} from 'reselect'
-import Typed from 'typed.js'
 
 const selectTheme = createStructuredSelector(
   {
@@ -25,40 +23,24 @@ export default function FooterClient() {
     borderTheme,
     textTheme
   } = useSelector(selectTheme)
-  const brandStatementsRef = useRef(null)
-
-  useEffect(() => {
-    const typed = new Typed(brandStatementsRef.current, {
-      strings: navigationBarConstant.brandStatements,
-      typeSpeed: 5,
-      backSpeed: 5,
-      backDelay: 1500,
-      startDelay: 500,
-      cursorChar: '_',
-      loop: true
-    })
-
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy()
-    }
-  }, [])
 
   return <footer
     className={stringUtility.merge([
       backgroundTheme.primaryColor
     ])}>
-    <section
+    <div
       className={stringUtility.merge([
         'container-layout section-pt'
       ])}>
-      <BrandNameClient
-        className={`text-3xl ${textTheme.secondaryColor}`} />
-      <p className={'mt-4'}><span
-        ref={brandStatementsRef}></span></p>
-      <hr className={`my-6 ${borderTheme.opacity.ten.primaryColor}`} />
-      <FooterNavigationBarClient />
-      <hr className={`mt-6 ${borderTheme.opacity.ten.primaryColor}`} />
+      <div className={'flex flex-col lg:flex-row lg:gap-10'}>
+        <section className={'basis-full lg:basis-2/6'}>
+          <BrandNameClient
+            className={`text-3xl ${textTheme.secondaryColor}`} />
+          <p className={'mt-4'}>Passionate developer, turning ideas into reality.</p>
+        </section>
+        <FooterNavigationBarClient />
+      </div>
+      <hr className={`content-mt ${borderTheme.opacity.ten.primaryColor}`} />
       <div className={stringUtility.merge([
         'flex flex-col gap-6 md:flex-row md:gap-0',
         'md:justify-between py-6'
@@ -75,6 +57,6 @@ export default function FooterClient() {
             })}
         </div>
       </div>
-    </section>
+    </div>
   </footer>
 }
