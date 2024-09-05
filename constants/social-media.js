@@ -5,7 +5,7 @@ import {
   Linkedin01Icon
 } from '@hugeicons/react'
 
-const iconSize = 30
+const iconSize = 24
 
 const facebook = {
   link: 'https://www.facebook.com/thinhle27',

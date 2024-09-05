@@ -54,20 +54,26 @@ export default function FooterClient() {
       ])}>
       <BrandNameClient
         className={`text-3xl ${textTheme.secondaryColor}`} />
-      <p className={'mt-6 text-lg'}><span
+      <p className={'mt-4'}><span
         ref={brandStatementsRef}></span></p>
       <hr className={`my-6 ${borderTheme.opacity.ten.primaryColor}`} />
       <FooterNavigationBarClient />
-      <hr className={`my-6 ${borderTheme.opacity.ten.primaryColor}`} />
-      <div className={'flex gap-8'}>
-        {navigationBarConstant.socialMedia.map(
-          (_socialMedia, _index) => {
-            return <IconLinkButtonClient
-              key={_index}
-              href={_socialMedia.link}>
-              {_socialMedia.icon}
-            </IconLinkButtonClient>
-          })}
+      <hr className={`mt-6 ${borderTheme.opacity.ten.primaryColor}`} />
+      <div className={stringUtility.merge([
+        'flex flex-col gap-6 md:flex-row md:gap-0',
+        'md:justify-between py-6'
+      ])}>
+        <p>© 2024 Thinh Le&apos;s website, Inc. All rights reserved.</p>
+        <div className={'flex gap-6 justify-center xs:justify-start'}>
+          {navigationBarConstant.socialMedia.map(
+            (_socialMedia, _index) => {
+              return <IconLinkButtonClient
+                key={_index}
+                href={_socialMedia.link}>
+                {_socialMedia.icon}
+              </IconLinkButtonClient>
+            })}
+        </div>
       </div>
     </section>
   </footer>
