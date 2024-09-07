@@ -1,17 +1,17 @@
 const shared = {
   after: {
-    accentColor: 'after:border-blue-800'
+    accentColor: 'after:border-dark-blue'
   },
   hover: {
-    accentColor: 'hover:border-blue-800'
+    accentColor: 'hover:border-dark-blue'
   },
-  accentColor: 'border-blue-800'
+  accentColor: 'border-dark-blue'
 }
 
 const white = {
   id: 0,
   before: {
-    accentColor: 'before:border-blue-800',
+    accentColor: 'before:border-dark-blue',
     top: {
       secondaryColor: 'before:border-t-black'
     }
@@ -29,7 +29,7 @@ const white = {
 const black = {
   id: 1,
   before: {
-    accentColor: 'before:border-blue-800'
+    accentColor: 'before:border-dark-blue'
   },
   primaryColor: 'border-black',
   secondaryColor: 'border-white',

@@ -28,7 +28,7 @@ export default function HomePageHeroSectionClient() {
     <Image
       className={'-z-10'}
       alt={'Home page\'s hero section background'}
-      src={'/background/hero-background.webp'}
+      src={'/background/hero-background.avif'}
       fill
       // [Tip]: You should add the priority property to the image
       // that will be the Largest Contentful Paint (LCP) element

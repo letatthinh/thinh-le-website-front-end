@@ -9,8 +9,8 @@ export const content = [
 
 export const theme = {
   extend: {
-    backgroundImage: {
-      'home-page-hero': 'url("/background/hero-background.webp")'
+    colors: {
+      'dark-blue': '#2E2EFF'
     },
     transitionProperty: {
       'box-shadow': 'box-shadow',
