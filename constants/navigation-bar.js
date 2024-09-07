@@ -5,7 +5,7 @@ const navigationItems = [
   navigationItemConstant.home,
   navigationItemConstant.aboutMe,
   navigationItemConstant.projects,
-  navigationItemConstant.contact
+  navigationItemConstant.contactMe
 ]
 
 const socialMedia = [

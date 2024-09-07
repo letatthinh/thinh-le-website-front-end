@@ -44,8 +44,12 @@ to build any design without needing to write custom CSS.
     @apply bottom-0 left-0
   }
 
+  .feature-py {
+    @apply py-24 lg:py-30 transition-padding
+  }
+
   .section-px {
-    @apply px-4
+    @apply px-4 lg:px-0 transition-padding
   }
 
   .section-pt {
@@ -57,15 +61,19 @@ to build any design without needing to write custom CSS.
   }
 
   .section-py {
-    @apply section-pt section-pb
+    @apply section-pt section-pb transition-padding
   }
 
   .content-mt {
     @apply mt-6
   }
 
+  .content-py {
+    @apply py-6
+  }
+
   .container-layout {
-    @apply lg:container mx-auto section-px transition-box-model;
+    @apply lg:container mx-auto transition-max-width;
   }
 
   .button-link-text {

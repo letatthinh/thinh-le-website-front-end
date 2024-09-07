@@ -25,12 +25,12 @@ export default function HomePageHeroSectionClient() {
 
   return <section className={'bg-home-page-hero bg-cover bg-no-repeat bg-center'}>
     <div className={stringUtility.merge([
-      'container-layout section-py lg:px-0'
+      'container-layout feature-py section-px'
     ])}>
       <article className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,
         'rounded-xl',
-        'max-w-xl lg:max-w-screen-sm p-10 transition-max-width'
+        'max-w-xl lg:max-w-screen-sm p-12 transition-max-width'
       ])}>
         <p className={stringUtility.merge([
           'inline-block p-2 rounded-r-xl rounded-tl-xl relative',

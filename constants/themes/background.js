@@ -1,5 +1,5 @@
 const shared = {
-  accentColor: 'bg-sky-400'
+  accentColor: 'bg-blue-800'
 }
 
 const white = {
@@ -13,7 +13,7 @@ const white = {
     secondaryColor: 'before:bg-black'
   },
   hover: {
-    accentColor: 'hover:bg-sky-400',
+    accentColor: 'hover:bg-blue-800',
     secondaryColor: 'hover:bg-black'
   },
   opacity: {
@@ -40,7 +40,7 @@ const black = {
     secondaryColor: 'before:bg-white'
   },
   hover: {
-    accentColor: 'hover:bg-sky-400',
+    accentColor: 'hover:bg-blue-800',
     secondaryColor: 'hover:bg-white'
   },
   opacity: {

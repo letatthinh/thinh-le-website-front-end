@@ -35,9 +35,9 @@ const projects = {
     type={'rounded'} />
 }
 
-const contact = {
-  pathName: pageMetadataConstant.contact.pathName,
-  label: pageMetadataConstant.contact.title,
+const contactMe = {
+  pathName: pageMetadataConstant.contactMe.pathName,
+  label: pageMetadataConstant.contactMe.title,
   iconComponent: <Mailbox01Icon
     size={iconSize}
     variant={'solid'}
@@ -45,7 +45,7 @@ const contact = {
 }
 
 const navigationItemConstant = {
-  home, aboutMe, projects, contact
+  home, aboutMe, projects, contactMe
 }
 
 export default navigationItemConstant

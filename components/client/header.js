@@ -159,13 +159,14 @@ export default function Header() {
       ])}>
       <section
         className={stringUtility.merge([
-          'container-layout py-6 lg:pl-0 lg:pr-2',
+          'container-layout content-py section-px lg:pl-0 lg:pr-2',
           'flex justify-between items-center'
         ])}>
         <BrandNameClient
           className={`text-3xl ${textTheme.secondaryColor}`} />
         <HeaderNavigationBarClient />
         <button
+          aria-label={'Hamburger button'}
           ref={hamburgerButtonRef}
           onClick={onHamburgerButtonClick}
           className={`lg:hidden ${textTheme.secondaryColor}`}>

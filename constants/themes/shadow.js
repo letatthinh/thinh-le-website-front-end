@@ -1,7 +1,7 @@
 const shared = {
   opacity: {
     twenty: {
-      accentColor: 'shadow-sky-400/20'
+      accentColor: 'shadow-blue-800/20'
     }
   }
 }

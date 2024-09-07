@@ -10,12 +10,15 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function IconLinkButtonClient({children, className, href}) {
+export default function IconLinkButtonClient({
+  label, className, href, children
+}) {
   const {
     textTheme
   } = useSelector(selectTheme)
 
   return <Link
+    aria-label={label}
     className={stringUtility.merge([
       textTheme.secondaryColor,
       textTheme.hover.accentColor,
