@@ -15,10 +15,11 @@ const selectTheme = createStructuredSelector(
 )
 
 const brandStatements = [
-  'software developer',
-  'data analyst',
-  'student',
-  'team player'
+  'tech enthusiast, crafting user-friendly applications.',
+  'passionate developer, turning ideas into reality.',
+  'problem solver, committed to client satisfaction.',
+  'storyteller, who captures moments through the lens.',
+  'data analyst, turning data into actionable insights.'
 ]
 
 export default function AboutMePageHeroSectionClient() {
@@ -31,8 +32,8 @@ export default function AboutMePageHeroSectionClient() {
   useEffect(() => {
     const typed = new Typed(personalStatementRef.current, {
       strings: brandStatements,
-      typeSpeed: 30,
-      backSpeed: 30,
+      typeSpeed: 20,
+      backSpeed: 10,
       backDelay: 1500,
       smartBackspace: true,
       startDelay: 150,
@@ -49,13 +50,14 @@ export default function AboutMePageHeroSectionClient() {
   return <section className={'relative'}>
     <div className={stringUtility.merge([
       'container-layout feature-py section-px',
-      'flex gap-12 justify-between'
+      'flex flex-col-reverse lg:flex-row section-gap justify-between',
+      'items-center'
     ])}>
-      <div className={'basis-2/5 self-end'}>
+      <div className={'basis-2/5'}>
         <div className={stringUtility.merge([
-          'w-[400px] h-[400px] mx-auto blob-profile-container',
+          'w-96 h-96 mx-auto profile-container-border',
           backgroundTheme.accentColor,
-          'relative'
+          'relative overflow-hidden'
         ])}>
           <Image
             alt={'Profile image'}
@@ -71,18 +73,26 @@ export default function AboutMePageHeroSectionClient() {
         <h1 className={stringUtility.merge([
           'text-5xl lg:text-6xl transition-font-size',
           `${textTheme.secondaryColor} font-bold`
-        ])}>I&apos;m a <span ref={personalStatementRef}>
-          </span>
+        ])}>My name is Thinh Le
         </h1>
         <p
-          className={'text-lg mt-6'}>
+          className={'text-4xl content-mt'}>
+          You can call me Terry 😉
+        </p>
+        <p className={'text-2xl content-mt'}>
+          I’m a <span
+            ref={personalStatementRef}>
+          </span>
+        </p>
+        <p
+          className={'lg:text-lg mt-6'}>
           I have 2 years of experience in software development,
           with a strong focus on quality, meeting deadlines,
           and ensuring client satisfaction. With a major in
           Information Systems, I am currently pursuing a
           master’s program in Data Science and Analytics at
-          Stockton University. In my free time, I enjoy traveling
-          and capturing moments through photography.
+          Stockton University. In my free time, I enjoy coding
+          or going around capturing moments through photography.
         </p>
       </section>
     </div>

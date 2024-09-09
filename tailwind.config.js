@@ -17,7 +17,12 @@ export const theme = {
       'black-accent-color': '#450a0a'
     },
     flexBasis: {
+      '3/10': '30%',
       '7/10': '70%'
+    },
+    gap: {
+      '18': '4.5rem',
+      '30': '7.5rem'
     },
     keyframes: {
       hamburger: {
