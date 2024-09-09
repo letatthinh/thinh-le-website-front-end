@@ -1,7 +1,3 @@
-const shared = {
-  accentColor: 'bg-dark-blue'
-}
-
 const white = {
   id: 0,
   after: {
@@ -13,7 +9,7 @@ const white = {
     secondaryColor: 'before:bg-black'
   },
   hover: {
-    accentColor: 'hover:bg-dark-blue',
+    accentColor: 'hover:bg-white-accent-color',
     secondaryColor: 'hover:bg-black'
   },
   opacity: {
@@ -26,7 +22,7 @@ const white = {
   },
   primaryColor: 'bg-white',
   secondaryColor: 'bg-black',
-  ...shared
+  accentColor: 'bg-white-accent-color'
 }
 
 const black = {
@@ -40,7 +36,7 @@ const black = {
     secondaryColor: 'before:bg-white'
   },
   hover: {
-    accentColor: 'hover:bg-dark-blue',
+    accentColor: 'hover:bg-black-accent-color',
     secondaryColor: 'hover:bg-white'
   },
   opacity: {
@@ -53,7 +49,7 @@ const black = {
   },
   primaryColor: 'bg-black',
   secondaryColor: 'bg-white',
-  ...shared
+  accentColor: 'bg-black-accent-color'
 }
 
 const backgroundThemeConstant = {

@@ -9,18 +9,15 @@ export const content = [
 
 export const theme = {
   extend: {
-    colors: {
-      'dark-blue': '#2E2EFF'
-    },
-    transitionProperty: {
-      'box-shadow': 'box-shadow',
-      'font-size': 'font-size',
-      'max-width': 'max-width',
-      'padding': 'padding',
-      'text': 'font-size'
-    },
     animation: {
       hamburger: 'hamburger 300ms ease-in-out infinite'
+    },
+    colors: {
+      'white-accent-color': '#9d174d',
+      'black-accent-color': '#450a0a'
+    },
+    flexBasis: {
+      '7/10': '70%'
     },
     keyframes: {
       hamburger: {
@@ -28,15 +25,22 @@ export const theme = {
         '50%': {transform: 'scale(1.25, 0.75)'}
       }
     },
-    screens: {
-      'xs': '480px'
+    maxWidth: {
+      'screen-xs': '480px'
     },
     padding: {
       '18': '4.5rem',
       '30': '7.5rem'
     },
-    maxWidth: {
-      'screen-xs': '480px'
+    screens: {
+      'xs': '480px'
+    },
+    transitionProperty: {
+      'box-shadow': 'box-shadow',
+      'font-size': 'font-size',
+      'max-width': 'max-width',
+      'padding': 'padding',
+      'text': 'font-size'
     }
   }
 }

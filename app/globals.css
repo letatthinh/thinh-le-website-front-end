@@ -44,8 +44,21 @@ to build any design without needing to write custom CSS.
     @apply bottom-0 left-0
   }
 
+  .blob-profile-container {
+    border-radius: 35% 65% 39% 61% / 58% 58% 42% 42% ;
+    overflow: hidden;
+  }
+
+  .feature-pt {
+    @apply pt-24 lg:pt-30
+  }
+
+  .feature-pb {
+    @apply pb-24 lg:pb-30
+  }
+
   .feature-py {
-    @apply py-24 lg:py-30 transition-padding
+    @apply feature-pt feature-pb transition-padding
   }
 
   .section-px {

@@ -1,3 +1,5 @@
+import AboutMePageHeroSectionClient
+  from '@/components/client/hero-sections/pages/about-me'
 import pageMetadataConstant from '@/constants/metadata/page'
 
 export const metadata = {
@@ -7,5 +9,6 @@ export const metadata = {
 
 export default function AboutMe() {
   return <>
+    <AboutMePageHeroSectionClient />
   </>
 }

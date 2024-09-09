@@ -44,7 +44,7 @@ export default function HomePageHeroSectionClient() {
       <article className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,
         'rounded-xl',
-        'max-w-xl lg:max-w-screen-sm p-12 transition-max-width'
+        'max-w-2xl lg:max-w-screen-md p-12 transition-max-width'
       ])}>
         <p className={stringUtility.merge([
           'inline-block p-2 rounded-r-xl rounded-tl-xl relative',
@@ -60,14 +60,14 @@ export default function HomePageHeroSectionClient() {
         <h1 className={stringUtility.merge([
           'text-5xl lg:text-6xl transition-font-size content-mt',
           `${textTheme.secondaryColor} font-bold`
-        ])}>I&apos;m Thinh Le</h1>
+        ])}>Welcome to my page</h1>
         <p className={stringUtility.merge([
           'lg:text-lg transition-font-size content-mt',
           `${textTheme.secondaryColor}`
         ])}>
-          Student at Stockton University in New Jersey.
-          I’m seeking CPT/OPT opportunities to apply my skills
-          in real-world projects.
+          If you&apos;re looking for an intern,
+          I&apos;m available for CPT/OPT opportunities
+          and eager to apply my skills to real-world projects.
         </p>
         <div className={stringUtility.merge([
           'content-mt lg:text-lg transition-font-size',

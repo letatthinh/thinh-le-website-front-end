@@ -169,7 +169,10 @@ export default function Header() {
           aria-label={'Hamburger button'}
           ref={hamburgerButtonRef}
           onClick={onHamburgerButtonClick}
-          className={`lg:hidden ${textTheme.secondaryColor}`}>
+          className={stringUtility.merge([
+            `lg:hidden ${textTheme.secondaryColor}`,
+            textTheme.hover.accentColor
+          ])}>
           <Hamburger01Icon
             size={32}
             variant={'solid'}

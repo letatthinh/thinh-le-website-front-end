@@ -1,5 +1,5 @@
 import HomePageHeroSectionClient
-  from '@/components/client/hero-sections/home-page'
+  from '@/components/client/hero-sections/pages/home'
 import pageMetadataConstant from '@/constants/metadata/page'
 
 // [Tip]: metadata is used for generating page metadata only in server side

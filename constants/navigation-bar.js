@@ -15,17 +15,9 @@ const socialMedia = [
   socialMediaConstant.leetcode
 ]
 
-const brandStatements = [
-  'tech enthusiast, crafting user-friendly applications.',
-  'passionate developer, turning ideas into reality.',
-  'skilled programmer, streamlining processes through code.',
-  'problem solver, optimizing workflows for success.'
-]
-
 const navigationBarConstant = {
   navigationItems,
-  socialMedia,
-  brandStatements
+  socialMedia
 }
 
 export default navigationBarConstant

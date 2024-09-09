@@ -1,16 +1,18 @@
 const shared = {
   opacity: {
     twenty: {
-      accentColor: 'shadow-dark-blue/20'
+      accentColor: 'shadow-white-accent-color/20'
     }
   }
 }
 
 const white = {
+  id: 0,
   ...shared
 }
 
 const black = {
+  id: 1,
   ...shared
 }
 
