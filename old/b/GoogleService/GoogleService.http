@@ -1,0 +1,6 @@
+@GoogleService_HostAddress = http://localhost:5274
+
+GET {{GoogleService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

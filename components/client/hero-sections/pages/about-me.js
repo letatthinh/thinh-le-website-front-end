@@ -73,12 +73,8 @@ export default function AboutMePageHeroSectionClient() {
         <h1 className={stringUtility.merge([
           'text-5xl lg:text-6xl transition-font-size',
           `${textTheme.secondaryColor} font-bold`
-        ])}>My name is Thinh Le
+        ])}>Thinh Le (Terry 😉)
         </h1>
-        <p
-          className={'text-4xl content-mt'}>
-          You can call me Terry 😉
-        </p>
         <p className={'text-2xl content-mt'}>
           I’m a <span
             ref={personalStatementRef}>

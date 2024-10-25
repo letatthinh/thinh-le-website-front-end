@@ -1,0 +1,59 @@
+/**
+The Base layer contains the foundational,
+global styles that apply across the entire project.
+Example:
+ @layer base {
+  h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+}
+ */
+@tailwind base;
+
+/**
+Styling reusable UI components
+Example:
+@layer components {
+  .btn {
+    @apply bg-blue-500 text-white py-2 px-4 rounded;
+  }
+}
+}
+ */
+@tailwind components;
+
+/**
+It provides low-level utility classes that you can mix and match
+to build any design without needing to write custom CSS.
+Example:
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px #ff0000;
+  }
+}
+ */
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: none;
+  }
+}
+
+@layer utilities {
+}

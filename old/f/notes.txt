@@ -1,0 +1,18 @@
+* File naming rules *
+    Chỉ có constants là có suffix (vd: pageMetadataConstant)
+
+* Folder naming rules *
+    buttons (group of buttons)
+        background-image -> background image button
+        default -> default button
+
+* Spacing *
+    Chiều ngang nhỏ nhất của màn hình là 320px
+    Min width nên là 320 - 48 = 272px ~ w-64
+    Section container có padding là 6 (24px mỗi bên)
+
+* Update packages *
+npm install @heroicons/react@latest @reduxjs/toolkit@latest @types/node@latest @types/react@latest @types/react-dom@latest @vercel/blob@latest eslint-config-next@latest next@latest react@latest react-dom@latest react-redux@latest
+
+npm install -D @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest autoprefixer@latest eslint-plugin-react@latest postcss@latest prettier@latest tailwindcss@latest typescript@latest eslint@9.0.0
+
