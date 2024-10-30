@@ -1,9 +1,9 @@
 'use client'
 import stringUtility from '@/utilities/string'
 import Image from 'next/image'
-import {useEffect, useRef} from 'react'
-import {useSelector} from 'react-redux'
-import {createSelector, createStructuredSelector} from 'reselect'
+import { useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
+import { createSelector, createStructuredSelector } from 'reselect'
 import Typed from 'typed.js'
 
 const selectTheme = createStructuredSelector(
@@ -73,7 +73,7 @@ export default function AboutMePageHeroSectionClient() {
         <h1 className={stringUtility.merge([
           'text-5xl lg:text-6xl transition-font-size',
           `${textTheme.secondaryColor} font-bold`
-        ])}>Thinh Le (Terry 😉)
+        ])}>Tat Thinh Le (Terry 😉)
         </h1>
         <p className={'text-2xl content-mt'}>
           I’m a <span
