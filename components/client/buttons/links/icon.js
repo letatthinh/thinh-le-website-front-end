@@ -1,7 +1,7 @@
 import stringUtility from '@/utilities/string'
 import Link from 'next/link'
-import {useSelector} from 'react-redux'
-import {createSelector, createStructuredSelector} from 'reselect'
+import { useSelector } from 'react-redux'
+import { createSelector, createStructuredSelector } from 'reselect'
 
 const selectTheme = createStructuredSelector(
   {
@@ -21,7 +21,7 @@ export default function IconLinkButtonClient({
     aria-label={label}
     className={stringUtility.merge([
       textTheme.secondaryColor,
-      textTheme.hover.accentColor,
+      textTheme.hover.accentColor800,
       className
     ])}
     href={href}

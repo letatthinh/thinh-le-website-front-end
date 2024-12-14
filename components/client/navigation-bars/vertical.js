@@ -1,9 +1,9 @@
 import navigationBarConstant from '@/constants/navigation-bar'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
-import {useCallback, useMemo} from 'react'
-import {useSelector} from 'react-redux'
-import {createSelector, createStructuredSelector} from 'reselect'
+import { useCallback, useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { createSelector, createStructuredSelector } from 'reselect'
 
 const selectTheme = createStructuredSelector({
   backgroundTheme: (_state) => _state.backgroundTheme,
@@ -16,22 +16,22 @@ export default function VerticalNavigationBarClient() {
 
   const activeNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      backgroundTheme.accentColor,
+      backgroundTheme.accentColor800,
       `font-bold ${textTheme.primaryColor}`
     ])
   }, [
-    backgroundTheme.accentColor,
+    backgroundTheme.accentColor800,
     textTheme.primaryColor
   ])
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      backgroundTheme.hover.accentColor,
+      backgroundTheme.hover.accentColor800,
       textTheme.hover.primaryColor,
       textTheme.secondaryColor
     ])
   }, [
-    backgroundTheme.hover.accentColor,
+    backgroundTheme.hover.accentColor800,
     textTheme.hover.primaryColor,
     textTheme.secondaryColor
   ])

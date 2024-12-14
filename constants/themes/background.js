@@ -9,7 +9,7 @@ const white = {
     secondaryColor: 'before:bg-black'
   },
   hover: {
-    accentColor: 'hover:bg-white-accent-color',
+    accentColor800: 'hover:bg-white-accent-color-800',
     secondaryColor: 'hover:bg-black'
   },
   opacity: {
@@ -22,7 +22,8 @@ const white = {
   },
   primaryColor: 'bg-white',
   secondaryColor: 'bg-black',
-  accentColor: 'bg-white-accent-color'
+  accentColor300: 'bg-white-accent-color-300',
+  accentColor800: 'bg-white-accent-color-800'
 }
 
 const black = {
@@ -36,7 +37,7 @@ const black = {
     secondaryColor: 'before:bg-white'
   },
   hover: {
-    accentColor: 'hover:bg-black-accent-color',
+    accentColor800: 'hover:bg-black-accent-color-800',
     secondaryColor: 'hover:bg-white'
   },
   opacity: {
@@ -49,7 +50,8 @@ const black = {
   },
   primaryColor: 'bg-black',
   secondaryColor: 'bg-white',
-  accentColor: 'bg-black-accent-color'
+  accentColor300: 'bg-black-accent-color-300',
+  accentColor800: 'bg-black-accent-color-800'
 }
 
 const backgroundThemeConstant = {

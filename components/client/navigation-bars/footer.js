@@ -1,9 +1,9 @@
 import navigationBarConstant from '@/constants/navigation-bar'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
-import {useMemo} from 'react'
-import {useSelector} from 'react-redux'
-import {createSelector, createStructuredSelector} from 'reselect'
+import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { createSelector, createStructuredSelector } from 'reselect'
 
 const selectTheme = createStructuredSelector({
   backgroundTheme: (_state) => _state.backgroundTheme,
@@ -16,16 +16,16 @@ export default function FooterNavigationBarClient() {
 
   const activeNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      `font-bold ${textTheme.accentColor}`
+      `font-bold ${textTheme.accentColor800}`
     ])
-  }, [textTheme.accentColor])
+  }, [textTheme.accentColor800])
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      textTheme.hover.accentColor,
+      textTheme.hover.accentColor800,
       textTheme.secondaryColor
     ])
-  }, [textTheme.hover.accentColor, textTheme.secondaryColor])
+  }, [textTheme.hover.accentColor800, textTheme.secondaryColor])
 
   return <nav
     className={stringUtility.merge([

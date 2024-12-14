@@ -16,11 +16,11 @@ export default interface ThemeStateType {
     secondaryColor: string
   }
   border: {
-    accentColor: string
+    accentColor800: string
   }
   hover: {
     background: {
-      accentColor: string
+      accentColor800: string
     }
     text: {
       primaryColor: string
@@ -28,6 +28,6 @@ export default interface ThemeStateType {
   }
   text: {
     secondaryColor: string
-    accentColor: string
+    accentColor800: string
   }
 }

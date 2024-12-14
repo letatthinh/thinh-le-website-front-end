@@ -13,8 +13,10 @@ export const theme = {
       hamburger: 'hamburger 300ms ease-in-out infinite'
     },
     colors: {
-      'white-accent-color': '#9d174d',
-      'black-accent-color': '#450a0a'
+      'white-accent-color-300': '#cbd5e1',
+      'white-accent-color-800': '#9f1239',
+      'black-accent-color-300': '#e2e8f0',
+      'black-accent-color-800': '#450a0a'
     },
     flexBasis: {
       '3/10': '30%',

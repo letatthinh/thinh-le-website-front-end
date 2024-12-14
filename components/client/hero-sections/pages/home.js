@@ -30,7 +30,7 @@ export default function HomePageHeroSectionClient() {
       alt={'Home page\'s hero section background'}
       src={'/background/hero-background.avif'}
       fill
-      // [Tip]: You should add the priority property to the image
+      // [Tip]: You should add the 'priority' property to the image
       // that will be the Largest Contentful Paint (LCP) element
       // for each page.
       // https://nextjs.org/docs/pages/building-your-application/optimizing/images#priority
@@ -65,9 +65,7 @@ export default function HomePageHeroSectionClient() {
           'lg:text-lg transition-font-size content-mt',
           `${textTheme.secondaryColor}`
         ])}>
-          If you&apos;re looking for an intern,
-          I&apos;m available for CPT/OPT opportunities
-          and eager to apply my skills to real-world projects.
+          Feel free to take a look around 🤪.
         </p>
         <div className={stringUtility.merge([
           'content-mt lg:text-lg transition-font-size',
@@ -86,7 +84,7 @@ export default function HomePageHeroSectionClient() {
           </PrimaryLinkButtonClient>
           <SecondaryLinkButtonClient
             className={'button-link-icon-text min-w-fit justify-center'}
-            href={'https://drive.google.com/uc?export=download&id=1F4EE1wTMwQxbjD4unf0SxIt0eXhjnUrk'}>
+            href={'https://drive.google.com/file/d/10ymRXc22nbeJdHh2uB8Y43_y8m4vZ59d/view?usp=sharing'}>
             <DownloadCircle01Icon
               size={21}
               variant={'solid'}

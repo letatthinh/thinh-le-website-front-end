@@ -18,11 +18,11 @@ const whiteThemeState: ThemeStateType = {
     secondaryColor: 'bg-black'
   },
   border: {
-    accentColor: 'border-red-500'
+    accentColor800: 'border-red-500'
   },
   hover: {
     background: {
-      accentColor: 'hover:bg-red-500'
+      accentColor800: 'hover:bg-red-500'
     },
     text: {
       primaryColor: 'text-white'
@@ -30,7 +30,7 @@ const whiteThemeState: ThemeStateType = {
   },
   text: {
     secondaryColor: 'text-black',
-    accentColor: 'text-red-500'
+    accentColor800: 'text-red-500'
   }
 }
 
@@ -52,11 +52,11 @@ const blackThemeState: ThemeStateType = {
     secondaryColor: 'bg-white'
   },
   border: {
-    accentColor: 'border-red-500'
+    accentColor800: 'border-red-500'
   },
   hover: {
     background: {
-      accentColor: 'hover:bg-red-500'
+      accentColor800: 'hover:bg-red-500'
     },
     text: {
       primaryColor: 'text-black'
@@ -64,7 +64,7 @@ const blackThemeState: ThemeStateType = {
   },
   text: {
     secondaryColor: 'text-white',
-    accentColor: 'text-red-500'
+    accentColor800: 'text-red-500'
   }
 }
 

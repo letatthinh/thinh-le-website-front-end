@@ -1,11 +1,11 @@
 const white = {
   id: 0,
-  accentColor: 'fill-white-accent-color'
+  accentColor800: 'fill-white-accent-color-800'
 }
 
 const black = {
   id: 1,
-  accentColor: 'fill-black-accent-color'
+  accentColor800: 'fill-black-accent-color-800'
 }
 
 const fillThemeConstant = {
