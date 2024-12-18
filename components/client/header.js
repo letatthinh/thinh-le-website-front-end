@@ -1,14 +1,16 @@
 'use client'
 import BrandNameClient from '@/components/client/brand-name'
-import HeaderNavigationBarClient from '@/components/client/navigation-bars/header'
-import VerticalNavigationBarClient from '@/components/client/navigation-bars/vertical'
+import HeaderNavigationBarClient
+  from '@/components/client/navigation-bars/header'
+import VerticalNavigationBarClient
+  from '@/components/client/navigation-bars/vertical'
 import widthConstant from '@/constants/width'
 import VerticalNavigationBarContext from '@/contexts/vertical-navigation-bar'
 import stringUtility from '@/utilities/string'
-import { Hamburger01Icon } from '@hugeicons/react'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { createSelector, createStructuredSelector } from 'reselect'
+import {Hamburger01Icon} from '@hugeicons/react'
+import {useCallback, useEffect, useRef, useState} from 'react'
+import {useSelector} from 'react-redux'
+import {createSelector, createStructuredSelector} from 'reselect'
 
 const selectTheme = createStructuredSelector(
   {

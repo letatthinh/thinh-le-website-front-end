@@ -7,7 +7,6 @@ import CardClient from '../../card'
 
 const selectTheme = createStructuredSelector(
   {
-    backgroundTheme: (_state) => _state.backgroundTheme,
     textTheme: (_state) => _state.textTheme
   },
   createSelector
@@ -15,7 +14,6 @@ const selectTheme = createStructuredSelector(
 
 export default function ProjectPageContentSectionClient() {
   const {
-    backgroundTheme,
     textTheme
   } = useSelector(selectTheme)
 

@@ -1,9 +1,9 @@
 import navigationBarConstant from '@/constants/navigation-bar'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
-import { useMemo } from 'react'
-import { useSelector } from 'react-redux'
-import { createSelector, createStructuredSelector } from 'reselect'
+import {useMemo} from 'react'
+import {useSelector} from 'react-redux'
+import {createSelector, createStructuredSelector} from 'reselect'
 
 const selectTheme = createStructuredSelector({
   backgroundTheme: (_state) => _state.backgroundTheme,
