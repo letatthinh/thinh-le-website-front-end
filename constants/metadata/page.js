@@ -16,6 +16,12 @@ const projects = {
   description: 'My projects 💪'
 }
 
+const saleAndRentalListingsProject = {
+  pathName: '/projects/sale-and-rental-listings',
+  title: 'Sale and rental listings',
+  description: 'Search for sale and rental listings across the US, integrating interactive data visualizations to analyze trends and insights in the housing market.'
+}
+
 const contactMe = {
   pathName: '/contact-me',
   title: 'Contact me',
@@ -26,6 +32,7 @@ const pageMetadataConstant = {
   home,
   aboutMe,
   projects,
+  saleAndRentalListingsProject,
   contactMe
 }
 

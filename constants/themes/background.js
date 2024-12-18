@@ -22,6 +22,7 @@ const white = {
   },
   primaryColor: 'bg-white',
   secondaryColor: 'bg-black',
+  secondaryColor100: 'bg-gray-100',
   accentColor300: 'bg-white-accent-color-300',
   accentColor800: 'bg-white-accent-color-800'
 }
@@ -50,6 +51,7 @@ const black = {
   },
   primaryColor: 'bg-black',
   secondaryColor: 'bg-white',
+  secondaryColor100: 'bg-gray-100', // [Debt]
   accentColor300: 'bg-black-accent-color-300',
   accentColor800: 'bg-black-accent-color-800'
 }

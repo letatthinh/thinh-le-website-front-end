@@ -1,6 +1,5 @@
 'use client'
 import stringUtility from '@/utilities/string'
-import Image from 'next/image'
 import {useEffect, useRef} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
@@ -46,7 +45,7 @@ export default function AboutMePageHeroSectionClient() {
     }
   }, [])
 
-  return <section className={'relative'}>
+  return <section>
     <div className={stringUtility.merge([
       'container-layout feature-py section-px',
       'flex flex-col-reverse lg:flex-row section-gap justify-between',
@@ -56,31 +55,23 @@ export default function AboutMePageHeroSectionClient() {
         <div className={stringUtility.merge([
           'w-96 h-96 mx-auto profile-container-border',
           backgroundTheme.accentColor300,
-          'relative overflow-hidden'
+          'relative overflow-hidden bg-profile bg-cover'
         ])}>
-          <Image
-            alt={'Profile image'}
-            src={'/profile.webp'}
-            fill
-            priority
-            style={{
-              objectFit: 'cover'
-            }} />
         </div>
       </div>
       <section className={'basis-3/5'}>
         <h1 className={stringUtility.merge([
           'text-5xl lg:text-6xl transition-font-size',
           `${textTheme.secondaryColor} font-bold`
-        ])}>Tat Thinh Le (Terry)
+        ])}>Thinh Le (Terry)
         </h1>
-        <p className={'text-2xl content-mt'}>
+        <p className={'text-xl lg:text-2xl content-mt'}>
           I’m a <span
             ref={personalStatementRef}>
           </span>
         </p>
         <p
-          className={'lg:text-lg mt-6'}>
+          className={`lg:text-lg mt-6 ${textTheme.secondaryColor600}`}>
           I have 2 years of experience in software development,
           with a strong focus on quality, meeting deadlines,
           and ensuring client satisfaction. With a major in

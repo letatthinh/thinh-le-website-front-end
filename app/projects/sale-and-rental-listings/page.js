@@ -7,7 +7,7 @@ export const metadata = {
   description: pageMetadataConstant.projects.description
 }
 
-export default function Projects() {
+export default function SaleAndRentalListingsProject() {
   return <>
     <ProjectPageContentSectionClient />
     <section></section>

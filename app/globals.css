@@ -40,6 +40,10 @@ to build any design without needing to write custom CSS.
 }
 
 @layer utilities {
+  .grid-3-columns {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+  }
+
   .bottom-left {
     @apply bottom-0 left-0
   }
@@ -90,6 +94,10 @@ to build any design without needing to write custom CSS.
 
   .content-py {
     @apply py-6
+  }
+
+  .content-gap {
+    @apply gap-6
   }
 
   .container-layout {

@@ -63,7 +63,7 @@ export default function HomePageHeroSectionClient() {
         ])}>Welcome to my page</h1>
         <p className={stringUtility.merge([
           'lg:text-lg transition-font-size content-mt',
-          `${textTheme.secondaryColor}`
+          `${textTheme.secondaryColor700}`
         ])}>
           Feel free to take a look around 🤪.
         </p>

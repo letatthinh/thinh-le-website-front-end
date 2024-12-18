@@ -2,6 +2,7 @@
 export const content = [
   './app/**/*.{js, jsx}',
   './components/**/*.{js, jsx}',
+  './constants/cards/**/*.{js, jsx}',
   './constants/themes/**/*.{js, jsx}',
   './hooks/**/*.{js, jsx}',
   './utilities/class-name/**/*.{js, jsx}'
@@ -12,9 +13,17 @@ export const theme = {
     animation: {
       hamburger: 'hamburger 300ms ease-in-out infinite'
     },
+    aspectRatio: {
+      '3/2': '3 / 2',
+      '4/3': '4 / 3'
+    },
+    backgroundImage: {
+      'profile': 'url(\'/profile.webp\')',
+      'sale-and-rental-listings': 'url(\'/projects/sale-and-rental-listings.webp\')'
+    },
     colors: {
-      'white-accent-color-300': '#cbd5e1',
-      'white-accent-color-800': '#9f1239',
+      'white-accent-color-300': '#d1d5db',
+      'white-accent-color-800': '#3730a3',
       'black-accent-color-300': '#e2e8f0',
       'black-accent-color-800': '#450a0a'
     },
@@ -47,7 +56,7 @@ export const theme = {
       'font-size': 'font-size',
       'max-width': 'max-width',
       'padding': 'padding',
-      'text': 'font-size'
+      'width': 'width'
     }
   }
 }
