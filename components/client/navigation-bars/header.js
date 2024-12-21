@@ -1,4 +1,4 @@
-import navigationBarConstant from '@/constants/navigation-bar'
+import navigationItemConstant from '@/constants/navigation-item'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
 import {useMemo} from 'react'
@@ -58,8 +58,8 @@ export default function HeaderNavigationBarClient() {
   return <nav
     className={'hidden lg:flex lg:gap-10 lg:items-center'}>
     {renderNavigationItems(
-      navigationBarConstant.navigationItems,
-      'text-lg relative uppercase',
+      navigationItemConstant.allNavigationItems,
+      'text-normal relative uppercase',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName
     )}

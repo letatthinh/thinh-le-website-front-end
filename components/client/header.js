@@ -21,7 +21,7 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function Header() {
+export default function HeaderClient() {
   const {
     backgroundTheme,
     shadowTheme,
@@ -163,18 +163,18 @@ export default function Header() {
           'flex justify-between items-center'
         ])}>
         <BrandNameClient
-          className={`text-3xl ${textTheme.secondaryColor}`} />
+          className={`text-big-2 ${textTheme.secondaryColor}`} />
         <HeaderNavigationBarClient />
         <button
           aria-label={'Hamburger button'}
           ref={hamburgerButtonRef}
           onClick={onHamburgerButtonClick}
           className={stringUtility.merge([
-            `lg:hidden ${textTheme.secondaryColor}`,
+            `lg:hidden w-6 h-6 ${textTheme.secondaryColor}`,
             textTheme.hover.accentColor800
           ])}>
           <Hamburger01Icon
-            size={32}
+            size={'100%'}
             variant={'solid'}
             type={'rounded'} />
         </button>

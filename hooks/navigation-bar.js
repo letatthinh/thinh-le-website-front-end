@@ -8,6 +8,12 @@ export default function useNavigationBar() {
   const urlPathName = usePathname()
   const onNavigationItemClick = useContext(VerticalNavigationBarContext)
 
+  const isChildPathOf = useCallback((_navigationItemPathName) => {
+    // Not homepage & child path
+    return _navigationItemPathName.length > 1 &&
+      urlPathName.includes(_navigationItemPathName)
+  }, [urlPathName])
+
   const renderNavigationItems = useCallback((
     navigationItems,
     className,
@@ -25,16 +31,21 @@ export default function useNavigationBar() {
             shouldDisplayIcon
               ? 'flex gap-2 items-center'
               : undefined,
-            urlPathName === _navigationItem.pathName
+            (urlPathName === _navigationItem.path ||
+            isChildPathOf(_navigationItem.path))
               ? activeNavigationItemClassName
               : nonActiveNavigationItemClassName
           ])}
-          href={_navigationItem.pathName}>
-          {shouldDisplayIcon ? _navigationItem.iconComponent : undefined}
+          href={_navigationItem.path}>
+          {shouldDisplayIcon
+            ? <div className={'wh-normal'}>
+              {_navigationItem.iconComponent}
+            </div>
+            : undefined}
           {_navigationItem.label}
         </Link>
       })
-  }, [onNavigationItemClick, urlPathName])
+  }, [isChildPathOf, onNavigationItemClick, urlPathName])
 
   return {
     renderNavigationItems

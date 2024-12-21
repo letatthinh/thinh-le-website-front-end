@@ -2,7 +2,7 @@ import BrandNameClient from '@/components/client/brand-name'
 import IconLinkButtonClient from '@/components/client/buttons/links/icon'
 import FooterNavigationBarClient
   from '@/components/client/navigation-bars/footer'
-import navigationBarConstant from '@/constants/navigation-bar'
+import socialMediaConstant from '@/constants/social-media'
 import stringUtility from '@/utilities/string'
 import {useSelector} from 'react-redux'
 
@@ -33,10 +33,10 @@ export default function FooterClient() {
         'container-layout section-pt pb-6 section-px'
       ])}>
       <div className={'flex flex-col lg:flex-row lg:gap-10'}>
-        <section className={'basis-full lg:basis-2/6'}>
-          <BrandNameClient
-            className={`text-3xl ${textTheme.secondaryColor}`} />
-        </section>
+        <BrandNameClient className={stringUtility.merge([
+          'basis-full lg:basis-2/6 text-big-2',
+          textTheme.secondaryColor
+        ])} />
         <FooterNavigationBarClient />
       </div>
       <hr className={`content-mt ${borderTheme.opacity.ten.primaryColor}`} />
@@ -44,11 +44,14 @@ export default function FooterClient() {
         'flex flex-col gap-6 md:flex-row md:gap-0',
         'md:justify-between content-mt'
       ])}>
-        <p>© 2024 Thinh Le&apos;s website, Inc. All rights reserved.</p>
+        <p className={'text-normal'}>
+          © 2024 Thinh Le&apos;s website, Inc. All rights reserved.
+        </p>
         <div className={'flex gap-6 justify-center xs:justify-start'}>
-          {navigationBarConstant.socialMedia.map(
+          {socialMediaConstant.allSocialMedia.map(
             (_socialMedia, _index) => {
               return <IconLinkButtonClient
+                className={'wh-normal'}
                 key={_index}
                 label={_socialMedia.label}
                 href={_socialMedia.link}>

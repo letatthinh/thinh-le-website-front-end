@@ -30,7 +30,7 @@ export default function CardClient({
       aria-label={description}
       href={link}
       className={stringUtility.merge([
-        'block aspect-3/2 bg-contain rounded-2xl',
+        'block aspect-3/2 bg-contain rounded-normal',
         backgroundImageClass
       ])}>
     </Link>
@@ -38,21 +38,23 @@ export default function CardClient({
       <time
         dateTime={date}
         className={stringUtility.merge([
-          'text-sm lg:text-base transition-font-size',
+          'text-small-1',
           textTheme.secondaryColor600
         ])}>
         {dateTimeUtility.formatLongDate(date)}
       </time>
-      <h3 className={'mt-2 font-bold text-xl lg:text-2xl transition-font-size'}>
+      <h3 className={'mt-2 font-bold text-h3'}>
         {title}
       </h3>
-      <p className={`mt-6 line-clamp-3 ${textTheme.secondaryColor600}`}>
+      <p className={stringUtility.merge([
+        'content-mt line-clamp-3 text-normal',
+        textTheme.secondaryColor600
+      ])}>
         {description}
       </p>
     </div>
     <div className={stringUtility.merge([
-      'mt-auto flex gap-2 items-center',
-      'text-sm lg:text-base transition-font-size',
+      'mt-auto flex gap-2 items-center text-small-1',
       textTheme.secondaryColor600
     ])}>
       {tags.map((_tag, _index) => {

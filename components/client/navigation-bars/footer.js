@@ -1,4 +1,4 @@
-import navigationBarConstant from '@/constants/navigation-bar'
+import navigationItemConstant from '@/constants/navigation-item'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
 import {useMemo} from 'react'
@@ -29,13 +29,13 @@ export default function FooterNavigationBarClient() {
 
   return <nav
     className={stringUtility.merge([
-      'content-mt lg:basis-8/12',
-      'grid grid-cols-2 lg:grid-cols-4',
-      'gap-y-6 lg:gap-y-0',
+      'content-mt lg:mt-0 lg:basis-8/12 text-normal',
+      'grid grid-cols-2 lg:grid-cols-4 lg:justify-items-end',
+      'content-gap-y lg:gap-y-0',
       backgroundTheme.primaryColor
     ])}>
     {renderNavigationItems(
-      navigationBarConstant.navigationItems,
+      navigationItemConstant.allNavigationItems,
       '',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName,

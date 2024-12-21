@@ -43,12 +43,11 @@ export default function HomePageHeroSectionClient() {
     ])}>
       <article className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,
-        'rounded-xl',
+        'rounded-normal',
         'max-w-2xl lg:max-w-screen-md p-12 transition-max-width'
       ])}>
         <p className={stringUtility.merge([
-          'inline-block p-2 rounded-r-xl rounded-tl-xl relative',
-          'lg:text-lg transition-font-size',
+          'inline-block p-2 rounded-r-normal rounded-tl-normal relative text-normal',
           `${backgroundTheme.secondaryColor} ${textTheme.primaryColor}`,
           'before:absolute before:top-full before:left-0',
           'before:border-t-8 before:border-r-8',
@@ -57,18 +56,17 @@ export default function HomePageHeroSectionClient() {
           'before:border-r-transparent',
           'before:border-b-transparent before:border-l-transparent'
         ])}>Hi there!</p>
-        <h1 className={stringUtility.merge([
-          'text-5xl lg:text-6xl transition-font-size content-mt',
-          `${textTheme.secondaryColor} font-bold`
-        ])}>Welcome to my page</h1>
+        <h1 className={`text-h1 content-mt ${textTheme.secondaryColor}`}>
+          Welcome to my page
+        </h1>
         <p className={stringUtility.merge([
-          'lg:text-lg transition-font-size content-mt',
+          'text-normal content-mt',
           `${textTheme.secondaryColor700}`
         ])}>
           Feel free to take a look around 🤪.
         </p>
         <div className={stringUtility.merge([
-          'content-mt lg:text-lg transition-font-size',
+          'content-mt text-normal',
           'flex flex-col xs:flex-row gap-2',
           // [Tip]: Targeting a breakpoint range
           'xs:max-sm:justify-center'

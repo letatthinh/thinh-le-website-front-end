@@ -1,5 +1,5 @@
-import ProjectPageContentSectionClient
-  from '@/components/client/content-section/pages/projects'
+import SaleAndRentalListingsProjectPageClient
+  from '@/components/client/pages/sale-and-rental-listings'
 import pageMetadataConstant from '@/constants/metadata/page'
 
 export const metadata = {
@@ -9,7 +9,6 @@ export const metadata = {
 
 export default function SaleAndRentalListingsProject() {
   return <>
-    <ProjectPageContentSectionClient />
-    <section></section>
+    <SaleAndRentalListingsProjectPageClient />
   </>
 }

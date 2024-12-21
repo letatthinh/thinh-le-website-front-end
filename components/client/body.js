@@ -1,7 +1,6 @@
 'use client'
 import FooterClient from '@/components/client/footer'
-import Header from '@/components/client/header'
-import MainClient from '@/components/client/main'
+import HeaderClient from '@/components/client/header'
 import stringUtility from '@/utilities/string'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
@@ -27,10 +26,10 @@ export default function BodyClient({children, className}) {
       'min-w-80 relative',
       className
     ])}>
-    <Header />
-    <MainClient>
+    <HeaderClient />
+    <main>
       {children}
-    </MainClient>
+    </main>
     <FooterClient />
   </body>
 }

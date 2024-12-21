@@ -1,4 +1,4 @@
-import navigationBarConstant from '@/constants/navigation-bar'
+import navigationItemConstant from '@/constants/navigation-item'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
 import {useCallback, useMemo} from 'react'
@@ -48,7 +48,7 @@ export default function VerticalNavigationBarClient() {
       backgroundTheme.primaryColor
     ])}>
     {renderNavigationItems(
-      navigationBarConstant.navigationItems,
+      navigationItemConstant.allNavigationItems,
       'text-lg section-px py-2',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName

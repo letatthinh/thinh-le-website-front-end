@@ -1,29 +1,29 @@
 const home = {
-  pathName: '/',
+  path: '/',
   title: 'Home',
   description: 'Welcome to my website'
 }
 
 const aboutMe = {
-  pathName: '/about-me',
+  path: '/about-me',
   title: 'About me',
   description: 'Something about me ☺️'
 }
 
 const projects = {
-  pathName: '/projects',
+  path: '/projects',
   title: 'Projects',
   description: 'My projects 💪'
 }
 
 const saleAndRentalListingsProject = {
-  pathName: '/projects/sale-and-rental-listings',
-  title: 'Sale and rental listings',
+  path: '/projects/sale-and-rental-listings',
+  title: 'Sale and rental listings across the US',
   description: 'Search for sale and rental listings across the US, integrating interactive data visualizations to analyze trends and insights in the housing market.'
 }
 
 const contactMe = {
-  pathName: '/contact-me',
+  path: '/contact-me',
   title: 'Contact me',
   description: 'Wanna get in touch? 😋'
 }
