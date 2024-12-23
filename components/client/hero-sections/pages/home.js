@@ -43,11 +43,12 @@ export default function HomePageHeroSectionClient() {
     ])}>
       <article className={stringUtility.merge([
         backgroundTheme.opacity.ninety.primaryColor,
-        'rounded-normal',
+        'rounded-big-1',
         'max-w-2xl lg:max-w-screen-md p-12 transition-max-width'
       ])}>
         <p className={stringUtility.merge([
-          'inline-block p-2 rounded-r-normal rounded-tl-normal relative text-normal',
+          'inline-block py-1 px-2 relative',
+          'rounded-r-small-1 rounded-tl-small-1 text-small-1',
           `${backgroundTheme.secondaryColor} ${textTheme.primaryColor}`,
           'before:absolute before:top-full before:left-0',
           'before:border-t-8 before:border-r-8',
@@ -61,7 +62,7 @@ export default function HomePageHeroSectionClient() {
         </h1>
         <p className={stringUtility.merge([
           'text-normal content-mt',
-          `${textTheme.secondaryColor700}`
+          `${textTheme.secondaryColor600}`
         ])}>
           Feel free to take a look around 🤪.
         </p>

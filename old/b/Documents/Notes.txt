@@ -1,2 +1,0 @@
-Swashbuckle and NSwag are two different libraries
-NSwag studio can be used to generate the open API client.

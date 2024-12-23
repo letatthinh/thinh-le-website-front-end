@@ -1,4 +1,5 @@
 'use client'
+import dateTimeUtility from '@/utilities/datetime'
 import stringUtility from '@/utilities/string'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
@@ -24,7 +25,12 @@ export default function BlogClient({
     <div className={stringUtility.merge([
       'container-layout section-pt section-px'
     ])}>
-      <time>{dateCreated}</time>
+      <time
+        dateTime={dateCreated}
+        className={stringUtility.merge([
+          'text-normal',
+          textTheme.secondaryColor600
+        ])}>{dateTimeUtility.formatLongDate(dateCreated)}</time>
       <h1 className={`text-h2 mt-2 ${textTheme.secondaryColor}`}>
         {title}
       </h1>

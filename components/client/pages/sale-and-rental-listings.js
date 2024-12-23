@@ -1,7 +1,7 @@
 'use client'
 import BlogClient from '@/components/client/blog'
 import projectConstant from '@/constants/project'
-import dateTimeUtility from '@/utilities/datetime'
+import stringUtility from '@/utilities/string'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -22,11 +22,30 @@ export default function SaleAndRentalListingsProjectPageClient({
   } = useSelector(selectTheme)
 
   return <BlogClient
-    dateCreated={dateTimeUtility.formatLongDate(
-      projectConstant.saleAndRentalListings.dateCreated
-    )}
+    dateCreated={projectConstant.saleAndRentalListings.dateCreated}
     title={projectConstant.saleAndRentalListings.title}
     contentClassName={'relative'}>
-    a
+    <section className={'h-full min-w-80 max-w-screen-sm'}>
+      <div className={`text-normal ${textTheme.secondaryColor}`}>
+        <label htmlFor='state-search' className={'font-medium'}>
+          Price
+        </label>
+        <div className={stringUtility.merge([
+          'flex items-center rounded-lg py-1 px-2 form-control-outline'
+        ])}>
+          <div
+            className='shrink-0 text-base text-gray-500 select-none sm:text-sm/6'>$
+          </div>
+          <input
+            id='state-search'
+            type='text'
+            name='stateSearch'
+            className={stringUtility.merge([
+              'block focus:outline-none'
+            ])}
+            placeholder='Please input here' />
+        </div>
+      </div>
+    </section>
   </BlogClient>
 }

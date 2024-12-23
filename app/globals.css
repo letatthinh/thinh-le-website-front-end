@@ -109,23 +109,39 @@ to build any design without needing to write custom CSS.
   }
 
   .button-link-text {
-    @apply py-2 px-6 border-2 rounded-normal font-semibold hover:cursor-pointer;
+    @apply py-2 px-4 border-2 rounded-normal font-semibold hover:cursor-pointer;
   }
 
   .button-link-icon-text {
     @apply button-link-text flex gap-2 items-center
   }
 
+  .rounded-small-1 {
+    @apply rounded-lg
+  }
+
+  .rounded-r-small-1 {
+    @apply rounded-r-lg
+  }
+
+  .rounded-tl-small-1 {
+    @apply rounded-tl-lg
+  }
+
   .rounded-normal {
-    @apply rounded-2xl
+    @apply rounded-xl
   }
 
   .rounded-r-normal {
-    @apply rounded-r-2xl
+    @apply rounded-r-xl
   }
 
   .rounded-tl-normal {
-    @apply rounded-tl-2xl
+    @apply rounded-tl-xl
+  }
+
+  .rounded-big-1 {
+    @apply rounded-2xl
   }
 
   .text-small-2 {
@@ -182,5 +198,9 @@ to build any design without needing to write custom CSS.
 
   .wh-normal {
     @apply w-normal h-normal
+  }
+
+  .form-control-outline {
+    @apply outline outline-1
   }
 }

@@ -1,4 +1,0 @@
-Error: exec: "xdg-open,x-www-browser,www-browser,wslview": executable file not found in $PATH
-	sudo add-apt-repository ppa:wslutilities/wslu
-	sudo apt update
-	sudo apt install wslu

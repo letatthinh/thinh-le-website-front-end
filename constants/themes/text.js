@@ -8,7 +8,6 @@ const white = {
   primaryColor: 'text-white',
   secondaryColor: 'text-black',
   secondaryColor600: 'text-gray-600',
-  secondaryColor700: 'text-gray-700',
   accentColor800: 'text-white-accent-color-800'
 }
 
@@ -22,7 +21,6 @@ const black = {
   primaryColor: 'text-black',
   secondaryColor: 'text-white',
   secondaryColor600: 'text-gray-600', // [Debt]
-  secondaryColor700: 'text-gray-700', // [Debt]
   accentColor800: 'text-black-accent-color-800'
 }
 
