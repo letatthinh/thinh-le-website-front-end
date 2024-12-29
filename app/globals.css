@@ -109,7 +109,8 @@ to build any design without needing to write custom CSS.
   }
 
   .button-link-text {
-    @apply py-2 px-4 border-2 rounded-normal font-semibold hover:cursor-pointer;
+    @apply py-2 px-4 border-2 rounded-normal font-semibold
+    hover:cursor-pointer;
   }
 
   .button-link-icon-text {
@@ -188,19 +189,44 @@ to build any design without needing to write custom CSS.
     @apply text-big-4 font-bold
   }
 
+  .w-small-2 {
+    @apply w-4 lg:w-5 transition-width
+  }
+
+  .w-small-1 {
+    @apply w-5 lg:w-6 transition-width
+  }
+
   .w-normal {
-    @apply w-6 lg:w-7
+    @apply w-6 lg:w-7 transition-width
+  }
+
+  .h-small-2 {
+    @apply h-4 lg:h-5 transition-height
+  }
+
+  .h-small-1 {
+    @apply h-5 lg:h-6 transition-height
   }
 
   .h-normal {
-    @apply h-6 lg:h-7
+    @apply h-6 lg:h-7 transition-height
+  }
+
+  .wh-small-2 {
+    @apply w-small-2 h-small-2
+  }
+
+  .wh-small-1 {
+    @apply w-small-1 h-small-1
   }
 
   .wh-normal {
     @apply w-normal h-normal
   }
 
-  .form-control-outline {
-    @apply outline outline-1
+  .has-focus-within-input-outline {
+    @apply outline outline-1 has-[input:focus-within]:outline-2
+    has-[input:focus-within]:outline-offset-1
   }
 }

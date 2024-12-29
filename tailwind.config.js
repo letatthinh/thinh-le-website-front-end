@@ -3,8 +3,7 @@ export const content = [
   './app/**/*.{js, jsx}',
   './components/**/*.{js, jsx}',
   './constants/**/*.{js, jsx}',
-  './hooks/**/*.{js, jsx}',
-  './utilities/class-name/**/*.{js, jsx}'
+  './hooks/**/*.{js, jsx}'
 ]
 
 export const theme = {
@@ -55,7 +54,8 @@ export const theme = {
       'font-size': 'font-size',
       'max-width': 'max-width',
       'padding': 'padding',
-      'width': 'width'
+      'width': 'width',
+      'height': 'height'
     }
   }
 }

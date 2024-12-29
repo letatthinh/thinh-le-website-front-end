@@ -15,6 +15,7 @@
 
 # production
 /build
+.env*
 .npmrc
 
 # misc
@@ -25,9 +26,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# local env files
-.env*.local
 
 # vercel
 .vercel

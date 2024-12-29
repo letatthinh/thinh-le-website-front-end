@@ -24,7 +24,12 @@ const white = {
   secondaryColor: 'bg-black',
   secondaryColor100: 'bg-gray-100',
   accentColor300: 'bg-white-accent-color-300',
-  accentColor800: 'bg-white-accent-color-800'
+  accentColor800: 'bg-white-accent-color-800',
+  data: {
+    focus: {
+      accentColor800: 'data-[focus]:bg-white-accent-color-800'
+    }
+  }
 }
 
 const black = {
@@ -53,7 +58,12 @@ const black = {
   secondaryColor: 'bg-white',
   secondaryColor100: 'bg-gray-100', // [Debt]
   accentColor300: 'bg-black-accent-color-300',
-  accentColor800: 'bg-black-accent-color-800'
+  accentColor800: 'bg-black-accent-color-800',
+  data: {
+    focus: {
+      accentColor800: 'data-[focus]:bg-black-accent-color-800'
+    }
+  }
 }
 
 const backgroundThemeConstant = {

@@ -1,11 +1,26 @@
 const white = {
   id: 0,
-  accentColor800: 'fill-white-accent-color-800'
+  focus: {
+    input: {
+      accentColor800: 'focus:outline-white-accent-color-800'
+    }
+  },
+  hasFocusWithin: {
+    input: {
+      accentColor800: 'has-[input:focus-within]:outline-white-accent-color-800'
+    }
+  },
+  secondaryColor400: 'outline-gray-400'
 }
 
 const black = {
   id: 1,
-  accentColor800: 'fill-black-accent-color-800'
+  hasFocusWithin: {
+    input: {
+      accentColor800: '?' // [Debt]
+    }
+  },
+  secondaryColor400: 'outline-gray-400' // [Debt]
 }
 
 const outlineThemeConstant = {

@@ -8,7 +8,19 @@ const white = {
   primaryColor: 'text-white',
   secondaryColor: 'text-black',
   secondaryColor600: 'text-gray-600',
-  accentColor800: 'text-white-accent-color-800'
+  accentColor800: 'text-white-accent-color-800',
+  group: {
+    data: {
+      selected: {
+        primaryColor: 'group-data-[selected]:text-white'
+      }
+    }
+  },
+  data: {
+    focus: {
+      primaryColor: 'data-[focus]:text-white'
+    }
+  }
 }
 
 const black = {
@@ -21,7 +33,19 @@ const black = {
   primaryColor: 'text-black',
   secondaryColor: 'text-white',
   secondaryColor600: 'text-gray-600', // [Debt]
-  accentColor800: 'text-black-accent-color-800'
+  accentColor800: 'text-black-accent-color-800',
+  group: {
+    data: {
+      selected: {
+        primaryColor: 'group-data-[selected]:text-black'
+      }
+    }
+  },
+  data: {
+    focus: {
+      accentColor800: 'data-[focus]:text-black'
+    }
+  }
 }
 
 const textThemeConstant = {

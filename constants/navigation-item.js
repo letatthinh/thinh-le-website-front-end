@@ -1,7 +1,7 @@
 import {
   Home01Icon,
   Mailbox01Icon,
-  UserCircle02Icon,
+  UserCircleIcon,
   WorkflowCircle06Icon
 } from '@hugeicons/react'
 import pageMetadataConstant from './metadata/page'
@@ -18,7 +18,7 @@ const home = {
 const aboutMe = {
   path: pageMetadataConstant.aboutMe.path,
   label: pageMetadataConstant.aboutMe.title,
-  iconComponent: <UserCircle02Icon
+  iconComponent: <UserCircleIcon
     size={'100%'}
     variant={'solid'}
     type={'rounded'} />
