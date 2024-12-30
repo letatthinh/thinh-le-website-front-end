@@ -17,7 +17,7 @@ export default function ProjectsPageHeroSectionClient() {
 
   return <section>
     <div className={stringUtility.merge([
-      'container-layout feature-py section-px text-center'
+      'container-layout section-pt section-px text-center'
     ])}>
       <p className={`text-normal content-mt ${textTheme.secondaryColor600}`}>
         A collection of personal and academic projects showcasing my skills in

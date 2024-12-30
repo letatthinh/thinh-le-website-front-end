@@ -4,7 +4,6 @@ import SecondaryLinkButtonClient
   from '@/components/client/buttons/links/secondary'
 import stringUtility from '@/utilities/string'
 import {DownloadCircle01Icon, SourceCodeCircleIcon} from '@hugeicons/react'
-import Image from 'next/image'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -24,20 +23,7 @@ export default function HomePageHeroSectionClient() {
     borderTheme
   } = useSelector(selectTheme)
 
-  return <section className={'relative'}>
-    <Image
-      className={'-z-10'}
-      alt={'Home page\'s hero section background'}
-      src={'/background/hero-background.avif'}
-      fill
-      // [Tip]: You should add the 'priority' property to the image
-      // that will be the Largest Contentful Paint (LCP) element
-      // for each page.
-      // https://nextjs.org/docs/pages/building-your-application/optimizing/images#priority
-      priority
-      style={{
-        objectFit: 'cover'
-      }} />
+  return <section className={'bg-stockton bg-cover bg-no-repeat bg-center'}>
     <div className={stringUtility.merge([
       'container-layout feature-py section-px'
     ])}>

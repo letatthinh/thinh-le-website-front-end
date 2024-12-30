@@ -30,6 +30,7 @@ export default function ComboBoxClient({
   placeholder = '',
   defaultOption = '',
   options,
+  onOptionChange,
   setCustomDisplayValue,
   setCustomFilterOptions
 }) {
@@ -51,9 +52,22 @@ export default function ComboBoxClient({
         return _option.toLowerCase().includes(value.toLowerCase())
       })
 
+  const onComboBoxValueChange = (_value) => {
+    setSelectedOption(_value)
+
+    if (onOptionChange) {
+      onOptionChange(_value)
+    }
+  }
+
+  const onInputValueChange = (_event) => {
+    setValue(_event.target.value)
+  }
+
   return <Combobox
     value={selectedOption}
-    onChange={(_value) => setSelectedOption(_value)}
+    virtual={{options: filteredOptions}}
+    onChange={onComboBoxValueChange}
     onClose={() => setValue('')}>
     <div className={`text-normal ${textTheme.secondaryColor}`}>
       {renderUtility.renderIfTrue(label, <label htmlFor={id}
@@ -74,7 +88,7 @@ export default function ComboBoxClient({
           displayValue={setCustomDisplayValue
             ? setCustomDisplayValue
             : (_option) => _option}
-          onChange={(event) => setValue(event.target.value)} />
+          onChange={onInputValueChange} />
         <ComboboxButton className='absolute inset-y-0 right-0 px-2'>
           <ArrowDown01Icon
             className={'wh-small-2'}
@@ -92,12 +106,11 @@ export default function ComboBoxClient({
         'border empty:invisible',
         borderTheme.secondaryColor400
       ])}>
-      {filteredOptions.map((_option, _index) => (
+      {({option: _option}) => (
         <ComboboxOption
-          key={_index}
           value={_option}
           className={stringUtility.merge([
-            'group flex items-center py-2 px-4',
+            'group flex items-center w-full py-2 px-4',
             'cursor-pointer select-none',
             backgroundTheme.primaryColor,
             backgroundTheme.data.focus.accentColor800,
@@ -116,7 +129,7 @@ export default function ComboBoxClient({
             variant={'solid'}
             type={'rounded'} />
         </ComboboxOption>
-      ))}
+      )}
     </ComboboxOptions>
   </Combobox>
 

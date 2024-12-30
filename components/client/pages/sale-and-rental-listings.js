@@ -22,31 +22,47 @@ export default function SaleAndRentalListingsProjectPageClient() {
     outlineTheme,
     textTheme
   } = useSelector(selectTheme)*/
-  const [states, setStates] = useState([])
-  //const [cities, setCities] = useState([])
+  const [selectedStateName, setSelectedStateName] = useState('New Jersey')
+  const [stateNames, setStateNames] = useState([])
+  const [cityNames, setCityNames] = useState([])
 
   useEffect(() => {
-    locationApi.getStateNames().then(data => setStates(data))
+    locationApi
+      .getStateNames()
+      .then(data => setStateNames(data))
   }, [])
+
+  useEffect(() => {
+    if (selectedStateName) {
+      locationApi
+        .getCitiesByStateName(selectedStateName)
+        .then(data => setCityNames(data))
+    }
+  }, [selectedStateName])
+
+  const onStateChange = (_state) => {
+    setSelectedStateName(_state)
+  }
 
   return <BlogClient
     dateCreated={projectConstant.saleAndRentalListings.dateCreated}
     title={projectConstant.saleAndRentalListings.title}
     contentClassName={'relative'}>
-    <section className={'h-full min-w-80 max-w-screen-sm'}>
+    <section className={'h-full min-w-80 max-w-screen-sm flex'}>
       <ComboBoxClient
         label={'State'}
         id={'state'}
         name={'state'}
         placeholder={'Select state'}
-        defaultOption={'New Jersey'}
-        options={states} />
+        defaultOption={selectedStateName}
+        options={stateNames}
+        onOptionChange={onStateChange} />
       <ComboBoxClient
         label={'City'}
         id={'city'}
         name={'city'}
         placeholder={'Select city'}
-        options={[]} />
+        options={cityNames} />
     </section>
   </BlogClient>
 }

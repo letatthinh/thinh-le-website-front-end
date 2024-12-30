@@ -16,6 +16,7 @@ export const theme = {
       '4/3': '4 / 3'
     },
     backgroundImage: {
+      'stockton': 'url(\'/background/stockton-background.avif\')',
       'profile': 'url(\'/profile.webp\')',
       'sale-and-rental-listings': 'url(\'/projects/sale-and-rental-listings.webp\')'
     },
