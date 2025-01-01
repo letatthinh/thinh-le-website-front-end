@@ -28,7 +28,7 @@ export default function ComboBoxClient({
   id,
   name,
   isRequired = false,
-  isValid = true,
+  enableValidation = false,
   validationMessage = 'This is a required field',
   placeholder = 'Please select',
   defaultOption = '',
@@ -157,12 +157,12 @@ export default function ComboBoxClient({
           className={stringUtility.merge([
             'w-full rounded-normal py-2 px-4',
             'outline outline-1 focus:outline-2 focus:outline-offset-1',
-            isValid
-              ? ''
-              : stringUtility.merge([
+            enableValidation
+              ? stringUtility.merge([
                 'invalid:outline-2 invalid:outline-offset-1',
                 outlineTheme.invalid
-              ]),
+              ])
+              : '',
             outlineTheme.secondaryColor400,
             outlineTheme.focus.input.accentColor800
           ])}
@@ -178,7 +178,7 @@ export default function ComboBoxClient({
             type={'rounded'} />
         </ComboboxButton>
       </div>
-      {renderUtility.renderIfTrue(!isValid, <p
+      {renderUtility.renderIfTrue(enableValidation, <p
         className={stringUtility.merge([
           'mt-2 text-small-1 hidden peer-has-[:invalid]:block',
           textTheme.invalid

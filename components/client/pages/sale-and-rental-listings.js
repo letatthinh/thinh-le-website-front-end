@@ -29,8 +29,8 @@ export default function SaleAndRentalListingsProjectPageClient({
   } = useSelector(selectTheme)*/
   const [stateNameOption, setStateNameOption]
     = useState('New Jersey')
-  const [isFormValid, setIsFormValid]
-    = useState(true)
+  const [isFormValidationEnabled, setIsFormValidationEnabled]
+    = useState(false)
 
   const stateNames = useMemo(() => {
     return states.map(_state => _state.name)
@@ -66,9 +66,12 @@ export default function SaleAndRentalListingsProjectPageClient({
   const onSearchFormSubmit = (_event) => {
     _event.preventDefault()
 
+    if (!isFormValidationEnabled) {
+      setIsFormValidationEnabled(true)
+    }
+
     // Check the validity of the entire form
     if (!_event.target.checkValidity()) {
-      setIsFormValid(false)
       return
     }
 
@@ -91,7 +94,7 @@ export default function SaleAndRentalListingsProjectPageClient({
           id={'state'}
           name={'state'}
           isRequired={true}
-          isValid={isFormValid}
+          enableValidation={isFormValidationEnabled}
           defaultOption={stateNameOption}
           options={stateNames}
           onOptionChange={onStateNameChange} />
@@ -100,7 +103,7 @@ export default function SaleAndRentalListingsProjectPageClient({
           id={'city'}
           name={'city'}
           isRequired={true}
-          isValid={isFormValid}
+          enableValidation={isFormValidationEnabled}
           options={cityNames}
           isVirtualScrolling={true}
           comboBoxClassName={'content-mt'} />
