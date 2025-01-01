@@ -20,7 +20,8 @@ const white = {
     focus: {
       primaryColor: 'data-[focus]:text-white'
     }
-  }
+  },
+  invalid: 'text-red-600'
 }
 
 const black = {
@@ -45,7 +46,8 @@ const black = {
     focus: {
       accentColor800: 'data-[focus]:text-black'
     }
-  }
+  },
+  invalid: 'text-red-600'
 }
 
 const textThemeConstant = {

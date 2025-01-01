@@ -9,7 +9,7 @@ import {
   ComboboxOptions
 } from '@headlessui/react'
 import {ArrowDown01Icon, Tick02Icon} from '@hugeicons/react'
-import {useState} from 'react'
+import {useCallback, useEffect, useMemo, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -27,9 +27,14 @@ export default function ComboBoxClient({
   label,
   id,
   name,
-  placeholder = '',
+  isRequired = false,
+  isValid = true,
+  validationMessage = 'This is a required field',
+  placeholder = 'Please select',
   defaultOption = '',
   options,
+  isVirtualScrolling = false,
+  comboBoxClassName,
   onOptionChange,
   setCustomDisplayValue,
   setCustomFilterOptions
@@ -41,16 +46,24 @@ export default function ComboBoxClient({
     textTheme
   } = useSelector(selectTheme)
 
-  const [value, setValue] = useState('')
+  const [inputValue, setInputValue] = useState('')
   const [selectedOption, setSelectedOption] = useState(defaultOption)
 
-  const filteredOptions = setCustomFilterOptions
-    ? setCustomFilterOptions
-    : value === ''
-      ? options
-      : options.filter((_option) => {
-        return _option.toLowerCase().includes(value.toLowerCase())
-      })
+  const filteredOptions = useMemo(() => {
+    return setCustomFilterOptions
+      ? setCustomFilterOptions
+      : inputValue === ''
+        ? options
+        : options.filter((_option) => {
+          return _option.toLowerCase().includes(inputValue.toLowerCase())
+        })
+  }, [options, setCustomFilterOptions, inputValue])
+
+  useEffect(() => {
+    if (!defaultOption) {
+      setSelectedOption('')
+    }
+  }, [defaultOption, options])
 
   const onComboBoxValueChange = (_value) => {
     setSelectedOption(_value)
@@ -61,27 +74,95 @@ export default function ComboBoxClient({
   }
 
   const onInputValueChange = (_event) => {
-    setValue(_event.target.value)
+    setInputValue(_event.target.value)
   }
+
+  const renderComboboxOptionContent = useCallback((_option) => {
+    return <>
+      <div className={stringUtility.merge([
+        'grow text-normal'
+      ])}>
+        {_option}
+      </div>
+      <Tick02Icon
+        className={stringUtility.merge([
+          'shrink-0 wh-normal invisible group-data-[selected]:visible'
+        ])}
+        size={'100%'}
+        variant={'solid'}
+        type={'rounded'} />
+    </>
+  }, [])
+
+  const renderVirtualScrollingComboboxOption = useCallback((_option) => {
+    return <ComboboxOption
+      value={_option}
+      className={stringUtility.merge([
+        'group flex items-center w-full py-2 px-4',
+        'cursor-pointer select-none',
+        backgroundTheme.primaryColor,
+        backgroundTheme.data.focus.accentColor800,
+        textTheme.data.focus.primaryColor
+      ])}>
+      {renderComboboxOptionContent(_option)}
+    </ComboboxOption>
+  }, [
+    backgroundTheme.data.focus.accentColor800,
+    backgroundTheme.primaryColor,
+    renderComboboxOptionContent,
+    textTheme.data.focus.primaryColor
+  ])
+
+  const renderComboboxOption = useCallback((_option, _index) => {
+    return <ComboboxOption
+      key={_index}
+      value={_option}
+      className={stringUtility.merge([
+        'group flex items-center py-2 px-4',
+        'cursor-pointer select-none',
+        backgroundTheme.primaryColor,
+        backgroundTheme.data.focus.accentColor800,
+        textTheme.data.focus.primaryColor
+      ])}>
+      {renderComboboxOptionContent(_option)}
+    </ComboboxOption>
+  }, [
+    backgroundTheme.data.focus.accentColor800,
+    backgroundTheme.primaryColor,
+    renderComboboxOptionContent,
+    textTheme.data.focus.primaryColor
+  ])
 
   return <Combobox
     value={selectedOption}
-    virtual={{options: filteredOptions}}
+    virtual={isVirtualScrolling
+      ? {options: filteredOptions}
+      : undefined}
     onChange={onComboBoxValueChange}
-    onClose={() => setValue('')}>
-    <div className={`text-normal ${textTheme.secondaryColor}`}>
+    onClose={() => setInputValue('')}>
+    <div className={stringUtility.merge([
+      textTheme.secondaryColor,
+      comboBoxClassName
+    ])}>
       {renderUtility.renderIfTrue(label, <label htmlFor={id}
         className={'font-medium'}>
         {label}
       </label>)}
-      <div className={`relative ${label ? 'mt-2' : ''}`}>
+      <div className={`relative peer ${label ? 'mt-2' : ''}`}>
         <ComboboxInput
           id={id}
           name={name}
+          required={isRequired}
           placeholder={placeholder}
           className={stringUtility.merge([
             'w-full rounded-normal py-2 px-4',
             'outline outline-1 focus:outline-2 focus:outline-offset-1',
+            isValid
+              ? ''
+              : stringUtility.merge([
+                'invalid:outline-2 invalid:outline-offset-1',
+                outlineTheme.invalid
+              ]),
             outlineTheme.secondaryColor400,
             outlineTheme.focus.input.accentColor800
           ])}
@@ -97,6 +178,13 @@ export default function ComboBoxClient({
             type={'rounded'} />
         </ComboboxButton>
       </div>
+      {renderUtility.renderIfTrue(!isValid, <p
+        className={stringUtility.merge([
+          'mt-2 text-small-1 hidden peer-has-[:invalid]:block',
+          textTheme.invalid
+        ])}>
+        {validationMessage}
+      </p>)}
     </div>
     <ComboboxOptions
       anchor='bottom'
@@ -106,31 +194,11 @@ export default function ComboBoxClient({
         'border empty:invisible',
         borderTheme.secondaryColor400
       ])}>
-      {({option: _option}) => (
-        <ComboboxOption
-          value={_option}
-          className={stringUtility.merge([
-            'group flex items-center w-full py-2 px-4',
-            'cursor-pointer select-none',
-            backgroundTheme.primaryColor,
-            backgroundTheme.data.focus.accentColor800,
-            textTheme.data.focus.primaryColor
-          ])}>
-          <div className={stringUtility.merge([
-            'grow text-normal'
-          ])}>
-            {_option}
-          </div>
-          <Tick02Icon
-            className={stringUtility.merge([
-              'shrink-0 wh-normal invisible group-data-[selected]:visible'
-            ])}
-            size={'100%'}
-            variant={'solid'}
-            type={'rounded'} />
-        </ComboboxOption>
-      )}
+      {isVirtualScrolling
+        ? ({option: _option}) => renderVirtualScrollingComboboxOption(_option)
+        : filteredOptions.map((_option, _index) =>
+          renderComboboxOption(_option, _index)
+        )}
     </ComboboxOptions>
   </Combobox>
-
 }

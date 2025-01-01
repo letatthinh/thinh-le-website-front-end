@@ -92,6 +92,10 @@ to build any design without needing to write custom CSS.
     @apply mt-6
   }
 
+  .content-p {
+    @apply p-6
+  }
+
   .content-py {
     @apply py-6
   }

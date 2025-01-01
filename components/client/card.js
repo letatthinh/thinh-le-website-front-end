@@ -44,7 +44,7 @@ export default function CardClient({
         {dateTimeUtility.formatLongDate(date)}
       </time>
       <Link aria-label={title} href={link}>
-        <h3 className={'mt-2 font-bold text-h3'}>{title}</h3>
+        <p className={'mt-2 font-bold text-h3'}>{title}</p>
       </Link>
       <p className={stringUtility.merge([
         'content-mt line-clamp-3 text-normal',

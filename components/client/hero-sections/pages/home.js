@@ -59,6 +59,7 @@ export default function HomePageHeroSectionClient() {
           'xs:max-sm:justify-center'
         ])}>
           <PrimaryLinkButtonClient
+            ariaLabel={'Projects'}
             className={'button-link-icon-text min-w-fit justify-center'}
             href={''}>
             <SourceCodeCircleIcon
@@ -68,6 +69,7 @@ export default function HomePageHeroSectionClient() {
             Projects
           </PrimaryLinkButtonClient>
           <SecondaryLinkButtonClient
+            ariaLabel={'Download resume'}
             className={'button-link-icon-text min-w-fit justify-center'}
             href={'https://drive.google.com/file/d/10ymRXc22nbeJdHh2uB8Y43_y8m4vZ59d/view?usp=sharing'}>
             <DownloadCircle01Icon

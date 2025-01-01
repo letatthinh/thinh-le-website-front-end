@@ -1,5 +1,4 @@
 import stringUtility from '@/utilities/string'
-import Link from 'next/link'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -12,8 +11,8 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function PrimaryLinkButtonClient({
-  children, className, href, ariaLabel
+export default function PrimaryButtonClient({
+  children, className, type, ariaLabel, onClick
 }) {
   const {
     backgroundTheme,
@@ -21,8 +20,9 @@ export default function PrimaryLinkButtonClient({
     textTheme
   } = useSelector(selectTheme)
 
-  return <Link
+  return <button
     aria-label={ariaLabel}
+    type={type}
     className={stringUtility.merge([
       backgroundTheme.hover.accentColor800,
       backgroundTheme.secondaryColor,
@@ -31,7 +31,7 @@ export default function PrimaryLinkButtonClient({
       textTheme.primaryColor,
       className
     ])}
-    href={href}>
+    onClick={onClick}>
     {children}
-  </Link>
+  </button>
 }

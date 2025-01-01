@@ -53,7 +53,7 @@ export default function FooterClient() {
               return <IconLinkButtonClient
                 className={'wh-normal'}
                 key={_index}
-                label={_socialMedia.label}
+                ariaLabel={_socialMedia.label}
                 href={_socialMedia.link}>
                 {_socialMedia.icon}
               </IconLinkButtonClient>

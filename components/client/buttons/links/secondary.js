@@ -11,13 +11,16 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function SecondaryLinkButtonClient({children, className, href}) {
+export default function SecondaryLinkButtonClient({
+  children, className, href, ariaLabel
+}) {
   const {
     textTheme,
     borderTheme
   } = useSelector(selectTheme)
 
   return <Link
+    aria-label={ariaLabel}
     className={stringUtility.merge([
       borderTheme.secondaryColor,
       borderTheme.hover.accentColor800,

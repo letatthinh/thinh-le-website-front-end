@@ -1,9 +1,11 @@
 'use client'
-import locationApi from '@/apis/location'
 import BlogClient from '@/components/client/blog'
+import PrimaryButtonClient from '@/components/client/buttons/primary'
 import ComboBoxClient from '@/components/client/combo-box'
 import projectConstant from '@/constants/project'
-import {useEffect, useState} from 'react'
+import stringUtility from '@/utilities/string'
+import {Search01Icon} from '@hugeicons/react'
+import {useMemo, useState} from 'react'
 //import {useSelector} from 'react-redux'
 //import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -16,53 +18,117 @@ import {useEffect, useState} from 'react'
   createSelector
 )*/
 
-export default function SaleAndRentalListingsProjectPageClient() {
+export default function SaleAndRentalListingsProjectPageClient({
+  states,
+  cities
+}) {
   /*const {
     backgroundTheme,
     outlineTheme,
     textTheme
   } = useSelector(selectTheme)*/
-  const [selectedStateName, setSelectedStateName] = useState('New Jersey')
-  const [stateNames, setStateNames] = useState([])
-  const [cityNames, setCityNames] = useState([])
+  const [stateNameOption, setStateNameOption]
+    = useState('New Jersey')
+  const [isFormValid, setIsFormValid]
+    = useState(true)
 
-  useEffect(() => {
-    locationApi
-      .getStateNames()
-      .then(data => setStateNames(data))
-  }, [])
+  const stateNames = useMemo(() => {
+    return states.map(_state => _state.name)
+  }, [states])
 
-  useEffect(() => {
-    if (selectedStateName) {
-      locationApi
-        .getCitiesByStateName(selectedStateName)
-        .then(data => setCityNames(data))
+  const cityNames = useMemo(() => {
+    if (stateNameOption) {
+      let isStateFound = false
+      const results = []
+
+      for (let index = 0; index < cities.length; index++) {
+        if (cities[index].state === stateNameOption) {
+          if (!isStateFound) {
+            isStateFound = true
+          }
+
+          results.push(cities[index].name)
+        } else {
+          if (isStateFound) {
+            return results
+          }
+        }
+      }
+    } else {
+      return []
     }
-  }, [selectedStateName])
+  }, [cities, stateNameOption])
 
-  const onStateChange = (_state) => {
-    setSelectedStateName(_state)
+  const onStateNameChange = (_state) => {
+    setStateNameOption(_state)
+  }
+
+  const onSearchFormSubmit = (_event) => {
+    _event.preventDefault()
+
+    // Check the validity of the entire form
+    if (!_event.target.checkValidity()) {
+      setIsFormValid(false)
+      return
+    }
+
+    const formData = new FormData(_event.target)
+    const data = Object.fromEntries(formData.entries())
+    console.log(data)
   }
 
   return <BlogClient
     dateCreated={projectConstant.saleAndRentalListings.dateCreated}
     title={projectConstant.saleAndRentalListings.title}
-    contentClassName={'relative'}>
-    <section className={'h-full min-w-80 max-w-screen-sm flex'}>
-      <ComboBoxClient
-        label={'State'}
-        id={'state'}
-        name={'state'}
-        placeholder={'Select state'}
-        defaultOption={selectedStateName}
-        options={stateNames}
-        onOptionChange={onStateChange} />
-      <ComboBoxClient
-        label={'City'}
-        id={'city'}
-        name={'city'}
-        placeholder={'Select city'}
-        options={cityNames} />
+    contentClassName={'relative text-normal'}>
+    <section className={stringUtility.merge([
+      'h-full min-w-80 max-w-md content-p border-2'
+    ])}>
+      {/* [Form tip]: noValidate is to disable built-in form validation */}
+      <form onSubmit={onSearchFormSubmit} noValidate>
+        <ComboBoxClient
+          label={'State (*)'}
+          id={'state'}
+          name={'state'}
+          isRequired={true}
+          isValid={isFormValid}
+          defaultOption={stateNameOption}
+          options={stateNames}
+          onOptionChange={onStateNameChange} />
+        <ComboBoxClient
+          label={'City (*)'}
+          id={'city'}
+          name={'city'}
+          isRequired={true}
+          isValid={isFormValid}
+          options={cityNames}
+          isVirtualScrolling={true}
+          comboBoxClassName={'content-mt'} />
+        <div className={'content-mt flex content-gap'}>
+          <ComboBoxClient
+            label={'Property type'}
+            id={'propertyType'}
+            name={'propertyType'}
+            options={stateNames} />
+          <ComboBoxClient
+            label={'For'}
+            id={'for'}
+            name={'for'}
+            options={[]} />
+        </div>
+        <PrimaryButtonClient
+          ariaLabel={'Search'}
+          type={'submit'}
+          className={'button-link-icon-text min-w-fit content-mt'}>
+          <div className={'wh-normal'}>
+            <Search01Icon
+              size={'100%'}
+              variant={'solid'}
+              type={'rounded'} />
+          </div>
+          Search
+        </PrimaryButtonClient>
+      </form>
     </section>
   </BlogClient>
 }
