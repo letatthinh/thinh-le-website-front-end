@@ -41,14 +41,18 @@ export const theme = {
       }
     },
     maxWidth: {
-      'screen-xs': '480px'
+      'screen-xs': '30rem'
     },
     padding: {
       '18': '4.5rem',
       '30': '7.5rem'
     },
     screens: {
-      'xs': '480px'
+      'xxs': '20rem',
+      'xs': '30rem'
+    },
+    spacing: {
+      '112': '28rem'
     },
     transitionProperty: {
       'box-shadow': 'box-shadow',
@@ -56,7 +60,8 @@ export const theme = {
       'max-width': 'max-width',
       'padding': 'padding',
       'width': 'width',
-      'height': 'height'
+      'height': 'height',
+      'transform': 'transform'
     }
   }
 }

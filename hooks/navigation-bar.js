@@ -1,4 +1,4 @@
-import VerticalNavigationBarContext from '@/contexts/vertical-navigation-bar'
+import NavigationBarContext from '@/contexts/navigation-bar'
 import stringUtility from '@/utilities/string'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
@@ -6,7 +6,7 @@ import {useCallback, useContext} from 'react'
 
 export default function useNavigationBar() {
   const urlPathName = usePathname()
-  const onNavigationItemClick = useContext(VerticalNavigationBarContext)
+  const onNavigationItemClick = useContext(NavigationBarContext)
 
   const isChildPathOf = useCallback((_navigationItemPathName) => {
     // Not homepage & child path

@@ -11,6 +11,7 @@ const selectTheme = createStructuredSelector({
 }, createSelector)
 
 export default function FooterNavigationBarClient() {
+  console.log('footer')
   const {backgroundTheme, textTheme} = useSelector(selectTheme)
   const {renderNavigationItems} = useNavigationBar()
 

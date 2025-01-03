@@ -5,7 +5,7 @@ import HeaderNavigationBarClient
 import VerticalNavigationBarClient
   from '@/components/client/navigation-bars/vertical'
 import widthConstant from '@/constants/width'
-import VerticalNavigationBarContext from '@/contexts/vertical-navigation-bar'
+import NavigationBarContext from '@/contexts/navigation-bar'
 import stringUtility from '@/utilities/string'
 import {Hamburger01Icon} from '@hugeicons/react'
 import {useCallback, useEffect, useRef, useState} from 'react'
@@ -35,6 +35,7 @@ export default function HeaderClient() {
   const sentinelRef = useRef(null)
   const headerRef = useRef(null)
   const backdropRef = useRef(null)
+  const verticalNavigationBarContainerRef = useRef(null)
   const hamburgerButtonRef = useRef(null)
 
   /* Set shadow for header when scrolling */
@@ -84,20 +85,22 @@ export default function HeaderClient() {
     shadowTheme.opacity.twenty.accentColor800
   ])
 
+  /* Hide vertical bar when screen width exceeded lg breakpoint */
   useEffect(() => {
-    const hideBackdropWhenWidthExceeded = () => {
+    const hideBackdropWhenWidthExceededLg = () => {
       const isBackdropShown = !backdropRef.current
         .classList
         .contains('hidden')
 
       if (window.innerWidth >= widthConstant.lg && isBackdropShown) {
-        backdropRef.current.classList.toggle('hidden')
+        toggleBackdropHiddenClassName()
+        toggleVerticalNavigationBarContainerTranslateClassName()
       }
     }
 
     const onWindowResize = () => {
       setViewportHeight(window.innerHeight)
-      hideBackdropWhenWidthExceeded()
+      hideBackdropWhenWidthExceededLg()
     }
 
     window.addEventListener('resize', onWindowResize)
@@ -107,22 +110,25 @@ export default function HeaderClient() {
     }
   }, [])
 
-  /* Calculate the backdrop height */
+  /* Calculate the remaining height by subtracting the header height */
   useEffect(() => {
     const headerHeight = headerRef.current.getBoundingClientRect().height
-    const backdropHeight = viewportHeight - headerHeight
+    const remainingHeight = viewportHeight - headerHeight
 
     if (backdropRef.current) {
-      backdropRef.current.style.height = `${backdropHeight}px`
+      backdropRef.current.style.height = `${remainingHeight}px`
+    }
+
+    if (backdropRef.current) {
+      verticalNavigationBarContainerRef.current.style.height = `${remainingHeight}px`
     }
   }, [viewportHeight])
 
   const animateHamburgerButton = useCallback(() => {
-    const menuButton = hamburgerButtonRef.current
-    menuButton.classList.add('animate-hamburger')
+    hamburgerButtonRef.current.classList.add('animate-hamburger')
 
     setTimeout(() => {
-      menuButton.classList.remove('animate-hamburger')
+      hamburgerButtonRef.current.classList.remove('animate-hamburger')
     }, 300)
   }, [])
 
@@ -130,22 +136,43 @@ export default function HeaderClient() {
     backdropRef.current.classList.toggle('hidden')
   }, [])
 
+  const toggleVerticalNavigationBarContainerTranslateClassName
+    = useCallback(() => {
+      if (verticalNavigationBarContainerRef.current.classList.contains('-translate-x-80')) {
+        verticalNavigationBarContainerRef.current.classList.remove('-translate-x-80')
+        verticalNavigationBarContainerRef.current.classList.add('translate-x-0')
+      } else if (verticalNavigationBarContainerRef.current.classList.contains('translate-x-0')) {
+        verticalNavigationBarContainerRef.current.classList.remove('translate-x-0')
+        verticalNavigationBarContainerRef.current.classList.add('-translate-x-80')
+      }
+    }, [])
+
   const onHamburgerButtonClick = useCallback((_event) => {
     _event.preventDefault()
     animateHamburgerButton()
     toggleBackdropHiddenClassName()
+    toggleVerticalNavigationBarContainerTranslateClassName()
   }, [
     animateHamburgerButton,
-    toggleBackdropHiddenClassName
+    toggleBackdropHiddenClassName,
+    toggleVerticalNavigationBarContainerTranslateClassName
   ])
 
   const onBackdropClick = useCallback(() => {
     toggleBackdropHiddenClassName()
-  }, [toggleBackdropHiddenClassName])
+    toggleVerticalNavigationBarContainerTranslateClassName()
+  }, [
+    toggleBackdropHiddenClassName,
+    toggleVerticalNavigationBarContainerTranslateClassName
+  ])
 
   const onNavigationItemClick = useCallback(() => {
     toggleBackdropHiddenClassName()
-  }, [toggleBackdropHiddenClassName])
+    toggleVerticalNavigationBarContainerTranslateClassName()
+  }, [
+    toggleBackdropHiddenClassName,
+    toggleVerticalNavigationBarContainerTranslateClassName
+  ])
 
   return <>
     {/* [Tip]: Use a sentinel with intersectionObserver to set shadow for the header */}
@@ -179,24 +206,24 @@ export default function HeaderClient() {
             type={'rounded'} />
         </button>
       </section>
-      <VerticalNavigationBarContext.Provider value={onNavigationItemClick}>
-        {/* Absolute to the body tag
-          See more: https://developer.mozilla.org/en-US/docs/Web/CSS/position#values
-        */}
+      <NavigationBarContext.Provider value={onNavigationItemClick}>
         <div
           onClick={onBackdropClick}
           ref={backdropRef}
           className={stringUtility.merge([
-            'hidden absolute w-full',
+            'hidden absolute inset-x-0',
             backgroundTheme.opacity.fifty.secondaryColor
           ])}>
-          <section className={stringUtility.merge([
-            'h-full'
-          ])}>
-            <VerticalNavigationBarClient />
-          </section>
         </div>
-      </VerticalNavigationBarContext.Provider>
+        <section
+          ref={verticalNavigationBarContainerRef}
+          className={stringUtility.merge([
+            'w-80 absolute -translate-x-80 transition-transform',
+            backgroundTheme.primaryColor
+          ])}>
+          <VerticalNavigationBarClient />
+        </section>
+      </NavigationBarContext.Provider>
     </header>
   </>
 }

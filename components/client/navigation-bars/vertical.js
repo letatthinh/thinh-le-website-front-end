@@ -43,7 +43,6 @@ export default function VerticalNavigationBarClient() {
   return <nav
     onClick={onVerticalNavigationBarClick}
     className={stringUtility.merge([
-      'w-80 h-full',
       'flex flex-col gap-2',
       backgroundTheme.primaryColor
     ])}>

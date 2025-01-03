@@ -28,11 +28,12 @@ export default function ComboBoxClient({
   id,
   name,
   isRequired = false,
+  // If true, it will apply validation by default, and may have invalid status
   enableValidation = false,
   validationMessage = 'This is a required field',
   placeholder = 'Please select',
-  defaultOption = '',
   options,
+  defaultOption = '',
   isVirtualScrolling = false,
   comboBoxClassName,
   onOptionChange,

@@ -194,27 +194,27 @@ to build any design without needing to write custom CSS.
   }
 
   .w-small-2 {
-    @apply w-4 lg:w-5 transition-width
+    @apply w-3 lg:w-4 transition-width
   }
 
   .w-small-1 {
-    @apply w-5 lg:w-6 transition-width
+    @apply w-4 lg:w-5 transition-width
   }
 
   .w-normal {
-    @apply w-6 lg:w-7 transition-width
+    @apply w-5 lg:w-6 transition-width
   }
 
   .h-small-2 {
-    @apply h-4 lg:h-5 transition-height
+    @apply h-3 lg:h-4 transition-height
   }
 
   .h-small-1 {
-    @apply h-5 lg:h-6 transition-height
+    @apply h-4 lg:h-5 transition-height
   }
 
   .h-normal {
-    @apply h-6 lg:h-7 transition-height
+    @apply h-5 lg:h-6 transition-height
   }
 
   .wh-small-2 {
