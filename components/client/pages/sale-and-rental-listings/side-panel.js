@@ -4,7 +4,7 @@ import stringUtility from '@/utilities/string'
 import {Search01Icon} from '@hugeicons/react'
 import {useMemo, useState} from 'react'
 
-export default function SearchDrawer({
+export default function SidePanel({
   states,
   cities
 }) {
@@ -61,8 +61,7 @@ export default function SearchDrawer({
   }
 
   return <section className={stringUtility.merge([
-    'w-72 xs:w-112 transition-width content-p bg-red-300',
-    'absolute top-0 -left-7'
+    'w-72 xs:w-112 transition-width content-p bg-red-300'
   ])}>
     {/* [Form tip]: noValidate is to disable built-in form validation */}
     <form onSubmit={onSearchFormSubmit} noValidate>

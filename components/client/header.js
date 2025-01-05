@@ -1,5 +1,6 @@
 'use client'
 import BrandNameClient from '@/components/client/brand-name'
+import IconButtonClient from '@/components/client/buttons/icon'
 import HeaderNavigationBarClient
   from '@/components/client/navigation-bars/header'
 import VerticalNavigationBarClient
@@ -85,6 +86,21 @@ export default function HeaderClient() {
     shadowTheme.opacity.twenty.accentColor800
   ])
 
+  const toggleBackdropHiddenClassName = useCallback(() => {
+    backdropRef.current.classList.toggle('hidden')
+  }, [])
+
+  const toggleVerticalNavigationBarContainerTranslateClassName
+    = useCallback(() => {
+      if (verticalNavigationBarContainerRef.current.classList.contains('-translate-x-80')) {
+        verticalNavigationBarContainerRef.current.classList.remove('-translate-x-80')
+        verticalNavigationBarContainerRef.current.classList.add('translate-x-0')
+      } else if (verticalNavigationBarContainerRef.current.classList.contains('translate-x-0')) {
+        verticalNavigationBarContainerRef.current.classList.remove('translate-x-0')
+        verticalNavigationBarContainerRef.current.classList.add('-translate-x-80')
+      }
+    }, [])
+
   /* Hide vertical bar when screen width exceeded lg breakpoint */
   useEffect(() => {
     const hideBackdropWhenWidthExceededLg = () => {
@@ -108,7 +124,10 @@ export default function HeaderClient() {
     return () => {
       window.removeEventListener('resize', onWindowResize)
     }
-  }, [])
+  }, [
+    toggleBackdropHiddenClassName,
+    toggleVerticalNavigationBarContainerTranslateClassName
+  ])
 
   /* Calculate the remaining height by subtracting the header height */
   useEffect(() => {
@@ -131,21 +150,6 @@ export default function HeaderClient() {
       hamburgerButtonRef.current.classList.remove('animate-hamburger')
     }, 300)
   }, [])
-
-  const toggleBackdropHiddenClassName = useCallback(() => {
-    backdropRef.current.classList.toggle('hidden')
-  }, [])
-
-  const toggleVerticalNavigationBarContainerTranslateClassName
-    = useCallback(() => {
-      if (verticalNavigationBarContainerRef.current.classList.contains('-translate-x-80')) {
-        verticalNavigationBarContainerRef.current.classList.remove('-translate-x-80')
-        verticalNavigationBarContainerRef.current.classList.add('translate-x-0')
-      } else if (verticalNavigationBarContainerRef.current.classList.contains('translate-x-0')) {
-        verticalNavigationBarContainerRef.current.classList.remove('translate-x-0')
-        verticalNavigationBarContainerRef.current.classList.add('-translate-x-80')
-      }
-    }, [])
 
   const onHamburgerButtonClick = useCallback((_event) => {
     _event.preventDefault()
@@ -192,19 +196,16 @@ export default function HeaderClient() {
         <BrandNameClient
           className={`text-big-2 ${textTheme.secondaryColor}`} />
         <HeaderNavigationBarClient />
-        <button
-          aria-label={'Hamburger button'}
+        <IconButtonClient
+          ariaLabel={'Hamburger button'}
           ref={hamburgerButtonRef}
           onClick={onHamburgerButtonClick}
-          className={stringUtility.merge([
-            `lg:hidden w-6 h-6 ${textTheme.secondaryColor}`,
-            textTheme.hover.accentColor800
-          ])}>
+          className={'wh-big-1 lg:hidden'}>
           <Hamburger01Icon
             size={'100%'}
             variant={'solid'}
             type={'rounded'} />
-        </button>
+        </IconButtonClient>
       </section>
       <NavigationBarContext.Provider value={onNavigationItemClick}>
         <div
