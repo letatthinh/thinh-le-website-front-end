@@ -15,7 +15,6 @@ export default function SearchPanel({
     = useState(false)
 
   const stateNames = useMemo(() => {
-    console.log('states', states)
     return states.map(_state => _state.name)
   }, [states])
 

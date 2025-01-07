@@ -9,7 +9,7 @@ import widthConstant from '@/constants/width'
 import NavigationBarContext from '@/contexts/navigation-bar'
 import stringUtility from '@/utilities/string'
 import {Hamburger01Icon} from '@hugeicons/react'
-import {useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -86,12 +86,12 @@ export default function HeaderClient() {
     shadowTheme.opacity.twenty.accentColor800
   ])
 
-  const toggleBackdropHiddenClassName = () => {
+  const toggleBackdropHiddenClassName = useCallback(() => {
     backdropRef.current.classList.toggle('hidden')
-  }
+  }, [])
 
   const toggleVerticalNavigationBarContainerTranslateClassName
-    = () => {
+    = useCallback(() => {
       if (verticalNavigationBarContainerRef.current.classList.contains('-translate-x-80')) {
         verticalNavigationBarContainerRef.current.classList.remove('-translate-x-80')
         verticalNavigationBarContainerRef.current.classList.add('translate-x-0')
@@ -99,7 +99,7 @@ export default function HeaderClient() {
         verticalNavigationBarContainerRef.current.classList.remove('translate-x-0')
         verticalNavigationBarContainerRef.current.classList.add('-translate-x-80')
       }
-    }
+    }, [])
 
   /* Hide vertical bar when screen width exceeded lg breakpoint */
   useEffect(() => {

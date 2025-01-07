@@ -22,13 +22,8 @@ export default function SaleAndRentalListingsProjectPageClient({
   cities
 }) {
   const {
-    backgroundTheme,
     borderTheme
   } = useSelector(selectTheme)
-
-  const onSearchIconButtonClick = (_event) => {
-    _event.preventDefault()
-  }
 
   return <BlogClient
     dateCreated={projectConstant.saleAndRentalListings.dateCreated}
