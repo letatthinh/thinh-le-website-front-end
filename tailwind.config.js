@@ -52,6 +52,7 @@ export const theme = {
       'xs': '30rem'
     },
     spacing: {
+      '19': '4.75rem',
       '112': '28rem'
     },
     transitionProperty: {

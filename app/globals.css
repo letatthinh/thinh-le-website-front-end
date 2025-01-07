@@ -149,6 +149,10 @@ to build any design without needing to write custom CSS.
     @apply rounded-2xl
   }
 
+  .rounded-t-big-1 {
+    @apply rounded-t-2xl
+  }
+
   .text-small-2 {
     @apply text-xs lg:text-sm transition-font-size
   }

@@ -41,13 +41,13 @@ export default function FooterClient() {
       </div>
       <hr className={`content-mt ${borderTheme.opacity.ten.primaryColor}`} />
       <div className={stringUtility.merge([
-        'flex flex-col gap-6 md:flex-row md:gap-0',
+        'flex flex-col content-gap md:flex-row md:gap-0',
         'md:justify-between content-mt'
       ])}>
         <p className={'text-normal'}>
           © 2024 Thinh Le&apos;s website, Inc. All rights reserved.
         </p>
-        <div className={'flex gap-6 justify-center xs:justify-start'}>
+        <div className={'flex content-gap justify-center xs:justify-start'}>
           {socialMediaConstant.allSocialMedia.map(
             (_socialMedia, _index) => {
               return <IconLinkButtonClient

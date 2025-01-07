@@ -9,7 +9,7 @@ import widthConstant from '@/constants/width'
 import NavigationBarContext from '@/contexts/navigation-bar'
 import stringUtility from '@/utilities/string'
 import {Hamburger01Icon} from '@hugeicons/react'
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -86,12 +86,12 @@ export default function HeaderClient() {
     shadowTheme.opacity.twenty.accentColor800
   ])
 
-  const toggleBackdropHiddenClassName = useCallback(() => {
+  const toggleBackdropHiddenClassName = () => {
     backdropRef.current.classList.toggle('hidden')
-  }, [])
+  }
 
   const toggleVerticalNavigationBarContainerTranslateClassName
-    = useCallback(() => {
+    = () => {
       if (verticalNavigationBarContainerRef.current.classList.contains('-translate-x-80')) {
         verticalNavigationBarContainerRef.current.classList.remove('-translate-x-80')
         verticalNavigationBarContainerRef.current.classList.add('translate-x-0')
@@ -99,7 +99,7 @@ export default function HeaderClient() {
         verticalNavigationBarContainerRef.current.classList.remove('translate-x-0')
         verticalNavigationBarContainerRef.current.classList.add('-translate-x-80')
       }
-    }, [])
+    }
 
   /* Hide vertical bar when screen width exceeded lg breakpoint */
   useEffect(() => {
@@ -143,40 +143,30 @@ export default function HeaderClient() {
     }
   }, [viewportHeight])
 
-  const animateHamburgerButton = useCallback(() => {
+  const animateHamburgerButton = () => {
     hamburgerButtonRef.current.classList.add('animate-hamburger')
 
     setTimeout(() => {
       hamburgerButtonRef.current.classList.remove('animate-hamburger')
     }, 300)
-  }, [])
+  }
 
-  const onHamburgerButtonClick = useCallback((_event) => {
+  const onHamburgerButtonClick = (_event) => {
     _event.preventDefault()
     animateHamburgerButton()
     toggleBackdropHiddenClassName()
     toggleVerticalNavigationBarContainerTranslateClassName()
-  }, [
-    animateHamburgerButton,
-    toggleBackdropHiddenClassName,
-    toggleVerticalNavigationBarContainerTranslateClassName
-  ])
+  }
 
-  const onBackdropClick = useCallback(() => {
+  const onBackdropClick = () => {
     toggleBackdropHiddenClassName()
     toggleVerticalNavigationBarContainerTranslateClassName()
-  }, [
-    toggleBackdropHiddenClassName,
-    toggleVerticalNavigationBarContainerTranslateClassName
-  ])
+  }
 
-  const onNavigationItemClick = useCallback(() => {
+  const onNavigationItemClick = () => {
     toggleBackdropHiddenClassName()
     toggleVerticalNavigationBarContainerTranslateClassName()
-  }, [
-    toggleBackdropHiddenClassName,
-    toggleVerticalNavigationBarContainerTranslateClassName
-  ])
+  }
 
   return <>
     {/* [Tip]: Use a sentinel with intersectionObserver to set shadow for the header */}
@@ -185,7 +175,7 @@ export default function HeaderClient() {
       ref={headerRef}
       className={stringUtility.merge([
         backgroundTheme.primaryColor,
-        'sticky top-0 z-40',
+        'sticky top-0 z-50',
         'transition-box-shadow duration-300'
       ])}>
       <section

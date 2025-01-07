@@ -10,7 +10,7 @@ const white = {
       accentColor800: 'has-[input:focus-within]:outline-white-accent-color-800'
     }
   },
-  secondaryColor400: 'outline-gray-400',
+  secondaryColor300: 'outline-gray-300',
   invalid: 'invalid:outline-red-600'
 }
 
@@ -21,7 +21,7 @@ const black = {
       accentColor800: '?' // [Debt]
     }
   },
-  secondaryColor400: 'outline-gray-400', // [Debt]
+  secondaryColor300: 'outline-gray-300', // [Debt]
   invalid: 'invalid:outline-red-600'
 }
 

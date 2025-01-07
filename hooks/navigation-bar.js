@@ -8,11 +8,11 @@ export default function useNavigationBar() {
   const urlPathName = usePathname()
   const onNavigationItemClick = useContext(NavigationBarContext)
 
-  const isChildPathOf = useCallback((_navigationItemPathName) => {
+  const isChildPathOf = (_navigationItemPathName) => {
     // Not homepage & child path
     return _navigationItemPathName.length > 1 &&
       urlPathName.includes(_navigationItemPathName)
-  }, [urlPathName])
+  }
 
   const renderNavigationItems = useCallback((
     navigationItems,

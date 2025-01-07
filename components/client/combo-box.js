@@ -36,6 +36,7 @@ export default function ComboBoxClient({
   defaultOption = '',
   isVirtualScrolling = false,
   comboBoxClassName,
+  comboboxOptionsClassName,
   onOptionChange,
   setCustomDisplayValue,
   setCustomFilterOptions
@@ -164,7 +165,7 @@ export default function ComboBoxClient({
                 outlineTheme.invalid
               ])
               : '',
-            outlineTheme.secondaryColor400,
+            outlineTheme.secondaryColor300,
             outlineTheme.focus.input.accentColor800
           ])}
           displayValue={setCustomDisplayValue
@@ -193,7 +194,8 @@ export default function ComboBoxClient({
       className={stringUtility.merge([
         'w-[var(--input-width)] !max-h-56 overflow-y-auto [--anchor-gap:0.25rem]',
         'border empty:invisible',
-        borderTheme.secondaryColor400
+        borderTheme.secondaryColor300,
+        comboboxOptionsClassName
       ])}>
       {isVirtualScrolling
         ? ({option: _option}) => renderVirtualScrollingComboboxOption(_option)

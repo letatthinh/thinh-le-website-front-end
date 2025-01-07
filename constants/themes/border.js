@@ -14,7 +14,7 @@ const white = {
   },
   primaryColor: 'border-white',
   secondaryColor: 'border-black',
-  secondaryColor400: 'border-gray-400',
+  secondaryColor300: 'border-gray-300',
   accentColor800: 'border-white-accent-color-800',
   opacity: {
     ten: {
@@ -36,7 +36,7 @@ const black = {
   },
   primaryColor: 'border-black',
   secondaryColor: 'border-white',
-  secondaryColor400: 'border-gray-400', // [Debt]
+  secondaryColor300: 'border-gray-300', // [Debt]
   accentColor800: 'border-black-accent-color-800',
   opacity: {
     ten: {

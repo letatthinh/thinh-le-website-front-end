@@ -1,7 +1,7 @@
 import navigationItemConstant from '@/constants/navigation-item'
 import useNavigationBar from '@/hooks/navigation-bar'
 import stringUtility from '@/utilities/string'
-import {useCallback, useMemo} from 'react'
+import {useMemo} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -36,9 +36,9 @@ export default function VerticalNavigationBarClient() {
     textTheme.secondaryColor
   ])
 
-  const onVerticalNavigationBarClick = useCallback((_event) => {
+  const onVerticalNavigationBarClick = (_event) => {
     _event.stopPropagation()
-  }, [])
+  }
 
   return <nav
     onClick={onVerticalNavigationBarClick}

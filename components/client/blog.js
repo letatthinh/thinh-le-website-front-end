@@ -14,8 +14,7 @@ const selectTheme = createStructuredSelector(
 export default function BlogClient({
   dateCreated,
   title,
-  children,
-  contentClassName
+  children
 }) {
   const {
     textTheme
@@ -34,12 +33,7 @@ export default function BlogClient({
       <h1 className={`text-h2 mt-2 ${textTheme.secondaryColor}`}>
         {title}
       </h1>
-      <div className={stringUtility.merge([
-        'mt-12',
-        contentClassName
-      ])}>
-        {children}
-      </div>
+      {children}
     </div>
   </section>
 }
