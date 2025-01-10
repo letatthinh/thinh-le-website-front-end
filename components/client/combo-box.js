@@ -1,4 +1,3 @@
-'use client'
 import renderUtility from '@/utilities/render'
 import stringUtility from '@/utilities/string'
 import {
@@ -9,7 +8,7 @@ import {
   ComboboxOptions
 } from '@headlessui/react'
 import {ArrowDown01Icon, Tick02Icon} from '@hugeicons/react'
-import {useCallback, useEffect, useMemo, useState} from 'react'
+import {useCallback, useMemo} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -24,22 +23,23 @@ const selectTheme = createStructuredSelector(
 )
 
 export default function ComboBoxClient({
-  label,
+  containerClassName,
   id,
-  name,
+  isReadonly = false, // Use this to make it look like a select
   isRequired = false,
-  // If true, it will apply validation by default, and may have invalid status
-  enableValidation = false,
-  validationMessage = 'This is a required field',
-  placeholder = 'Please select',
-  options,
-  defaultOption = '',
-  isVirtualScrolling = false,
-  comboBoxClassName,
-  comboboxOptionsClassName,
+  isValidationEnabled = false, // If true, it will apply default built-in validation, and have :invalid state
+  isVirtualScrolling = false, // Should enable when having a large options
+  label,
+  name,
+  onComboBoxClose,
   onOptionChange,
-  setCustomDisplayValue,
-  setCustomFilterOptions
+  onValueChange,
+  option,
+  options,
+  optionsClassName,
+  placeholder = 'Please select',
+  validationMessage = 'This is a required field',
+  value // value accepted by the input
 }) {
   const {
     backgroundTheme,
@@ -48,36 +48,13 @@ export default function ComboBoxClient({
     textTheme
   } = useSelector(selectTheme)
 
-  const [inputValue, setInputValue] = useState('')
-  const [selectedOption, setSelectedOption] = useState(defaultOption)
-
   const filteredOptions = useMemo(() => {
-    return setCustomFilterOptions
-      ? setCustomFilterOptions
-      : inputValue === ''
-        ? options
-        : options.filter((_option) => {
-          return _option.toLowerCase().includes(inputValue.toLowerCase())
-        })
-  }, [options, setCustomFilterOptions, inputValue])
-
-  useEffect(() => {
-    if (!defaultOption) {
-      setSelectedOption('')
-    }
-  }, [defaultOption, options])
-
-  const onComboBoxValueChange = (_value) => {
-    setSelectedOption(_value)
-
-    if (onOptionChange) {
-      onOptionChange(_value)
-    }
-  }
-
-  const onInputValueChange = (_event) => {
-    setInputValue(_event.target.value)
-  }
+    return value === ''
+      ? options
+      : options.filter((_option) => {
+        return _option.toLowerCase().includes(value.toLowerCase())
+      })
+  }, [options, value])
 
   const renderComboboxOptionContent = useCallback((_option) => {
     return <>
@@ -136,51 +113,58 @@ export default function ComboBoxClient({
   ])
 
   return <Combobox
-    value={selectedOption}
+    value={option}
     virtual={isVirtualScrolling
       ? {options: filteredOptions}
       : undefined}
-    onChange={onComboBoxValueChange}
-    onClose={() => setInputValue('')}>
+    onChange={onOptionChange}
+    onClose={onComboBoxClose}>
     <div className={stringUtility.merge([
       textTheme.secondaryColor,
-      comboBoxClassName
+      containerClassName
     ])}>
       {renderUtility.renderIfTrue(label, <label htmlFor={id}
         className={'font-medium'}>
-        {label}
+        {label}{isRequired && !isReadonly ? ' (*)' : ''}
       </label>)}
-      <div className={`relative peer ${label ? 'mt-2' : ''}`}>
+      <div className={stringUtility.merge([
+        'relative peer',
+        label ? 'mt-2' : ''
+      ])}>
         <ComboboxInput
+          readOnly={isReadonly}
           id={id}
           name={name}
           required={isRequired}
           placeholder={placeholder}
           className={stringUtility.merge([
-            'w-full rounded-normal py-2 px-4',
+            isReadonly ? 'cursor-default' : '',
+            'w-full rounded-normal py-2 pl-4',
             'outline outline-1 focus:outline-2 focus:outline-offset-1',
-            enableValidation
+            isValidationEnabled
               ? stringUtility.merge([
                 'invalid:outline-2 invalid:outline-offset-1',
                 outlineTheme.invalid
               ])
               : '',
             outlineTheme.secondaryColor300,
-            outlineTheme.focus.input.accentColor800
+            outlineTheme.focus.accentColor800
           ])}
-          displayValue={setCustomDisplayValue
-            ? setCustomDisplayValue
-            : (_option) => _option}
-          onChange={onInputValueChange} />
-        <ComboboxButton className='absolute inset-y-0 right-0 px-2'>
+          displayValue={(_option) => _option}
+          onChange={onValueChange} />
+        <ComboboxButton
+          className={stringUtility.merge([
+            'absolute inset-y-0 right-0 pr-4',
+            isReadonly ? 'inset-x-0' : ''
+          ])}>
           <ArrowDown01Icon
-            className={'wh-small-2'}
+            className={'wh-small-2 ml-auto'}
             size={'100%'}
             variant={'solid'}
             type={'rounded'} />
         </ComboboxButton>
       </div>
-      {renderUtility.renderIfTrue(enableValidation, <p
+      {renderUtility.renderIfTrue(isValidationEnabled, <p
         className={stringUtility.merge([
           'mt-2 text-small-1 hidden peer-has-[:invalid]:block',
           textTheme.invalid
@@ -195,7 +179,7 @@ export default function ComboBoxClient({
         'w-[var(--input-width)] !max-h-56 overflow-y-auto [--anchor-gap:0.25rem]',
         'border empty:invisible',
         borderTheme.secondaryColor300,
-        comboboxOptionsClassName
+        optionsClassName
       ])}>
       {isVirtualScrolling
         ? ({option: _option}) => renderVirtualScrollingComboboxOption(_option)

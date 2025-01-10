@@ -12,7 +12,9 @@ export default async function SaleAndRentalListingsProject() {
   const states = await fileUtility.readLocalCsv('data/states.csv')
   const cities = await fileUtility.readLocalCsv('data/cities.csv')
 
-  return <SaleAndRentalListingsProjectPageClient
-    states={states}
-    cities={cities} />
+  return <>
+    <SaleAndRentalListingsProjectPageClient
+      states={states}
+      cities={cities} />
+  </>
 }

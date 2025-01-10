@@ -1,6 +1,8 @@
 import IconButtonClient from '@/components/client/buttons/icon'
-import SearchPanel
-  from '@/components/client/pages/sale-and-rental-listings/search-panel'
+import FilterPanelClient
+  from '@/components/client/pages/sale-and-rental-listings/panels/filter'
+import SearchPanelClient
+  from '@/components/client/pages/sale-and-rental-listings/panels/search'
 import stringUtility from '@/utilities/string'
 import {PreferenceHorizontalIcon, Search01Icon} from '@hugeicons/react'
 import {useRef, useState} from 'react'
@@ -26,6 +28,10 @@ export default function PanelBar() {
     borderTheme
   } = useSelector(selectTheme)
   const [activePanelName, setActivePanelName] = useState(undefined)
+  const [
+    shouldDisableFormValidation,
+    setShouldDisableFormValidation
+  ] = useState(undefined)
   const searchPanelRef = useRef(null)
   const filterPanelRef = useRef(null)
 
@@ -39,7 +45,14 @@ export default function PanelBar() {
   }
 
   const togglePanelHiddenClassName = (_panelName) => {
-    getPanelRefByName(_panelName).classList.toggle('hidden')
+    const panelRef = getPanelRefByName(_panelName)
+    panelRef.classList.toggle('hidden')
+
+    if (panelRef.classList.contains('hidden')) {
+      setActivePanelName(undefined)
+    } else {
+      setActivePanelName(_panelName)
+    }
   }
 
   const hideOtherPanel = (_newActivePanelName) => {
@@ -53,17 +66,17 @@ export default function PanelBar() {
   const togglePanel = (_panelName) => {
     hideOtherPanel(_panelName)
     togglePanelHiddenClassName(_panelName)
-
-    if (getPanelRefByName(_panelName).classList.contains('hidden')) {
-      setActivePanelName(undefined)
-    } else {
-      setActivePanelName(_panelName)
-    }
   }
 
   const onSearchIconButtonClick = (_event) => {
     _event.preventDefault()
     togglePanel(panelName.search)
+
+    if (getPanelRefByName(panelName.search).classList.contains('hidden')) {
+      setShouldDisableFormValidation(true)
+    } else {
+      setShouldDisableFormValidation(undefined)
+    }
   }
 
   const onFilterIconButtonClick = (_event) => {
@@ -99,8 +112,14 @@ export default function PanelBar() {
           type={'rounded'} />
       </IconButtonClient>
     </div>
-    <SearchPanel ref={searchPanelRef} className={'hidden'} />
-    <div ref={filterPanelRef} className={'hidden'}>a</div>
-
+    <SearchPanelClient
+      ref={searchPanelRef}
+      shouldDisableFormValidation={shouldDisableFormValidation}
+      className={stringUtility.merge([
+        'hidden absolute inset-x-0',
+        backgroundTheme.primaryColor
+      ])} />
+    <FilterPanelClient ref={filterPanelRef}
+      className={'hidden absolute inset-x-0'} />
   </section>
 }

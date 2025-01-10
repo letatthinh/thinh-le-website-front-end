@@ -141,3 +141,20 @@ big1, h4 -> desktop: xl, phone: lg
 base -> desktop: lg, phone: base
 small_1 -> desktop: base, phone: sm
 small_2 -> desktop: sm, phone: xs
+
+# CSS
+
+## Removing the input number type decoration
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+-moz-appearance: textfield;
+appearance: none;
+}

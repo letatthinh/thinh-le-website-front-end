@@ -3,7 +3,8 @@ export const content = [
   './app/**/*.{js, jsx}',
   './components/**/*.{js, jsx}',
   './constants/**/*.{js, jsx}',
-  './hooks/**/*.{js, jsx}'
+  './hooks/**/*.{js, jsx}',
+  './node_modules/preline/dist/*.js'
 ]
 
 export const theme = {

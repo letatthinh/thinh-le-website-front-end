@@ -1,13 +1,14 @@
 const white = {
   id: 0,
   focus: {
-    input: {
-      accentColor800: 'focus:outline-white-accent-color-800'
-    }
+    accentColor800: 'focus:outline-white-accent-color-800'
   },
-  hasFocusWithin: {
+  has: {
     input: {
-      accentColor800: 'has-[input:focus-within]:outline-white-accent-color-800'
+      focusWithin: {
+        accentColor800: 'has-[input:focus-within]:outline-white-accent-color-800'
+      },
+      invalid: 'has-[input:invalid]:outline-red-600'
     }
   },
   secondaryColor300: 'outline-gray-300',
@@ -16,9 +17,11 @@ const white = {
 
 const black = {
   id: 1,
-  hasFocusWithin: {
+  has: {
     input: {
-      accentColor800: '?' // [Debt]
+      focusWithin: {
+        accentColor800: 'has-[input:focus-within]:outline-white-accent-color-800'
+      }
     }
   },
   secondaryColor300: 'outline-gray-300', // [Debt]
