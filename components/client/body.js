@@ -24,7 +24,8 @@ export default function BodyClient({children, className}) {
     className={stringUtility.merge([
       `${backgroundTheme.primaryColor}`,
       'min-w-80 relative',
-      className
+      className,
+      'font-[family-name:var(--font-geist-sans)]'
     ])}>
     <HeaderClient />
     <main>

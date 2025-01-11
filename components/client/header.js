@@ -22,7 +22,7 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function HeaderClient() {
+export default function HeaderClient({className}) {
   const {
     backgroundTheme,
     shadowTheme,
@@ -176,7 +176,8 @@ export default function HeaderClient() {
       className={stringUtility.merge([
         backgroundTheme.primaryColor,
         'sticky top-0 z-50',
-        'transition-box-shadow duration-300'
+        'transition-box-shadow duration-300',
+        className
       ])}>
       <section
         className={stringUtility.merge([

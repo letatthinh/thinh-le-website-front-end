@@ -17,7 +17,7 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function FooterClient() {
+export default function FooterClient({className}) {
   const {
     backgroundTheme,
     borderTheme,
@@ -26,7 +26,8 @@ export default function FooterClient() {
 
   return <footer
     className={stringUtility.merge([
-      backgroundTheme.primaryColor
+      backgroundTheme.primaryColor,
+      className
     ])}>
     <div
       className={stringUtility.merge([

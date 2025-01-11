@@ -158,3 +158,9 @@ input[type='number'] {
 -moz-appearance: textfield;
 appearance: none;
 }
+
+# Fonts
+
+Nextjs v15.1.4:
+
+- Use `font-[family-name:var(--font-geist-mono)]` and `font-[family-name:var(--font-geist-sans)]` to apply new fonts

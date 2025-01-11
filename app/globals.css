@@ -25,10 +25,6 @@ to build any design without needing to write custom CSS.
 @tailwind utilities;
 
 @layer base {
-  /* Style the select */
-  select {
-    padding-right: 30px; /* Space for the arrow */
-  }
 }
 
 @layer utilities {
