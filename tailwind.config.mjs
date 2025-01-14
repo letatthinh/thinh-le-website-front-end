@@ -20,6 +20,9 @@ export default {
         'profile': 'url(\'/profile.webp\')',
         'sale-and-rental-listings': 'url(\'/projects/sale-and-rental-listings.webp\')'
       },
+      borderWidth: {
+        '5': '0.3125rem'
+      },
       colors: {
         'white-accent-color-100': '#e0f2fe',
         'white-accent-color-700': '#0369a1',
@@ -63,7 +66,7 @@ export default {
         'padding': 'padding',
         'width': 'width',
         'height': 'height',
-        'wh': 'width height'
+        'range-slider-handle': 'width height border-width'
       }
     }
   },

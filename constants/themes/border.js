@@ -1,5 +1,8 @@
 const white = {
   id: 0,
+  active: {
+    accentColor700: 'active:border-white-accent-color-700'
+  },
   after: {
     accentColor700: 'after:border-white-accent-color-700'
   },
@@ -25,6 +28,9 @@ const white = {
 
 const black = {
   id: 1,
+  active: {
+    accentColor700: 'active:border-black-accent-color-700' // [Debt]
+  },
   after: {
     accentColor700: 'after:border-black-accent-color-700'
   },

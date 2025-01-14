@@ -26,21 +26,24 @@ export default function FilterPanelClient({
   return <section
     ref={ref}
     className={stringUtility.merge([
-      'content-p text-normal border border-t-0',
+      'content-p border border-t-0',
       backgroundTheme.primaryColor,
       className
     ])}>
     <button
-      className={'mr-6'}
+      className={'mr-6 text-normal'}
       onClick={() => setTempMax(tempMax + 1)}>
       increase max
     </button>
-    <button onClick={() => setTempMax(tempMax - 1)}>
+    <button
+      className={'mr-6 text-normal'}
+      onClick={() => setTempMax(tempMax - 1)}>
       decrease max
     </button>
     <RangeSliderClient
       min={0}
       max={tempMax}
-      onChange={onPriceRangeChange} />
+      onChange={onPriceRangeChange}
+      tooltipClassName={'text-small-1'} />
   </section>
 }
