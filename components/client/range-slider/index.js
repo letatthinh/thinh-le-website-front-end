@@ -1,3 +1,4 @@
+import renderUtility from '@/utilities/render'
 import stringUtility from '@/utilities/string'
 import noUiSlider from 'nouislider'
 import {useEffect, useRef} from 'react'
@@ -9,13 +10,13 @@ const selectTheme = createStructuredSelector(
   {
     backgroundTheme: (_state) => _state.backgroundTheme,
     borderTheme: (_state) => _state.borderTheme,
-    outlineTheme: (_state) => _state.outlineTheme,
     textTheme: (_state) => _state.textTheme
   },
   createSelector
 )
 
 export default function RangeSliderClient({
+  label,
   min = 0,
   max = 100,
   behaviour = 'drag-tap',
@@ -27,7 +28,6 @@ export default function RangeSliderClient({
   const {
     backgroundTheme,
     borderTheme,
-    outlineTheme,
     textTheme
   } = useSelector(selectTheme)
 
@@ -129,10 +129,19 @@ export default function RangeSliderClient({
   )
 
   return <div className={stringUtility.merge([
-    'pb-1.5 lg:pb-[0.5625rem] pt-9 lg:pt-[2.6875rem]',
+    textTheme.secondaryColor,
     containerClassName
   ])}>
-    <div
-      ref={ref}></div>
+    {renderUtility.renderIfTrue(label, <label
+      className={'font-medium'}>
+      {label}
+    </label>)}
+    <div className={stringUtility.merge([
+      label ? 'mt-2' : '',
+      'pb-1.5 lg:pb-[0.5625rem] pt-9 lg:pt-[2.6875rem]'
+    ])}>
+      <div
+        ref={ref}></div>
+    </div>
   </div>
 }

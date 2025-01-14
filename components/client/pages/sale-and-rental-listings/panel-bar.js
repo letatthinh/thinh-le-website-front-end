@@ -119,6 +119,6 @@ export default function PanelBar() {
         'hidden absolute inset-x-0'
       ])} />
     <FilterPanelClient ref={filterPanelRef}
-      className={'absolute inset-x-0'} />
+      className={'hidden absolute inset-x-0'} />
   </section>
 }
