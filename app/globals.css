@@ -194,7 +194,7 @@ to build any design without needing to write custom CSS.
   }
 
   .w-normal {
-    @apply w-5 lg:w-6 transition-width
+    @apply w-5.5 lg:w-6 transition-width
   }
 
   .w-big-1 {
@@ -214,7 +214,7 @@ to build any design without needing to write custom CSS.
   }
 
   .h-normal {
-    @apply h-5 lg:h-6 transition-height
+    @apply h-5.5 lg:h-6 transition-height
   }
 
   .h-big-1 {

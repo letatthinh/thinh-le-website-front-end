@@ -2,7 +2,6 @@
 import BlogClient from '@/components/client/blog'
 import PanelBar
   from '@/components/client/pages/sale-and-rental-listings/panel-bar'
-import ExpandableBox from '@/components/client/test'
 import projectConstant from '@/constants/project'
 import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
@@ -39,9 +38,16 @@ export default function SaleAndRentalListingsProjectPageClient({
         value={{states, cities}}>
         <PanelBar />
       </SaleAndRentalListingsContext.Provider>
-      <div className='flex justify-center items-center min-h-screen bg-gray-50'>
-        <ExpandableBox />
-      </div>
     </div>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
   </BlogClient>
 }

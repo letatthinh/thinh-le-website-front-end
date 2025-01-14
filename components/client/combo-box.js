@@ -80,13 +80,13 @@ export default function ComboBoxClient({
         'group flex items-center w-full py-2 px-4',
         'cursor-pointer select-none',
         backgroundTheme.primaryColor,
-        backgroundTheme.data.focus.accentColor800,
+        backgroundTheme.data.focus.accentColor700,
         textTheme.data.focus.primaryColor
       ])}>
       {renderComboboxOptionContent(_option)}
     </ComboboxOption>
   }, [
-    backgroundTheme.data.focus.accentColor800,
+    backgroundTheme.data.focus.accentColor700,
     backgroundTheme.primaryColor,
     renderComboboxOptionContent,
     textTheme.data.focus.primaryColor
@@ -100,13 +100,13 @@ export default function ComboBoxClient({
         'group flex items-center py-2 px-4',
         'cursor-pointer select-none',
         backgroundTheme.primaryColor,
-        backgroundTheme.data.focus.accentColor800,
+        backgroundTheme.data.focus.accentColor700,
         textTheme.data.focus.primaryColor
       ])}>
       {renderComboboxOptionContent(_option)}
     </ComboboxOption>
   }, [
-    backgroundTheme.data.focus.accentColor800,
+    backgroundTheme.data.focus.accentColor700,
     backgroundTheme.primaryColor,
     renderComboboxOptionContent,
     textTheme.data.focus.primaryColor
@@ -148,7 +148,7 @@ export default function ComboBoxClient({
               ])
               : '',
             outlineTheme.secondaryColor300,
-            outlineTheme.focus.accentColor800
+            outlineTheme.focus.accentColor700
           ])}
           displayValue={(_option) => _option}
           onChange={onValueChange} />
@@ -158,7 +158,7 @@ export default function ComboBoxClient({
             isReadonly ? 'inset-x-0' : ''
           ])}>
           <ArrowDown01Icon
-            className={'wh-small-2 ml-auto'}
+            className={'wh-small-1 ml-auto'}
             size={'100%'}
             variant={'solid'}
             type={'rounded'} />

@@ -52,7 +52,7 @@ export default function NumberInputClient({
         ])
         : '',
       outlineTheme.secondaryColor300,
-      outlineTheme.has.input.focusWithin.accentColor800
+      outlineTheme.has.input.focusWithin.accentColor700
     ])}>
       {prefix}
       <input

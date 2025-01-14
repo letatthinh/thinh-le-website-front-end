@@ -54,7 +54,7 @@ export default function AboutMePageHeroSectionClient() {
       <div className={'basis-2/5'}>
         <div className={stringUtility.merge([
           'w-96 h-96 mx-auto profile-container-border',
-          backgroundTheme.accentColor300,
+          backgroundTheme.secondaryColor200,
           'relative overflow-hidden bg-profile bg-cover'
         ])}>
         </div>

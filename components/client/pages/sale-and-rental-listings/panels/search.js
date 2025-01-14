@@ -5,6 +5,15 @@ import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
 import {Search01Icon} from '@hugeicons/react'
 import {useContext, useEffect, useMemo, useState} from 'react'
+import {useSelector} from 'react-redux'
+import {createSelector, createStructuredSelector} from 'reselect'
+
+const selectTheme = createStructuredSelector(
+  {
+    backgroundTheme: (_state) => _state.backgroundTheme
+  },
+  createSelector
+)
 
 const propertyTypeOptions = [
   'Single Family', 'Multi-Family', 'Condo', 'Townhouse', 'Manufactured',
@@ -12,14 +21,18 @@ const propertyTypeOptions = [
 ]
 
 const forOptions = ['Sale', 'Rent']
+
 export default function SearchPanelClient({
   ref, className, shouldDisableFormValidation = undefined
 }) {
+  const {
+    backgroundTheme
+  } = useSelector(selectTheme)
   const {states, cities} = useContext(SaleAndRentalListingsContext)
   const [stateNameValue, setStateNameValue] = useState('')
   const [stateNameOption, setStateNameOption] = useState('New Jersey')
   const [cityNameValue, setCityNameValue] = useState('')
-  const [cityNameOption, setCityNameOption] = useState('')
+  const [cityNameOption, setCityNameOption] = useState('Atlantic City')
   const [propertyTypeValue, setPropertyTypeValue]
     = useState('')
   const [
@@ -70,16 +83,15 @@ export default function SearchPanelClient({
     }
   }, [shouldDisableFormValidation])
 
-  useEffect(() => {
-    setCityNameOption('')
-  }, [stateNameOption])
-
   const onStateNameValueChange = (_event) => {
     setStateNameValue(_event.target.value)
   }
 
   const onStateNameOptionChange = (_option) => {
-    setStateNameOption(_option)
+    if (_option !== stateNameOption) {
+      setCityNameOption('')
+      setStateNameOption(_option)
+    }
   }
 
   const onCityNameValueChange = (_event) => {
@@ -134,6 +146,7 @@ export default function SearchPanelClient({
     ref={ref}
     className={stringUtility.merge([
       'content-p text-normal border border-t-0',
+      backgroundTheme.primaryColor,
       className
     ])}>
     {/* [Form tip]: noValidate is to disable built-in form validation */}

@@ -21,7 +21,7 @@ export default function IconLinkButtonClient({
     aria-label={ariaLabel}
     className={stringUtility.merge([
       textTheme.secondaryColor,
-      textTheme.hover.accentColor800,
+      textTheme.hover.accentColor700,
       className
     ])}
     href={href}

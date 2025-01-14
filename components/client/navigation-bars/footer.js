@@ -16,16 +16,16 @@ export default function FooterNavigationBarClient() {
 
   const activeNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      `font-bold ${textTheme.accentColor800}`
+      `font-bold ${textTheme.accentColor700}`
     ])
-  }, [textTheme.accentColor800])
+  }, [textTheme.accentColor700])
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      textTheme.hover.accentColor800,
+      textTheme.hover.accentColor700,
       textTheme.secondaryColor
     ])
-  }, [textTheme.hover.accentColor800, textTheme.secondaryColor])
+  }, [textTheme.hover.accentColor700, textTheme.secondaryColor])
 
   return <nav
     className={stringUtility.merge([

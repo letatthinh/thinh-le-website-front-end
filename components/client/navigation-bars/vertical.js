@@ -16,22 +16,22 @@ export default function VerticalNavigationBarClient() {
 
   const activeNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      backgroundTheme.accentColor800,
+      backgroundTheme.accentColor700,
       `font-bold ${textTheme.primaryColor}`
     ])
   }, [
-    backgroundTheme.accentColor800,
+    backgroundTheme.accentColor700,
     textTheme.primaryColor
   ])
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      backgroundTheme.hover.accentColor800,
+      backgroundTheme.hover.accentColor700,
       textTheme.hover.primaryColor,
       textTheme.secondaryColor
     ])
   }, [
-    backgroundTheme.hover.accentColor800,
+    backgroundTheme.hover.accentColor700,
     textTheme.hover.primaryColor,
     textTheme.secondaryColor
   ])

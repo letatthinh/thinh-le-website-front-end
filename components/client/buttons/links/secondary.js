@@ -23,9 +23,9 @@ export default function SecondaryLinkButtonClient({
     aria-label={ariaLabel}
     className={stringUtility.merge([
       borderTheme.secondaryColor,
-      borderTheme.hover.accentColor800,
+      borderTheme.hover.accentColor700,
       textTheme.secondaryColor,
-      textTheme.hover.accentColor800,
+      textTheme.hover.accentColor700,
       className
     ])}
     href={href}>

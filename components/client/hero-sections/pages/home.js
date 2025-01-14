@@ -2,6 +2,7 @@
 import PrimaryLinkButtonClient from '@/components/client/buttons/links/primary'
 import SecondaryLinkButtonClient
   from '@/components/client/buttons/links/secondary'
+import pageMetadataConstant from '@/constants/metadata/page'
 import stringUtility from '@/utilities/string'
 import {DownloadCircle01Icon, SourceCodeCircleIcon} from '@hugeicons/react'
 import {useSelector} from 'react-redux'
@@ -61,7 +62,7 @@ export default function HomePageHeroSectionClient() {
           <PrimaryLinkButtonClient
             ariaLabel={'Projects'}
             className={'button-link-icon-text min-w-fit justify-center'}
-            href={''}>
+            href={pageMetadataConstant.projects.path}>
             <div className={'wh-normal'}>
               <SourceCodeCircleIcon
                 size={'100%'}

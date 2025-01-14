@@ -24,10 +24,10 @@ export default function PrimaryButtonClient({
     aria-label={ariaLabel}
     type={type}
     className={stringUtility.merge([
-      backgroundTheme.hover.accentColor800,
+      backgroundTheme.hover.accentColor700,
       backgroundTheme.secondaryColor,
       borderTheme.secondaryColor,
-      borderTheme.hover.accentColor800,
+      borderTheme.hover.accentColor700,
       textTheme.primaryColor,
       className
     ])}

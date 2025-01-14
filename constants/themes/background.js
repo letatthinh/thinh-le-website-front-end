@@ -9,7 +9,7 @@ const white = {
     secondaryColor: 'before:bg-black'
   },
   hover: {
-    accentColor800: 'hover:bg-white-accent-color-800',
+    accentColor700: 'hover:bg-white-accent-color-700',
     secondaryColor: 'hover:bg-black'
   },
   opacity: {
@@ -23,11 +23,13 @@ const white = {
   primaryColor: 'bg-white',
   secondaryColor: 'bg-black',
   secondaryColor100: 'bg-gray-100',
-  accentColor300: 'bg-white-accent-color-300',
-  accentColor800: 'bg-white-accent-color-800',
+  secondaryColor200: 'bg-gray-200',
+  secondaryColor300: 'bg-gray-300',
+  accentColor100: 'bg-white-accent-color-100',
+  accentColor700: 'bg-white-accent-color-700',
   data: {
     focus: {
-      accentColor800: 'data-[focus]:bg-white-accent-color-800'
+      accentColor700: 'data-[focus]:bg-white-accent-color-700'
     }
   }
 }
@@ -43,7 +45,7 @@ const black = {
     secondaryColor: 'before:bg-white'
   },
   hover: {
-    accentColor800: 'hover:bg-black-accent-color-800',
+    accentColor700: 'hover:bg-black-accent-color-700',
     secondaryColor: 'hover:bg-white'
   },
   opacity: {
@@ -57,11 +59,13 @@ const black = {
   primaryColor: 'bg-black',
   secondaryColor: 'bg-white',
   secondaryColor100: 'bg-gray-100', // [Debt]
-  accentColor300: 'bg-black-accent-color-300',
-  accentColor800: 'bg-black-accent-color-800',
+  secondaryColor200: 'bg-gray-100', // [Debt]
+  secondaryColor300: 'bg-gray-300', // [Debt]
+  accentColor100: 'bg-black-accent-color-100',
+  accentColor700: 'bg-black-accent-color-700',
   data: {
     focus: {
-      accentColor800: 'data-[focus]:bg-black-accent-color-800'
+      accentColor700: 'data-[focus]:bg-black-accent-color-700'
     }
   }
 }

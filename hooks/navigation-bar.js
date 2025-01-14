@@ -1,4 +1,5 @@
 import NavigationBarContext from '@/contexts/navigation-bar'
+import renderUtility from '@/utilities/render'
 import stringUtility from '@/utilities/string'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
@@ -37,11 +38,10 @@ export default function useNavigationBar() {
               : nonActiveNavigationItemClassName
           ])}
           href={_navigationItem.path}>
-          {shouldDisplayIcon
-            ? <div className={'wh-normal'}>
-              {_navigationItem.iconComponent}
-            </div>
-            : undefined}
+          {renderUtility.renderIfTrue(
+            shouldDisplayIcon,
+            _navigationItem.iconComponent
+          )}
           {_navigationItem.label}
         </Link>
       })

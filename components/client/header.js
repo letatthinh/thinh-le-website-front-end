@@ -47,11 +47,11 @@ export default function HeaderClient({className}) {
       if (!entry.isIntersecting) {
         headerRef.current.classList.add(
           shadowSizeClassName,
-          shadowTheme.opacity.twenty.accentColor800)
+          shadowTheme.opacity.twenty.accentColor700)
       } else {
         headerRef.current.classList.remove(
           shadowSizeClassName,
-          shadowTheme.opacity.twenty.accentColor800)
+          shadowTheme.opacity.twenty.accentColor700)
       }
     }
 
@@ -82,8 +82,8 @@ export default function HeaderClient({className}) {
       }
     }
   }, [
-    shadowTheme.accentColor800,
-    shadowTheme.opacity.twenty.accentColor800
+    shadowTheme.accentColor700,
+    shadowTheme.opacity.twenty.accentColor700
   ])
 
   const toggleBackdropHiddenClassName = useCallback(() => {

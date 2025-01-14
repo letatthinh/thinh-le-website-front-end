@@ -116,10 +116,9 @@ export default function PanelBar() {
       ref={searchPanelRef}
       shouldDisableFormValidation={shouldDisableFormValidation}
       className={stringUtility.merge([
-        'hidden absolute inset-x-0',
-        backgroundTheme.primaryColor
+        'hidden absolute inset-x-0'
       ])} />
     <FilterPanelClient ref={filterPanelRef}
-      className={'hidden absolute inset-x-0'} />
+      className={'absolute inset-x-0'} />
   </section>
 }
