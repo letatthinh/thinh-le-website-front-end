@@ -22,7 +22,7 @@ const panelName = {
   filter: 2
 }
 
-export default function PanelBar() {
+export default function PanelBarClient() {
   const {
     backgroundTheme,
     borderTheme

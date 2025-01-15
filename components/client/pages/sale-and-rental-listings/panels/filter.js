@@ -46,7 +46,7 @@ export default function FilterPanelClient({
       <RangeSliderClient
         label={'Price range'}
         min={0}
-        max={5000000000}
+        max={5000000}
         step={10}
         toValue={setDisplayValue}
         fromValue={setReturnValue}

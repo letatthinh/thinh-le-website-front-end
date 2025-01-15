@@ -1,7 +1,8 @@
 'use client'
 import BlogClient from '@/components/client/blog'
-import PanelBar
-  from '@/components/client/pages/sale-and-rental-listings/panel-bar'
+import MapClient from '@/components/client/map'
+import PanelBarClient
+  from '@/components/client/pages/sale-and-rental-listings/panels'
 import projectConstant from '@/constants/project'
 import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
@@ -21,6 +22,7 @@ export default function SaleAndRentalListingsProjectPageClient({
   cities
 }) {
   const {
+    backgroundTheme,
     borderTheme
   } = useSelector(selectTheme)
 
@@ -36,7 +38,14 @@ export default function SaleAndRentalListingsProjectPageClient({
     ])}>
       <SaleAndRentalListingsContext.Provider
         value={{states, cities}}>
-        <PanelBar />
+        <PanelBarClient />
+        <section
+          className={stringUtility.merge([
+            'content-p border border-t-0 text-normal',
+            backgroundTheme.primaryColor
+          ])}>
+          <MapClient />
+        </section>
       </SaleAndRentalListingsContext.Provider>
     </div>
   </BlogClient>
