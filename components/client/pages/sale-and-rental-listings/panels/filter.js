@@ -1,6 +1,5 @@
 import RangeSliderClient from '@/components/client/range-slider'
 import stringUtility from '@/utilities/string'
-import {useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -17,10 +16,23 @@ export default function FilterPanelClient({
   const {
     backgroundTheme
   } = useSelector(selectTheme)
-  const [tempMax, setTempMax] = useState(100)
 
   const onPriceRangeChange = (handleValues) => {
-    console.log(handleValues)
+  }
+
+  const setDisplayValue = (value) => {
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0, // No decimals
+      maximumFractionDigits: 0 // No decimals
+    })
+
+    return formatter.format(value)
+  }
+
+  const setReturnValue = (value) => {
+    return Number(value.replace(/[$,]/g, ''))
   }
 
   return <section
@@ -30,22 +42,18 @@ export default function FilterPanelClient({
       backgroundTheme.primaryColor,
       className
     ])}>
-    <button
-      className={'mr-6'}
-      onClick={() => setTempMax(tempMax + 1)}>
-      increase max
-    </button>
-    <button
-      className={'mr-6'}
-      onClick={() => setTempMax(tempMax - 1)}>
-      decrease max
-    </button>
-    <RangeSliderClient
-      label={'Price range'}
-      min={0}
-      max={tempMax}
-      onChange={onPriceRangeChange}
-      containerClassName={'content-mt'}
-      tooltipClassName={'text-small-1'} />
+    <div className={'flex flex-col 2xl:flex-row content-gap'}>
+      <RangeSliderClient
+        label={'Price range'}
+        min={0}
+        max={5000000000}
+        step={10}
+        toValue={setDisplayValue}
+        fromValue={setReturnValue}
+        onChange={onPriceRangeChange}
+        containerClassName={'basis-1/2'}
+        tooltipClassName={'text-small-1'} />
+      <p className={'basis-1/2'}>a</p>
+    </div>
   </section>
 }

@@ -21,6 +21,8 @@ export default function RangeSliderClient({
   max = 100,
   behaviour = 'drag-tap',
   step,
+  toValue,
+  fromValue,
   onChange,
   containerClassName,
   tooltipClassName
@@ -31,17 +33,19 @@ export default function RangeSliderClient({
     textTheme
   } = useSelector(selectTheme)
 
-  const ref = useRef(null)
+  const rangeSliderRef = useRef(null)
+  const rangeSliderContainerRef = useRef(null)
 
   useEffect(() => {
-    const rangeSlider = ref.current
+    const rangeSliderElement = rangeSliderRef.current
 
-    if (!rangeSlider) {
+    if (!rangeSliderElement) {
       return
     }
 
-    noUiSlider.create(rangeSlider, {
-      start: [33, 66],
+    /* Create the range slider */
+    noUiSlider.create(rangeSliderElement, {
+      start: [min, max],
       behaviour: behaviour,
       step: step,
       connect: [false, true, false],
@@ -49,6 +53,13 @@ export default function RangeSliderClient({
       range: {
         'min': min,
         'max': max
+      },
+      format: {
+        // 'to': how the value is displayed
+        to: toValue,
+        // 'from': how to convert a formatted input value back to the slider's
+        // internal numerical representation
+        from: fromValue
       },
       cssPrefix: '', // defaults to 'noUi-',
       cssClasses: {
@@ -115,17 +126,39 @@ export default function RangeSliderClient({
       }
     })
 
-    rangeSlider.noUiSlider.on('change', onChange)
+    /* Create on change event */
+    rangeSliderElement.noUiSlider.on('change', onChange)
+
+    /* Set the padding x for rangeSliderContainerRef */
+    const tooltipElements = rangeSliderElement.querySelectorAll('.noUi-tooltip')
+    let maxTooltipElementWidth = 0
+
+    tooltipElements.forEach((_tooltipElement) => {
+      const tooltipElementWidth = _tooltipElement.getBoundingClientRect().width
+
+      if (tooltipElementWidth > maxTooltipElementWidth) {
+        maxTooltipElementWidth = tooltipElementWidth
+      }
+    })
+
+    // Apply the padding to left and right only
+    rangeSliderContainerRef.current.style.paddingLeft
+        = `${maxTooltipElementWidth / 2}px`
+    rangeSliderContainerRef.current.style.paddingRight
+        = `${maxTooltipElementWidth / 2}px`
 
     return () => {
-      rangeSlider.noUiSlider.destroy()
+      rangeSliderElement.noUiSlider.destroy()
     }
   }, [
     backgroundTheme.accentColor700,
     backgroundTheme.primaryColor,
+    behaviour,
     borderTheme.accentColor700,
+    borderTheme.active.accentColor700,
+    borderTheme.hover.accentColor700,
     borderTheme.secondaryColor300,
-    max, min, onChange, step]
+    fromValue, max, min, onChange, step, toValue, tooltipClassName]
   )
 
   return <div className={stringUtility.merge([
@@ -136,12 +169,14 @@ export default function RangeSliderClient({
       className={'font-medium'}>
       {label}
     </label>)}
-    <div className={stringUtility.merge([
-      label ? 'mt-2' : '',
-      'pb-1.5 lg:pb-[0.5625rem] pt-9 lg:pt-[2.6875rem]'
-    ])}>
+    <div
+      ref={rangeSliderContainerRef}
+      className={stringUtility.merge([
+        label ? 'mt-2' : '',
+        'pb-1.5 lg:pb-[0.5625rem] pt-9 lg:pt-[2.6875rem]'
+      ])}>
       <div
-        ref={ref}></div>
+        ref={rangeSliderRef}></div>
     </div>
   </div>
 }

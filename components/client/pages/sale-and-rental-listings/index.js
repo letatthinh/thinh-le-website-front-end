@@ -39,15 +39,5 @@ export default function SaleAndRentalListingsProjectPageClient({
         <PanelBar />
       </SaleAndRentalListingsContext.Provider>
     </div>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
   </BlogClient>
 }

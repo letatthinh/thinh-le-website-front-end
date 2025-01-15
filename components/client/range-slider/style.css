@@ -55,11 +55,4 @@
 [disabled] .noUi-handle {
   cursor: not-allowed;
 }
-
-.noUi-horizontal .noUi-origin > .noUi-tooltip {
-  -webkit-transform: translate(50%, 0);
-  transform: translate(50%, 0);
-  left: auto;
-  bottom: 10px;
-}
  
