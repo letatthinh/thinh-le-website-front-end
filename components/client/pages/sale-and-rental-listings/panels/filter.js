@@ -38,7 +38,7 @@ export default function FilterPanelClient({
   return <section
     ref={ref}
     className={stringUtility.merge([
-      'p-4 border border-t-0 text-normal',
+      'p-4 border border-t-0',
       backgroundTheme.primaryColor,
       className
     ])}>

@@ -32,10 +32,6 @@ to build any design without needing to write custom CSS.
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
   }
 
-  .bottom-left {
-    @apply bottom-0 left-0
-  }
-
   .profile-container-border {
     border-radius: 43% 57% 42% 58% / 49% 39% 61% 51%;
   }
@@ -162,67 +158,67 @@ to build any design without needing to write custom CSS.
   }
 
   .text-big-3 {
-    @apply text-3xl lg:text-4xl transition-font-size
+    @apply text-2xl lg:text-3xl transition-font-size
   }
 
   .text-big-4 {
+    @apply text-3xl lg:text-4xl transition-font-size
+  }
+
+  .text-big-5 {
+    @apply text-4xl lg:text-5xl transition-font-size
+  }
+
+  .text-big-6 {
     @apply text-5xl lg:text-6xl transition-font-size
   }
 
-  .text-h4 {
-    @apply text-big-1 font-bold
-  }
-
-  .text-h3 {
-    @apply text-big-2 font-bold
-  }
-
-  .text-h2 {
-    @apply text-big-3 font-bold
-  }
-
-  .text-h1 {
-    @apply text-big-4 font-bold
-  }
-
   .w-small-2 {
-    @apply w-3 lg:w-4 transition-width
+    @apply w-4 lg:w-4.5 transition-width
   }
 
   .w-small-1 {
-    @apply w-4 lg:w-5 transition-width
+    @apply w-4.5 lg:w-5.25 transition-width
   }
 
   .w-normal {
-    @apply w-5.5 lg:w-6 transition-width
+    @apply w-5.25 lg:w-5.75 transition-width
   }
 
   .w-big-1 {
-    @apply w-6 lg:w-7 transition-width
+    @apply w-5.75 lg:w-6.5 transition-width
   }
 
   .w-big-2 {
-    @apply w-7 lg:w-8 transition-width
+    @apply w-6.5 lg:w-7.75 transition-width
+  }
+
+  .w-big-3 {
+    @apply w-7.75 lg:w-9.75 transition-width
   }
 
   .h-small-2 {
-    @apply h-3 lg:h-4 transition-height
+    @apply h-4 lg:h-4.5 transition-height
   }
 
   .h-small-1 {
-    @apply h-4 lg:h-5 transition-height
+    @apply h-4.5 lg:h-5.25 transition-height
   }
 
   .h-normal {
-    @apply h-5.5 lg:h-6 transition-height
+    @apply h-5.25 lg:h-5.75 transition-height
   }
 
   .h-big-1 {
-    @apply h-6 lg:h-7 transition-width
+    @apply h-5.75 lg:h-6.5 transition-width
   }
 
   .h-big-2 {
-    @apply h-7 lg:h-8 transition-width
+    @apply h-6.5 lg:h-7.75 transition-width
+  }
+
+  .h-big-3 {
+    @apply h-7.75 lg:h-9.75 transition-width
   }
 
   .wh-small-2 {
@@ -243,6 +239,10 @@ to build any design without needing to write custom CSS.
 
   .wh-big-2 {
     @apply w-big-2 h-big-2
+  }
+
+  .wh-big-3 {
+    @apply w-big-3 h-big-3
   }
 
   .has-focus-within-input-outline {

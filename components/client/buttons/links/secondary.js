@@ -24,7 +24,6 @@ export default function SecondaryLinkButtonClient({
     className={stringUtility.merge([
       borderTheme.secondaryColor,
       borderTheme.hover.accentColor700,
-      textTheme.secondaryColor,
       textTheme.hover.accentColor700,
       className
     ])}

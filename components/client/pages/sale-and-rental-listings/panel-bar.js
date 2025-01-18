@@ -89,7 +89,7 @@ export default function PanelBarClient() {
     backgroundTheme.primaryColor
   ])}>
     <div className={stringUtility.merge([
-      'border p-4 rounded-t-big-1 text-normal',
+      'border p-4 rounded-t-big-1',
       'flex justify-end gap-4 items-center',
       borderTheme.secondaryColor300
     ])}>

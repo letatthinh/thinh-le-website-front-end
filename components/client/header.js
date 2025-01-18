@@ -185,7 +185,7 @@ export default function HeaderClient({className}) {
           'flex justify-between items-center'
         ])}>
         <BrandNameClient
-          className={`text-big-2 ${textTheme.secondaryColor}`} />
+          className={'text-big-2'} />
         <HeaderNavigationBarClient />
         <IconButtonClient
           ariaLabel={'Hamburger button'}

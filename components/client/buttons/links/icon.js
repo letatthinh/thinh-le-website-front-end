@@ -20,7 +20,6 @@ export default function IconLinkButtonClient({
   return <Link
     aria-label={ariaLabel}
     className={stringUtility.merge([
-      textTheme.secondaryColor,
       textTheme.hover.accentColor700,
       className
     ])}

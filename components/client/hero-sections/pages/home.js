@@ -44,18 +44,18 @@ export default function HomePageHeroSectionClient() {
           'before:border-r-transparent',
           'before:border-b-transparent before:border-l-transparent'
         ])}>Hi there!</p>
-        <h1 className={`text-h1 content-mt ${textTheme.secondaryColor}`}>
+        <h1
+          className={'text-big-4 font-bold content-mt'}>
           Welcome to my page
         </h1>
         <p className={stringUtility.merge([
-          'text-normal content-mt',
-          `${textTheme.secondaryColor600}`
+          'content-mt',
+          textTheme.secondaryColor600
         ])}>
           Feel free to take a look around 🤪.
         </p>
         <div className={stringUtility.merge([
-          'content-mt text-normal',
-          'flex flex-col xs:flex-row gap-2',
+          'content-mt flex flex-col xs:flex-row gap-2',
           // [Tip]: Targeting a breakpoint range
           'xs:max-sm:justify-center'
         ])}>

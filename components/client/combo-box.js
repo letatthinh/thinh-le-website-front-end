@@ -58,9 +58,7 @@ export default function ComboBoxClient({
 
   const renderComboboxOptionContent = useCallback((_option) => {
     return <>
-      <div className={stringUtility.merge([
-        'grow text-normal'
-      ])}>
+      <div className={'grow'}>
         {_option}
       </div>
       <Tick02Icon
@@ -119,10 +117,7 @@ export default function ComboBoxClient({
       : undefined}
     onChange={onOptionChange}
     onClose={onComboBoxClose}>
-    <div className={stringUtility.merge([
-      textTheme.secondaryColor,
-      containerClassName
-    ])}>
+    <div className={containerClassName}>
       {renderUtility.renderIfTrue(label, <label htmlFor={id}
         className={'font-medium'}>
         {label}{isRequired && !isReadonly ? ' (*)' : ''}
@@ -158,7 +153,7 @@ export default function ComboBoxClient({
             isReadonly ? 'inset-x-0' : ''
           ])}>
           <ArrowDown01Icon
-            className={'wh-small-1 ml-auto'}
+            className={'wh-small-2 ml-auto'}
             size={'100%'}
             variant={'solid'}
             type={'rounded'} />

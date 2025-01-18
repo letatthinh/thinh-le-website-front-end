@@ -22,7 +22,6 @@ export default function IconButtonClient({
     type={type}
     onClick={onClick}
     className={stringUtility.merge([
-      textTheme.secondaryColor,
       textTheme.hover.accentColor700,
       className
     ])}>

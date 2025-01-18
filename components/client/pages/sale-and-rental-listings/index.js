@@ -1,11 +1,12 @@
 'use client'
 import BlogClient from '@/components/client/blog'
 import PanelBarClient
-  from '@/components/client/pages/sale-and-rental-listings/panels'
+  from '@/components/client/pages/sale-and-rental-listings/panel-bar'
 import projectConstant from '@/constants/project'
 import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
 import dynamic from 'next/dynamic'
+import {useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -18,18 +19,21 @@ const selectTheme = createStructuredSelector(
 )
 
 const MapClient = dynamic(
-  () => import('@/components/client/map'),
+  () => import('@/components/client/pages/sale-and-rental-listings/map'),
   {ssr: false}
 )
 
 export default function SaleAndRentalListingsProjectPageClient({
   states,
-  cities
+  cities,
+  initialListings
 }) {
   const {
     backgroundTheme,
     borderTheme
   } = useSelector(selectTheme)
+
+  const [listings, setListings] = useState(initialListings)
 
   return <BlogClient
     dateCreated={projectConstant.saleAndRentalListings.dateCreated}
@@ -42,11 +46,11 @@ export default function SaleAndRentalListingsProjectPageClient({
       'mt-12 relative'
     ])}>
       <SaleAndRentalListingsContext.Provider
-        value={{states, cities}}>
+        value={{states, cities, listings, setListings}}>
         <PanelBarClient />
         <section
           className={stringUtility.merge([
-            'p-4 border border-t-0 text-normal',
+            'p-4 border border-t-0',
             backgroundTheme.primaryColor
           ])}>
           <MapClient />

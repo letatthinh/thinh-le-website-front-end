@@ -32,7 +32,7 @@ export default function HeaderNavigationBarClient() {
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      `${textTheme.secondaryColor} ${textTheme.hover.accentColor700}`,
+      textTheme.hover.accentColor700,
       'before:w-4 before:h-4 before:border-b-2 before:border-l-2',
       borderTheme.before.accentColor700,
       'before:absolute before:bottom-0 before:left-0',
@@ -51,15 +51,14 @@ export default function HeaderNavigationBarClient() {
   }, [
     borderTheme.after.accentColor700,
     borderTheme.before.accentColor700,
-    textTheme.hover.accentColor700,
-    textTheme.secondaryColor
+    textTheme.hover.accentColor700
   ])
 
   return <nav
     className={'hidden lg:flex lg:gap-10 lg:items-center'}>
     {renderNavigationItems(
       navigationItemConstant.allNavigationItems,
-      'text-normal relative uppercase',
+      'relative uppercase',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName
     )}

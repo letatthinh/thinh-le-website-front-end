@@ -22,14 +22,13 @@ export default function FooterNavigationBarClient() {
 
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
-      textTheme.hover.accentColor700,
-      textTheme.secondaryColor
+      textTheme.hover.accentColor700
     ])
-  }, [textTheme.hover.accentColor700, textTheme.secondaryColor])
+  }, [textTheme.hover.accentColor700])
 
   return <nav
     className={stringUtility.merge([
-      'content-mt lg:mt-0 lg:basis-8/12 text-normal',
+      'content-mt lg:mt-0 lg:basis-8/12',
       'grid grid-cols-2 lg:grid-cols-4 lg:justify-items-end',
       'content-gap-y lg:gap-y-0',
       backgroundTheme.primaryColor

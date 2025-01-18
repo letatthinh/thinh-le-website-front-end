@@ -19,7 +19,7 @@ export default function ProjectsPageHeroSectionClient() {
     <div className={stringUtility.merge([
       'container-layout section-pt section-px text-center'
     ])}>
-      <p className={`text-normal content-mt ${textTheme.secondaryColor600}`}>
+      <p className={`content-mt ${textTheme.secondaryColor600}`}>
         A collection of personal and academic projects showcasing my skills in
         software development, data analysis, and problem-solving. Each project
         reflects my dedication to learning, creativity, and applying technical

@@ -145,7 +145,7 @@ export default function SearchPanelClient({
   return <section
     ref={ref}
     className={stringUtility.merge([
-      'p-4 text-normal border border-t-0',
+      'p-4 border border-t-0',
       backgroundTheme.primaryColor,
       className
     ])}>

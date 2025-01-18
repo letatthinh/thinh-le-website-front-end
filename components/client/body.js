@@ -12,19 +12,21 @@ import {createSelector, createStructuredSelector} from 'reselect'
 */
 const selectTheme = createStructuredSelector(
   {
-    backgroundTheme: (_state) => _state.backgroundTheme
+    backgroundTheme: (_state) => _state.backgroundTheme,
+    textTheme: (_state) => _state.textTheme
   },
   createSelector
 )
 
 export default function BodyClient({children, className}) {
-  const {backgroundTheme} = useSelector(selectTheme)
+  const {backgroundTheme, textTheme} = useSelector(selectTheme)
 
   return <body
     className={stringUtility.merge([
-      `${backgroundTheme.primaryColor}`,
-      'min-w-80 relative',
+      'min-w-80 relative text-normal',
       className,
+      backgroundTheme.primaryColor,
+      textTheme.secondaryColor,
       'font-[family-name:var(--font-geist-sans)]'
     ])}>
     <HeaderClient />

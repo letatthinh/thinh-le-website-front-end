@@ -26,11 +26,10 @@ export default function BlogClient({
     ])}>
       <time
         dateTime={dateCreated}
-        className={stringUtility.merge([
-          'text-normal',
-          textTheme.secondaryColor600
-        ])}>{dateTimeUtility.formatLongDate(dateCreated)}</time>
-      <h1 className={`text-h2 mt-2 ${textTheme.secondaryColor}`}>
+        className={textTheme.secondaryColor600}>
+        {dateTimeUtility.formatLongDate(dateCreated)}
+      </time>
+      <h1 className={'text-big-4 font-bold mt-2'}>
         {title}
       </h1>
       {children}

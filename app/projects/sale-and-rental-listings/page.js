@@ -11,10 +11,12 @@ export const metadata = {
 export default async function SaleAndRentalListingsProject() {
   const states = await fileUtility.readLocalCsv('data/states.csv')
   const cities = await fileUtility.readLocalCsv('data/cities.csv')
+  const initialListings = await fileUtility.readLocalJson('data/nj-data.json')
 
   return <>
     <SaleAndRentalListingsProjectPageClient
       states={states}
-      cities={cities} />
+      cities={cities}
+      initialListings={initialListings} />
   </>
 }

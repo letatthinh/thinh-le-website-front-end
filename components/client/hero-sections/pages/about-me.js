@@ -60,10 +60,8 @@ export default function AboutMePageHeroSectionClient() {
         </div>
       </div>
       <section className={'basis-3/5'}>
-        <h1 className={stringUtility.merge([
-          'text-h1',
-          `${textTheme.secondaryColor}`
-        ])}>Thinh Le (Terry)
+        <h1 className={'text-big-4 font-bold'}>
+          Thinh Le (Terry)
         </h1>
         <p className={'text-big-2 content-mt'}>
           I’m a <span
@@ -71,7 +69,7 @@ export default function AboutMePageHeroSectionClient() {
           </span>
         </p>
         <p
-          className={`text-normal content-mt ${textTheme.secondaryColor600}`}>
+          className={`content-mt ${textTheme.secondaryColor600}`}>
           I have 2 years of experience in software development,
           with a strong focus on quality, meeting deadlines,
           and ensuring client satisfaction. With a major in

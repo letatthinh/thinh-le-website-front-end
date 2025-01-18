@@ -31,10 +31,7 @@ export default function NumberInputClient({
     textTheme
   } = useSelector(selectTheme)
 
-  return <div className={stringUtility.merge([
-    textTheme.secondaryColor,
-    containerClassName
-  ])}>
+  return <div className={containerClassName}>
     {renderUtility.renderIfTrue(
       label, <label htmlFor={id}
         className={'font-medium'}>

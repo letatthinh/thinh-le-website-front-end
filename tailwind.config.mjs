@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   content: [
     './app/**/*.{js, jsx}',
     './components/**/*.{js, jsx}',
@@ -33,31 +33,36 @@ export default {
         '3/10': '30%',
         '7/10': '70%'
       },
-      gap: {
-        '18': '4.5rem',
-        '30': '7.5rem'
-      },
       keyframes: {
         hamburger: {
           '0%, 100%': {transform: 'scale(1)'},
           '50%': {transform: 'scale(1.25, 0.75)'}
         }
       },
-      maxWidth: {
-        'screen-xs': '30rem'
-      },
-      padding: {
-        '18': '4.5rem',
-        '30': '7.5rem'
-      },
       screens: {
-        'xxs': '20rem',
-        'xs': '30rem'
+        'xxs': '320px',
+        'xs': '480px'
       },
       spacing: {
+        '1.75': '0.4375rem',
+        '2.25': '0.5625rem',
+        '2.5': '0.625rem',
+        '3.25': '0.8125rem',
+        '4.5': '1.125rem',
+        '5.25': '1.3125rem',
         '5.5': '1.375rem',
+        '5.75': '1.4375rem',
+        '6.25': '1.5625rem',
+        '6.5': '1.625rem',
+        '7.75': '1.9375rem',
+        '9.75': '2.4375rem',
+        '10.75': '2.6875rem',
+        '18': '4.5rem',
         '19': '4.75rem',
-        '112': '28rem'
+        '30': '7.5rem',
+        '112': '28rem',
+        '120': '30rem',
+        '128': '32rem'
       },
       transitionProperty: {
         'box-shadow': 'box-shadow',
@@ -72,3 +77,5 @@ export default {
   },
   plugins: []
 }
+
+export default config

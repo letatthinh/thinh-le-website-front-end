@@ -1,13 +1,17 @@
-import {promises as fs} from 'fs'
+import {promises} from 'fs'
 import Papa from 'papaparse'
 import path from 'path'
+
+const readFileFromPath = (_path) => {
+  const fileFullPath = path.join(process.cwd(), _path)
+  return promises.readFile(fileFullPath, 'utf8')
+}
 
 const readLocalCsv = async(_filePath, config = {
   hasHeader: true,
   skipEmptyLines: true
 }) => {
-  const fileFullPath = path.join(process.cwd(), _filePath)
-  const fileContent = await fs.readFile(fileFullPath, 'utf8')
+  const fileContent = await readFileFromPath(_filePath)
 
   const {data} = Papa.parse(fileContent, {
     header: config.hasHeader,
@@ -17,8 +21,15 @@ const readLocalCsv = async(_filePath, config = {
   return data
 }
 
+const readLocalJson = async(_filePath) => {
+  const fileContent = await readFileFromPath(_filePath)
+  const data = JSON.parse(fileContent)
+  return data
+}
+
 const fileUtility = {
-  readLocalCsv
+  readLocalCsv,
+  readLocalJson
 }
 
 export default fileUtility

@@ -34,10 +34,7 @@ export default function FooterClient({className}) {
         'container-layout section-pt pb-6 section-px'
       ])}>
       <div className={'flex flex-col lg:flex-row lg:gap-10'}>
-        <BrandNameClient className={stringUtility.merge([
-          'basis-full lg:basis-2/6 text-big-2',
-          textTheme.secondaryColor
-        ])} />
+        <BrandNameClient className={'basis-full lg:basis-2/6 text-big-2'} />
         <FooterNavigationBarClient />
       </div>
       <hr className={`content-mt ${borderTheme.opacity.ten.primaryColor}`} />
@@ -45,7 +42,7 @@ export default function FooterClient({className}) {
         'flex flex-col content-gap md:flex-row md:gap-0',
         'md:justify-between content-mt'
       ])}>
-        <p className={'text-normal'}>
+        <p>
           © 2024 Thinh Le&apos;s website, Inc. All rights reserved.
         </p>
         <div className={'flex content-gap justify-center xs:justify-start'}>

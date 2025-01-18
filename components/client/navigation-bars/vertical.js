@@ -27,13 +27,11 @@ export default function VerticalNavigationBarClient() {
   const nonActiveNavigationItemClassName = useMemo(() => {
     return stringUtility.merge([
       backgroundTheme.hover.accentColor700,
-      textTheme.hover.primaryColor,
-      textTheme.secondaryColor
+      textTheme.hover.primaryColor
     ])
   }, [
     backgroundTheme.hover.accentColor700,
-    textTheme.hover.primaryColor,
-    textTheme.secondaryColor
+    textTheme.hover.primaryColor
   ])
 
   const onVerticalNavigationBarClick = (_event) => {
@@ -48,7 +46,7 @@ export default function VerticalNavigationBarClient() {
     ])}>
     {renderNavigationItems(
       navigationItemConstant.allNavigationItems,
-      'text-lg section-px py-2',
+      'section-px py-2',
       activeNavigationItemClassName,
       nonActiveNavigationItemClassName
     )}

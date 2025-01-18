@@ -9,8 +9,7 @@ import './style.css'
 const selectTheme = createStructuredSelector(
   {
     backgroundTheme: (_state) => _state.backgroundTheme,
-    borderTheme: (_state) => _state.borderTheme,
-    textTheme: (_state) => _state.textTheme
+    borderTheme: (_state) => _state.borderTheme
   },
   createSelector
 )
@@ -29,8 +28,7 @@ export default function RangeSliderClient({
 }) {
   const {
     backgroundTheme,
-    borderTheme,
-    textTheme
+    borderTheme
   } = useSelector(selectTheme)
 
   const rangeSliderRef = useRef(null)
@@ -89,9 +87,9 @@ export default function RangeSliderClient({
           'noUi-handle backface-hidden absolute rounded-full cursor-pointer',
           'h-3 lg:h-4 w-3 lg:w-4 transition-range-slider-handle box-content',
           // top = (height - horizontal height) / 2
-          '-top-[0.4375rem] lg:-top-[0.625rem]',
+          '-top-1.75 lg:-top-2.5',
           // right = width / 2
-          '-right-2.5 lg:-right-[0.8125rem] border-4 lg:border-5',
+          '-right-2.5 lg:-right-3.25 border-4 lg:border-5',
           backgroundTheme.primaryColor,
           borderTheme.secondaryColor300,
           borderTheme.active.accentColor700,
@@ -118,7 +116,7 @@ export default function RangeSliderClient({
         tooltip: stringUtility.merge([
           'noUi-tooltip absolute py-0.5 px-1 border rounded-small-1',
           'text-center whitespace-nowrap -translate-x-1/2 left-1/2',
-          'bottom-5 lg:bottom-[1.5625rem]',
+          'bottom-5 lg:bottom-6.25',
           backgroundTheme.primaryColor,
           borderTheme.secondaryColor300,
           tooltipClassName
@@ -162,7 +160,6 @@ export default function RangeSliderClient({
   )
 
   return <div className={stringUtility.merge([
-    textTheme.secondaryColor,
     containerClassName
   ])}>
     {renderUtility.renderIfTrue(label, <label
@@ -173,7 +170,7 @@ export default function RangeSliderClient({
       ref={rangeSliderContainerRef}
       className={stringUtility.merge([
         label ? 'mt-2' : '',
-        'pb-1.5 lg:pb-[0.5625rem] pt-9 lg:pt-[2.6875rem]'
+        'pb-1.5 lg:pb-2.25 pt-9 lg:pt-10.75'
       ])}>
       <div
         ref={rangeSliderRef}></div>
