@@ -3,9 +3,10 @@ import FilterPanelClient
   from '@/components/client/pages/sale-and-rental-listings/panels/filter'
 import SearchPanelClient
   from '@/components/client/pages/sale-and-rental-listings/panels/search'
+import panelName from '@/constants/pages/sale-and-rental-listings/panel-name'
 import stringUtility from '@/utilities/string'
 import {PreferenceHorizontalIcon, Search01Icon} from '@hugeicons/react'
-import {useRef, useState} from 'react'
+import {useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -17,12 +18,10 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-const panelName = {
-  search: 1,
-  filter: 2
-}
-
-export default function PanelBarClient() {
+export default function PanelBarClient({
+  searchPanelRef,
+  filterPanelRef
+}) {
   const {
     backgroundTheme,
     borderTheme
@@ -32,10 +31,8 @@ export default function PanelBarClient() {
     shouldDisableFormValidation,
     setShouldDisableFormValidation
   ] = useState(undefined)
-  const searchPanelRef = useRef(null)
-  const filterPanelRef = useRef(null)
 
-  const getPanelRefByName = (_panelName) => {
+  const getPanelByName = (_panelName) => {
     switch (_panelName) {
     case panelName.search:
       return searchPanelRef.current
@@ -45,17 +42,17 @@ export default function PanelBarClient() {
   }
 
   const togglePanelHiddenClassName = (_panelName) => {
-    const panelRef = getPanelRefByName(_panelName)
-    panelRef.classList.toggle('hidden')
+    const panel = getPanelByName(_panelName)
+    panel.classList.toggle('hidden')
 
-    if (panelRef.classList.contains('hidden')) {
+    if (panel.classList.contains('hidden')) {
       setActivePanelName(undefined)
     } else {
       setActivePanelName(_panelName)
     }
   }
 
-  const hideOtherPanel = (_newActivePanelName) => {
+  const hideTheOtherPanel = (_newActivePanelName) => {
     // Only execute when the new active panel is not the same as
     // the current active panel
     if (activePanelName && activePanelName !== _newActivePanelName) {
@@ -64,7 +61,7 @@ export default function PanelBarClient() {
   }
 
   const togglePanel = (_panelName) => {
-    hideOtherPanel(_panelName)
+    hideTheOtherPanel(_panelName)
     togglePanelHiddenClassName(_panelName)
   }
 
@@ -72,7 +69,7 @@ export default function PanelBarClient() {
     _event.preventDefault()
     togglePanel(panelName.search)
 
-    if (getPanelRefByName(panelName.search).classList.contains('hidden')) {
+    if (getPanelByName(panelName.search).classList.contains('hidden')) {
       setShouldDisableFormValidation(true)
     } else {
       setShouldDisableFormValidation(undefined)

@@ -6,7 +6,7 @@ import projectConstant from '@/constants/project'
 import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
 import dynamic from 'next/dynamic'
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -35,6 +35,20 @@ export default function SaleAndRentalListingsProjectPageClient({
 
   const [listings, setListings] = useState(initialListings)
 
+  const searchPanelRef = useRef(null)
+  const filterPanelRef = useRef(null)
+
+  const hidePanel = (_panel) => {
+    if (!_panel.classList.contains('hidden')) {
+      _panel.classList.toggle('hidden')
+    }
+  }
+
+  const onContentContainerClick = (_event) => {
+    hidePanel(searchPanelRef.current)
+    hidePanel(filterPanelRef.current)
+  }
+
   return <BlogClient
     dateCreated={projectConstant.saleAndRentalListings.dateCreated}
     title={projectConstant.saleAndRentalListings.title}
@@ -42,20 +56,26 @@ export default function SaleAndRentalListingsProjectPageClient({
       'relative',
       borderTheme.secondaryColor300
     ])}>
-    <div className={stringUtility.merge([
-      'mt-12 relative'
-    ])}>
+    <section
+      className={stringUtility.merge([
+        'mt-12 relative'
+      ])}>
+      Nợ 1: Add panel backdrop
       <SaleAndRentalListingsContext.Provider
         value={{states, cities, listings, setListings}}>
-        <PanelBarClient />
+        <PanelBarClient
+          searchPanelRef={searchPanelRef}
+          filterPanelRef={filterPanelRef} />
         <section
           className={stringUtility.merge([
-            'p-4 border border-t-0',
+            'p-4 border border-t-0 flex',
             backgroundTheme.primaryColor
-          ])}>
-          <MapClient />
+          ])}
+          onClick={onContentContainerClick}>
+          <div className={'basis-1/2'}>test</div>
+          <MapClient className={'basis-1/2'} />
         </section>
       </SaleAndRentalListingsContext.Provider>
-    </div>
+    </section>
   </BlogClient>
 }
