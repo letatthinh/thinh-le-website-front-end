@@ -1,10 +1,11 @@
 import PrimaryButtonClient from '@/components/client/buttons/primary'
 import ComboBoxClient from '@/components/client/combo-box'
 import NumberInputClient from '@/components/client/inputs/number'
+import panelName from '@/constants/pages/sale-and-rental-listings/panel-name'
 import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
 import {Search01Icon} from '@hugeicons/react'
-import {useContext, useEffect, useMemo, useState} from 'react'
+import {useContext, useMemo, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -23,12 +24,19 @@ const propertyTypeOptions = [
 const forOptions = ['Sale', 'Rent']
 
 export default function SearchPanelClient({
-  ref, className, shouldDisableFormValidation = undefined
+  className
 }) {
   const {
     backgroundTheme
   } = useSelector(selectTheme)
-  const {states, cities} = useContext(SaleAndRentalListingsContext)
+
+  const {
+    states, cities,
+    searchPanelRef,
+    togglePanel,
+    isSearchFormValidationEnabled, setIsSearchFormValidationEnabled
+  } = useContext(SaleAndRentalListingsContext)
+
   const [stateNameValue, setStateNameValue] = useState('')
   const [stateNameOption, setStateNameOption] = useState('New Jersey')
   const [cityNameValue, setCityNameValue] = useState('')
@@ -45,8 +53,6 @@ export default function SearchPanelClient({
     = useState('')
   const [numberOfBathRoomsValue, setNumberOfBathRoomsValue]
     = useState('')
-  const [isFormValidationEnabled, setIsFormValidationEnabled]
-    = useState(false)
 
   const stateNames = useMemo(() => {
     return states.map(_state => _state.name)
@@ -74,14 +80,6 @@ export default function SearchPanelClient({
       return []
     }
   }, [cities, stateNameOption])
-
-  // This is to disable the form validation when clicking on the search icon
-  // on the panel bar
-  useEffect(() => {
-    if (shouldDisableFormValidation !== undefined) {
-      setIsFormValidationEnabled(!shouldDisableFormValidation)
-    }
-  }, [shouldDisableFormValidation])
 
   const onStateNameValueChange = (_event) => {
     setStateNameValue(_event.target.value)
@@ -126,38 +124,40 @@ export default function SearchPanelClient({
     setNumberOfBathRoomsValue(_event.target.value)
   }
 
-  const onSearchFormSubmit = (_event) => {
+  const onFormSubmit = (_event) => {
     _event.preventDefault()
 
-    // Check the validity of the entire form
     if (!_event.target.checkValidity()) {
-      setIsFormValidationEnabled(true)
+      setIsSearchFormValidationEnabled(true)
       return
     }
 
-    setIsFormValidationEnabled(false)
+    setIsSearchFormValidationEnabled(false)
 
     const formData = new FormData(_event.target)
     const data = Object.fromEntries(formData.entries())
     console.log(data)
+
+    // Add additional logic from parent component
+    togglePanel(panelName.search)
   }
 
   return <section
-    ref={ref}
+    ref={searchPanelRef}
     className={stringUtility.merge([
       'p-4 border border-t-0',
       backgroundTheme.primaryColor,
       className
     ])}>
     {/* [Form tip]: noValidate is to disable built-in form validation */}
-    <form onSubmit={onSearchFormSubmit} noValidate>
+    <form onSubmit={onFormSubmit} noValidate>
       <div className={'flex flex-col 2xl:flex-row content-gap'}>
         <div className={'flex flex-col xs:flex-row content-gap xs:basis-1/3'}>
           <ComboBoxClient
             containerClassName={'basis-1/2'}
             id={'state'}
             isRequired={true}
-            isValidationEnabled={isFormValidationEnabled}
+            isValidationEnabled={isSearchFormValidationEnabled}
             label={'State'}
             name={'state'}
             onComboBoxClose={() => setStateNameValue('')}
@@ -171,7 +171,7 @@ export default function SearchPanelClient({
             containerClassName={'basis-1/2'}
             id={'city'}
             isRequired={true}
-            isValidationEnabled={isFormValidationEnabled}
+            isValidationEnabled={isSearchFormValidationEnabled}
             isVirtualScrolling={true}
             label={'City'}
             name={'city'}
@@ -217,7 +217,7 @@ export default function SearchPanelClient({
           <NumberInputClient
             containerClassName={'basis-1/2'}
             id={'numberOfBedRooms'}
-            isValidationEnabled={isFormValidationEnabled}
+            isValidationEnabled={isSearchFormValidationEnabled}
             label={'Number of bedrooms'}
             min={1}
             name={'numberOfBedRooms'}
@@ -227,7 +227,7 @@ export default function SearchPanelClient({
           <NumberInputClient
             containerClassName={'basis-1/2'}
             id={'numberOfBathRooms'}
-            isValidationEnabled={isFormValidationEnabled}
+            isValidationEnabled={isSearchFormValidationEnabled}
             label={'Number of bathrooms'}
             min={1}
             name={'numberOfBathRooms'}

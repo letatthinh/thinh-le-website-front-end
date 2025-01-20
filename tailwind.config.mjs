@@ -26,8 +26,14 @@ const config = {
       colors: {
         'white-accent-color-100': '#e0f2fe',
         'white-accent-color-700': '#0369a1',
-        'black-accent-color-100': '#e2e8f0',
-        'black-accent-color-700': '#450a0a'
+        'white-invalid-600': '#dc2626',
+        'white-valid-600': '#059669',
+        'white-warning-400': '#fbbf24',
+        'black-accent-color-100': '#e2e8f0', // [Debt]
+        'black-accent-color-700': '#450a0a', // [Debt]
+        'black-invalid-600': '#0369a1', // [Debt]
+        'black-valid-600': '#0369a1', // [Debt]
+        'black-warning-400': '#0369a1' // [Debt]
       },
       flexBasis: {
         '3/10': '30%',
@@ -57,6 +63,9 @@ const config = {
         '7.75': '1.9375rem',
         '9.75': '2.4375rem',
         '10.75': '2.6875rem',
+        '11.75': '2.9375rem',
+        '15.5': '3.875rem',
+        '19.75': '4.875rem', // big-6
         '18': '4.5rem',
         '19': '4.75rem',
         '30': '7.5rem',

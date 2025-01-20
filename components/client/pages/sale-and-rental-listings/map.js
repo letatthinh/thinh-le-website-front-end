@@ -49,16 +49,14 @@ export default function MapClient({className}) {
         icon: L.divIcon({
           html: ReactDOMServer.renderToStaticMarkup(
             <div className={stringUtility.merge([
-              'wh-big-2 flex justify-center items-center p-1.5 rounded-full',
+              'w-fit p-1.5 rounded-full',
               backgroundTheme.accentColor700
             ])}>
-              <div className={'wh-normal'}>
-                <Home05Icon
-                  className={textTheme.primaryColor}
-                  size={'100%'}
-                  variant={'solid'}
-                  type={'rounded'} />
-              </div>
+              <Home05Icon
+                className={`wh-normal ${textTheme.primaryColor}`}
+                size={'100%'}
+                variant={'solid'}
+                type={'rounded'} />
             </div>
           ),
           className: 'custom-icon'
@@ -93,7 +91,13 @@ export default function MapClient({className}) {
     return () => {
       map.remove()
     }
-  }, [backgroundTheme.accentColor700, backgroundTheme.hover.accentColor700, backgroundTheme.secondaryColor, listings, textTheme])
+  }, [
+    backgroundTheme.accentColor700,
+    backgroundTheme.hover.accentColor700,
+    backgroundTheme.secondaryColor,
+    listings,
+    textTheme
+  ])
 
   return <div
     ref={mapContainerRef}

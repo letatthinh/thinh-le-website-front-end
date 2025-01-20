@@ -197,6 +197,10 @@ to build any design without needing to write custom CSS.
     @apply w-7.75 lg:w-9.75 transition-width
   }
 
+  .w-big-4 {
+    @apply w-9.75 lg:w-11.75 transition-width
+  }
+
   .h-small-2 {
     @apply h-4 lg:h-4.5 transition-height
   }
@@ -219,6 +223,10 @@ to build any design without needing to write custom CSS.
 
   .h-big-3 {
     @apply h-7.75 lg:h-9.75 transition-width
+  }
+
+  .h-big-4 {
+    @apply h-9.75 lg:h-11.75 transition-width
   }
 
   .wh-small-2 {
@@ -245,8 +253,7 @@ to build any design without needing to write custom CSS.
     @apply w-big-3 h-big-3
   }
 
-  .has-focus-within-input-outline {
-    @apply outline outline-1 has-[input:focus-within]:outline-2
-    has-[input:focus-within]:outline-offset-1
+  .wh-big-4 {
+    @apply w-big-4 h-big-4
   }
 }

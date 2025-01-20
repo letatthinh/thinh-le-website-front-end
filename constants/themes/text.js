@@ -21,7 +21,7 @@ const white = {
       primaryColor: 'data-[focus]:text-white'
     }
   },
-  invalid: 'text-red-600'
+  invalid600: 'text-white-invalid-600'
 }
 
 const black = {
@@ -34,7 +34,7 @@ const black = {
   primaryColor: 'text-black',
   secondaryColor: 'text-white',
   secondaryColor600: 'text-gray-600', // [Debt]
-  accentColor700: 'text-black-accent-color-700',
+  accentColor700: 'text-black-accent-color-700', // [Debt]
   group: {
     data: {
       selected: {
@@ -44,10 +44,10 @@ const black = {
   },
   data: {
     focus: {
-      accentColor700: 'data-[focus]:text-black'
+      primaryColor: 'data-[focus]:text-black' // [Debt]
     }
   },
-  invalid: 'text-red-600'
+  invalid600: 'text-black-invalid-600'
 }
 
 const textThemeConstant = {

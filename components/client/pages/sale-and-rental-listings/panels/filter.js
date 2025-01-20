@@ -1,5 +1,7 @@
 import RangeSliderClient from '@/components/client/range-slider'
+import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
+import {useContext} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -11,11 +13,15 @@ const selectTheme = createStructuredSelector(
 )
 
 export default function FilterPanelClient({
-  ref, className
+  className
 }) {
   const {
     backgroundTheme
   } = useSelector(selectTheme)
+
+  const {
+    filterPanelRef
+  } = useContext(SaleAndRentalListingsContext)
 
   const onPriceRangeChange = (handleValues) => {
   }
@@ -36,7 +42,7 @@ export default function FilterPanelClient({
   }
 
   return <section
-    ref={ref}
+    ref={filterPanelRef}
     className={stringUtility.merge([
       'p-4 border border-t-0',
       backgroundTheme.primaryColor,

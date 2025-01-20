@@ -4,9 +4,10 @@ import FilterPanelClient
 import SearchPanelClient
   from '@/components/client/pages/sale-and-rental-listings/panels/search'
 import panelName from '@/constants/pages/sale-and-rental-listings/panel-name'
+import SaleAndRentalListingsContext from '@/contexts/sale-and-rental-listings'
 import stringUtility from '@/utilities/string'
 import {PreferenceHorizontalIcon, Search01Icon} from '@hugeicons/react'
-import {useState} from 'react'
+import {useContext} from 'react'
 import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
@@ -18,66 +19,26 @@ const selectTheme = createStructuredSelector(
   createSelector
 )
 
-export default function PanelBarClient({
-  searchPanelRef,
-  filterPanelRef
-}) {
+export default function PanelBarClient() {
   const {
     backgroundTheme,
     borderTheme
   } = useSelector(selectTheme)
-  const [activePanelName, setActivePanelName] = useState(undefined)
-  const [
-    shouldDisableFormValidation,
-    setShouldDisableFormValidation
-  ] = useState(undefined)
 
-  const getPanelByName = (_panelName) => {
-    switch (_panelName) {
-    case panelName.search:
-      return searchPanelRef.current
-    default: // 'filter'
-      return filterPanelRef.current
-    }
-  }
-
-  const togglePanelHiddenClassName = (_panelName) => {
-    const panel = getPanelByName(_panelName)
-    panel.classList.toggle('hidden')
-
-    if (panel.classList.contains('hidden')) {
-      setActivePanelName(undefined)
-    } else {
-      setActivePanelName(_panelName)
-    }
-  }
-
-  const hideTheOtherPanel = (_newActivePanelName) => {
-    // Only execute when the new active panel is not the same as
-    // the current active panel
-    if (activePanelName && activePanelName !== _newActivePanelName) {
-      togglePanelHiddenClassName(activePanelName)
-    }
-  }
-
-  const togglePanel = (_panelName) => {
-    hideTheOtherPanel(_panelName)
-    togglePanelHiddenClassName(_panelName)
-  }
+  const {
+    togglePanel,
+    setIsSearchFormValidationEnabled
+  } = useContext(SaleAndRentalListingsContext)
 
   const onSearchIconButtonClick = (_event) => {
     _event.preventDefault()
+    setIsSearchFormValidationEnabled(false)
     togglePanel(panelName.search)
-
-    if (getPanelByName(panelName.search).classList.contains('hidden')) {
-      setShouldDisableFormValidation(true)
-    } else {
-      setShouldDisableFormValidation(undefined)
-    }
   }
 
   const onFilterIconButtonClick = (_event) => {
     _event.preventDefault()
+    setIsSearchFormValidationEnabled(false)
     togglePanel(panelName.filter)
   }
 
@@ -110,12 +71,10 @@ export default function PanelBarClient({
       </IconButtonClient>
     </div>
     <SearchPanelClient
-      ref={searchPanelRef}
-      shouldDisableFormValidation={shouldDisableFormValidation}
       className={stringUtility.merge([
         'hidden absolute inset-x-0'
       ])} />
-    <FilterPanelClient ref={filterPanelRef}
+    <FilterPanelClient
       className={'hidden absolute inset-x-0'} />
   </section>
 }

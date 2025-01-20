@@ -45,7 +45,7 @@ export default function NumberInputClient({
       isValidationEnabled
         ? stringUtility.merge([
           'has-[input:invalid]:outline-2 has-[input:invalid]:outline-offset-1',
-          outlineTheme.has.input.invalid
+          outlineTheme.has.input.invalid600
         ])
         : '',
       outlineTheme.secondaryColor300,
@@ -69,7 +69,7 @@ export default function NumberInputClient({
     {renderUtility.renderIfTrue(isValidationEnabled, <p
       className={stringUtility.merge([
         'mt-2 text-small-1 hidden peer-has-[input:invalid]:block',
-        textTheme.invalid
+        textTheme.invalid600
       ])}>
       {validationMessage}
     </p>)}
