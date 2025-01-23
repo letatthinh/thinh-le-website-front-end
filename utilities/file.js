@@ -23,8 +23,7 @@ const readLocalCsv = async(_filePath, config = {
 
 const readLocalJson = async(_filePath) => {
   const fileContent = await readFileFromPath(_filePath)
-  const data = JSON.parse(fileContent)
-  return data
+  return JSON.parse(fileContent)
 }
 
 const fileUtility = {

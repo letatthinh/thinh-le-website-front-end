@@ -29,7 +29,7 @@ const MapClient = dynamic(
 export default function SaleAndRentalListingsProjectPageClient({
   states,
   cities,
-  initialListings
+  initialSaleListings
 }) {
   const {
     backgroundTheme,
@@ -40,7 +40,7 @@ export default function SaleAndRentalListingsProjectPageClient({
   const searchPanelRef = useRef(null)
   const filterPanelRef = useRef(null)
 
-  const [listings, setListings] = useState(initialListings)
+  const [listings, setListings] = useState(initialSaleListings)
   const [activePanelName, setActivePanelName] = useState(undefined)
   const [isSearchFormValidationEnabled, setIsSearchFormValidationEnabled]
     = useState(false)
