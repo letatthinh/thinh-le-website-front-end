@@ -103,6 +103,7 @@ npm install reselect
 Follow the instructions on the [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) website.
 
 Quick links:
+- [Upgrade guide](https://tailwindcss.com/docs/upgrade-guide)
 - [Theme variable namespaces](https://tailwindcss.com/docs/theme#theme-variable-namespaces)
 
 # Icons with Hugeicons

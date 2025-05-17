@@ -25,5 +25,11 @@
     },
     "editor.formatOnSave": true,
     "javascript.preferences.importModuleSpecifier": "non-relative",
-    "typescript.preferences.importModuleSpecifier": "non-relative"
+    "files.autoSave": "onFocusChange",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "reactSnippets.settings.languageScopes": "javascript,javascriptreact",
+    "editor.tabSize": 2,
+    "explorer.confirmDelete": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.validate.enable": false
 }

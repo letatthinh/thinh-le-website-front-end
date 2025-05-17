@@ -10,6 +10,8 @@ export default defineConfig({
       // Shortern the import paths
       '@components': path.resolve(__dirname, 'app/components'),
       '@constants': path.resolve(__dirname, 'app/constants'),
+      '@contexts': path.resolve(__dirname, 'app/contexts'),
+      '@hooks': path.resolve(__dirname, 'app/hooks'),
       '@redux': path.resolve(__dirname, 'app/redux'),
       '@utilities': path.resolve(__dirname, 'app/utilities')
     }

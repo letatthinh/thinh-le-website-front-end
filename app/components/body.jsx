@@ -1,4 +1,5 @@
-import stringUtility from '@utilities/string.js'
+import Header from '@components/header.jsx'
+import stringUtility from '@utilities/string.jsx'
 import {useSelector} from 'react-redux'
 import {Scripts, ScrollRestoration} from 'react-router'
 import {createSelector, createStructuredSelector} from 'reselect'
@@ -20,6 +21,7 @@ export default function Body({children}) {
       backgroundTheme.primaryColor,
       textTheme.secondaryColor
     ])}>
+    <Header />
     <main>
       {children}
     </main>
