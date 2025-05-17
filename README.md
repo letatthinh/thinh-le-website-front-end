@@ -56,13 +56,13 @@ Run this command in the terminal `npm run lint`. Remember to set `"lint": "eslin
 
 Check out the `vscode-settings.json` for my settings.
 
-## `jsconfig.json`
+## `jsconfig.json` and `tsconfig.json`
 
-The `jsconfig.json` file specifies the root files and the options for the features provided by the JavaScript language service.
+The `tsconfig.json` file specifies the root files and the compiler options required to compile the project.
+
+JavaScript projects can use a `jsconfig.json` file instead, which acts almost the same but has some JavaScript-related compiler flags enabled by default.
 
 View the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/tsconfig/#compilerOptions) for more information.
-
-Note: Because this app doesn't use TypeScript, so I created `jsconfig.json` file.
 
 # Project structure
 

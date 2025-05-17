@@ -12,13 +12,13 @@ const white = {
   group: {
     data: {
       selected: {
-        primaryColor: 'group-data-[selected]:text-white'
+        primaryColor: 'group-data-selected:text-white'
       }
     }
   },
   data: {
     focus: {
-      primaryColor: 'data-[focus]:text-white'
+      primaryColor: 'data-focus:text-white'
     }
   },
   invalid600: 'text-white-invalid-600'
@@ -38,13 +38,13 @@ const black = {
   group: {
     data: {
       selected: {
-        primaryColor: 'group-data-[selected]:text-black'
+        primaryColor: 'group-data-selected:text-black'
       }
     }
   },
   data: {
     focus: {
-      primaryColor: 'data-[focus]:text-black' // [Debt]
+      primaryColor: 'data-focus:text-black' // [Debt]
     }
   },
   invalid600: 'text-black-invalid-600'

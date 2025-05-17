@@ -13,7 +13,7 @@ const getSingleResponse = async(url, headers = {}, method = 'GET') => {
 const getMultipleResponses = async(urls, headers = {}, method = 'GET') => {
   return Promise.all(
     urls.map(async(_url) => {
-      return getSingleResponse(_url, method, headers)
+      return getSingleResponse(_url, headers, method)
     })
   )
 }
