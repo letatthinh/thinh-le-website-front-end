@@ -1,0 +1,29 @@
+{
+    "workbench.colorTheme": "Dracula Theme",
+    "editor.fontSize": 18,
+    "editor.fontWeight": "bold",
+    "editor.snippetSuggestions": "top",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "css.lint.unknownAtRules": "ignore",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "eslint.format.enable": true,
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "editor.formatOnSave": true,
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.importModuleSpecifier": "non-relative"
+}

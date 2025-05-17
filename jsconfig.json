@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "baseUrl": "app", // prefix of the "paths"
+        "checkJs": true,
+        "jsx": "react-jsx",
+        // dom: window, document, etc.
+        "lib": [
+            "dom",
+            "dom.iterable"
+        ],
+        "module": "nodenext",
+        // Search for modules in node_modules folder
+        "moduleResolution": "nodenext",
+        "target": "ES2024",
+        "paths": {
+            "@components/*": [
+                "components/*"
+            ],
+            "@constants/*": [
+                "constants/*"
+            ],
+            "@redux/*": [
+                "redux/*"
+            ],
+            "@utilities/*": [
+                "utilities/*"
+            ]
+        }
+    },
+    "include": [
+        "app/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

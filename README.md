@@ -2,21 +2,25 @@
 
 This React app is being built from scratch using Vite build tool. Create React App has been **deprecated** for new apps, and encouraging existing apps to migrate to a framework, or to migrate to a build tool like Vite, Parcel, or RSBuild.
 
-# Create new React app with Vite
+# Create new React app using React Router with a template
 
-Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects.
+Visit this [page](https://github.com/remix-run/react-router-templates?tab=readme-ov-file#templates) to check **JavaScript only template** code.
 
 ```terminal
-npm create vite@latest
+npx create-react-router@latest --template remix-run/react-router-templates/javascript
 ```
+
+Note: Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects.
 
 # Deployment
 
-Create a new account on [Vercel](https://vercel.com/) and follow the instructions.
+Create a new account on [Vercel](https://vercel.com/) and follow the instructions on the website.
 
-# Eslint
+# Editor and app configurations
 
-## Install and configure ESLint
+## Eslint
+
+### Install and configure ESLint
 
 ```terminal
 npm init @eslint/config@latest
@@ -24,9 +28,9 @@ npm init @eslint/config@latest
 
 [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) is an ESLint plugin that includes rules specifically for React projects.
 
-## ESLint Stylistic
+### ESLint Stylistic
 
-### `@stylistic/eslint-plugin-js`
+#### `@stylistic/eslint-plugin-js`
 
 JavaScript stylistic rules for ESLint, migrated from eslint core.
 
@@ -34,7 +38,7 @@ JavaScript stylistic rules for ESLint, migrated from eslint core.
 npm i -D @stylistic/eslint-plugin-js
 ```
 
-### `@stylistic/eslint-plugin-jsx`
+#### `@stylistic/eslint-plugin-jsx`
 
 JSX stylistic rules for ESLint, migrated from eslint-plugin-react. Decoupled from React and supports generic JSX syntax.
 
@@ -42,9 +46,23 @@ JSX stylistic rules for ESLint, migrated from eslint-plugin-react. Decoupled fro
 npm i -D @stylistic/eslint-plugin-jsx
 ```
 
-## Run eslint
+### Run eslint
 
 Run this command in the terminal `npm run lint`. Remember to set `"lint": "eslint ."` in the `package.json` file.
+
+## VsCode
+
+### User settings
+
+Check out the `vscode-settings.json` for my settings.
+
+## `jsconfig.json`
+
+The `jsconfig.json` file specifies the root files and the options for the features provided by the JavaScript language service.
+
+View the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/tsconfig/#compilerOptions) for more information.
+
+Note: Because this app doesn't use TypeScript, so I created `jsconfig.json` file.
 
 # Project structure
 
@@ -84,36 +102,18 @@ npm install reselect
 
 Follow the instructions on the [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) website.
 
+Quick links:
+- [Theme variable namespaces](https://tailwindcss.com/docs/theme#theme-variable-namespaces)
+
 # Icons with Hugeicons
 
 Follow the instructions on the [Huge Icons](https://docs.hugeicons.com/license/activate-license) website.
-
-# Navigation and routing with React Router
-
-Follow the instructions on the [React Router](https://reactrouter.com/start/framework/installation) website.
 
 # Form components with HeadlessUI
 
 ```terminal
 npm install @headlessui/react
 ```
-
-# Configurations
-
-## `jsconfig`
-
-The `jsconfig.json` file specifies the root files and the options for the features provided by the JavaScript language service.
-
-View the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/tsconfig/#compilerOptions) for more information.
-
-Notes:
-- This supports the auto import function in vscode.
-
-## VsCode
-
-### Auto sort imports
-
-Modify this setting: `"source.organizeImports": true`.
 
 # Coding handbook
 
