@@ -18,7 +18,7 @@ const themeStates = createStructuredSelector(
   createSelector
 )
 
-export default function Header({className = ''}) {
+export default function Header({className}) {
   const {
     backgroundTheme,
     shadowTheme

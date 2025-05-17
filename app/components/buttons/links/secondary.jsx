@@ -1,7 +1,6 @@
 import stringUtility from '@utilities/string.jsx'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router'
-import { createSelector, createStructuredSelector } from 'reselect'
+import {useSelector} from 'react-redux'
+import {createSelector, createStructuredSelector} from 'reselect'
 
 const themeStates = createStructuredSelector(
   {
@@ -11,7 +10,7 @@ const themeStates = createStructuredSelector(
   createSelector
 )
 
-export default function SecondaryLinkButtonClient({
+export default function SecondaryLinkButton({
   children, className, href, ariaLabel
 }) {
   const {
@@ -19,7 +18,7 @@ export default function SecondaryLinkButtonClient({
     borderTheme
   } = useSelector(themeStates)
 
-  return <Link
+  return <a
     aria-label={ariaLabel}
     className={stringUtility.merge([
       borderTheme.secondaryColor,
@@ -27,9 +26,7 @@ export default function SecondaryLinkButtonClient({
       textTheme.hover.accentColor700,
       className
     ])}
-    to={{
-      pathname: href
-    }}>
+    href={href}>
     {children}
-  </Link>
+  </a>
 }

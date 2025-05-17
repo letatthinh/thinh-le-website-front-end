@@ -1,7 +1,7 @@
 
 import stringUtility from '@utilities/string.jsx'
-import { useSelector } from 'react-redux'
-import { createSelector, createStructuredSelector } from 'reselect'
+import {useSelector} from 'react-redux'
+import {createSelector, createStructuredSelector} from 'reselect'
 
 const themeStates = createStructuredSelector(
   {
@@ -24,6 +24,7 @@ export default function IconButton({
     onClick={onClick}
     className={stringUtility.merge([
       textTheme.hover.accentColor700,
+      'cursor-pointer',
       className
     ])}>
     {children}

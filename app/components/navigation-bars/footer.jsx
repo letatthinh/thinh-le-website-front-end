@@ -6,12 +6,11 @@ import {useSelector} from 'react-redux'
 import {createSelector, createStructuredSelector} from 'reselect'
 
 const themeStates = createStructuredSelector({
-  backgroundTheme: (_state) => _state.backgroundTheme,
   textTheme: (_state) => _state.textTheme
 }, createSelector)
 
 export default function FooterNavigationBar() {
-  const {backgroundTheme, textTheme} = useSelector(themeStates)
+  const {textTheme} = useSelector(themeStates)
   const {renderNavigationItems} = useNavigationBar()
 
   const activeNavigationItemClassName = useMemo(() => {
@@ -30,8 +29,7 @@ export default function FooterNavigationBar() {
     className={stringUtility.merge([
       'content-mt lg:mt-0 lg:basis-8/12',
       'grid grid-cols-2 lg:grid-cols-4 lg:justify-items-end',
-      'content-gap-y lg:gap-y-0',
-      backgroundTheme.primaryColor
+      'content-gap-y lg:gap-y-0'
     ])}>
     {renderNavigationItems(
       navigationItemConstant.allNavigationItems,

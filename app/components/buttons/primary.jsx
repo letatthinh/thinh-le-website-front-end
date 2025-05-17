@@ -12,7 +12,7 @@ const themeStates = createStructuredSelector(
   createSelector
 )
 
-export default function PrimaryButtonClient({
+export default function PrimaryButton({
   children, className, type, ariaLabel, onClick
 }) {
   const {

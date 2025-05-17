@@ -1,3 +1,4 @@
+import Footer from '@components/footer.jsx'
 import Header from '@components/header.jsx'
 import stringUtility from '@utilities/string.jsx'
 import {useSelector} from 'react-redux'
@@ -25,6 +26,7 @@ export default function Body({children}) {
     <main>
       {children}
     </main>
+    <Footer />
     <ScrollRestoration />
     <Scripts />
   </body>

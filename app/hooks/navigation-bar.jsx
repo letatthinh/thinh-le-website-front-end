@@ -2,7 +2,7 @@ import NavigationBarContext from '@contexts/navigation-bar.jsx'
 import renderUtility from '@utilities/render.jsx'
 import stringUtility from '@utilities/string.jsx'
 import {useCallback, useContext} from 'react'
-import {Link, useLocation} from 'react-router'
+import {useLocation} from 'react-router'
 
 export default function useNavigationBar() {
   const location = useLocation()
@@ -23,7 +23,7 @@ export default function useNavigationBar() {
   ) => {
     return navigationItems
       .map((_navigationItem, _index) => {
-        return <Link
+        return <a
           onClick={onNavigationItemClick}
           key={_index}
           className={stringUtility.merge([
@@ -36,15 +36,13 @@ export default function useNavigationBar() {
               ? activeNavigationItemClassName
               : nonActiveNavigationItemClassName
           ])}
-          to={{
-            pathname: _navigationItem.path
-          }}>
+          href={_navigationItem.path}>
           {renderUtility.renderIfTrue(
             shouldDisplayIcon,
             _navigationItem.iconComponent
           )}
           {_navigationItem.label}
-        </Link>
+        </a>
       })
   }, [isChildPathOf, onNavigationItemClick, location.pathname])
 
