@@ -7,7 +7,7 @@ import {
 
 const facebook = {
   label: 'Facebook icon',
-  link: 'https://www.facebook.com/thinhle27',
+  link: 'https://www.facebook.com/letatthinh527',
   icon: <Facebook01Icon
     size={'100%'}
     variant={'solid'}

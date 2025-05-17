@@ -116,6 +116,12 @@ Follow the instructions on the [Huge Icons](https://docs.hugeicons.com/license/a
 npm install @headlessui/react
 ```
 
+# Dynamic text typing with `typed.js`
+
+```
+npm install typed.js
+```
+
 # Coding handbook
 
 ## Kill active process by port and PID

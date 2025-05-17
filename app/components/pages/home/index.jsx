@@ -1,5 +1,5 @@
-import HeroSection from '@components/pages/home/hero-section.jsx'
 import pageMetadataConstant from '@constants/metadata/page.js'
+import HeroSection from './hero-section.jsx'
 
 export function meta() {
   return [
